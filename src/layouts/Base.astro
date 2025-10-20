@@ -1,0 +1,39 @@
+---
+import Seo from "../components/Seo.astro";
+import ThemeToggle from "../components/ThemeToggle";
+const { title, description, image, url } = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo {title} {description} {image} {url} />
+  </head>
+  <body>
+    <ThemeToggle client:load />
+    <slot />
+  </body>
+</html>
+
+<script is:inline>
+  try {
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const prefersLight = window.matchMedia(
+      "(prefers-color-scheme: dark",
+    ).matches;
+
+    if (saved === "dark" || (!saved && prefersDark)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  } catch (_) {}
+</script>

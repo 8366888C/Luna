@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --z-old: 1;
+    --z-new: 2;
+    --color-bg: white;
+    --color-text: black;
+  }
+
+  .dark {
+    --z-old: 2;
+    --z-new: 1;
+    --color-bg: black;
+    --color-text: white;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+
+  * {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)];
+  }
+
+  .dark body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)];
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: var(--z-old);
+}
+::view-transition-new(root) {
+  z-index: var(--z-new);
+}
