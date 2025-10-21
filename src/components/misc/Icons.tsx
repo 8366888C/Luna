@@ -11,6 +11,8 @@ import {
   IconBrandBluesky,
   IconBrandTwitter,
   IconBrandDiscord,
+  IconChevronRight,
+  IconArrowRight,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -63,4 +65,12 @@ export function Mail({ className }: IconProps) {
 
 export function Rss({ className }: IconProps) {
   return <IconRss className={className} />;
+}
+
+export function Right({ className }: IconProps) {
+  return <IconChevronRight className={className} />;
+}
+
+export function RightArrow({ className }: IconProps) {
+  return <IconArrowRight className={className} />;
 }

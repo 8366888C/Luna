@@ -47,11 +47,11 @@
   }
 
   body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)];
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-red-500 selection:text-white;
   }
 
   .dark body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)];
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-red-500 selection:text-black;
   }
 }
 

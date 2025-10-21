@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import RecentPosts from "../components/RecentPosts.astro";
+import { Right, RightArrow } from "../components/misc/Icons";
 ---
 
 <Base
@@ -8,5 +10,28 @@ import Base from "../layouts/Base.astro";
   image="./favicon.png"
   url="https://lunakit.netlify.app"
 >
-  <h1 class="mx-7 text-6xl">Hello</h1>
+  <main class="mx-13">
+    <section>
+      <h1 class="text-6xl">Hey</h1>
+      <div class="m-8 space-y-4">
+        <p>
+          Luna is a static, minimal, responsive and SEO-friendly blog theme on
+          Astro. This theme follows best practices and provides accessibility
+          out of the box. Light and dark mode are supported by default.
+          Moreover, additional color schemes can also be configured.
+        </p>
+        <p>
+          Read the blog posts or check <a href="">README</a> for more info.
+        </p>
+      </div>
+    </section>
+    <RecentPosts />
+    <div class="group flex items-center justify-center gap-3 tracking-wider">
+      <a href="/posts" class="group-hover:text-red-500">All Posts</a>
+      <Right className="stroke-1 group-hover:opacity-0" />
+      <RightArrow
+        className="stroke-1 opacity-0 group-hover:-translate-x-10 group-hover:stroke-red-500 group-hover:opacity-100"
+      />
+    </div>
+  </main>
 </Base>
