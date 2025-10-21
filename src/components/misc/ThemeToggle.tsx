@@ -1,5 +1,5 @@
-import { Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Sun, Moon } from "./Icons";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
@@ -23,11 +23,13 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
+  // utility function
   const changeTheme = (newTheme: string) => {
     setTheme(newTheme);
   };
 
-  const triggerLight = (event: React.MouseEvent<HTMLButtonElement>) => {
+  // button handler
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     const newTheme = theme === "dark" ? "light" : "dark";
 
     const transition = (document as any).startViewTransition?.(() =>
@@ -41,7 +43,7 @@ export default function ThemeToggle() {
     transition.ready.then(() => {
       const path = [
         `circle(0% at ${x}px ${y}px)`,
-        `circle(130% at ${x}px ${y}px)`,
+        `circle(200% at ${x}px ${y}px)`,
       ];
 
       document.documentElement.animate(
@@ -50,7 +52,7 @@ export default function ThemeToggle() {
         },
         {
           duration: 400,
-          easing: "ease-in",
+          easing: "ease-in-out",
           fill: "forwards",
           pseudoElement:
             newTheme === "light"
@@ -62,7 +64,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={triggerLight}>
+    <button onClick={toggleTheme} className="cursor-pointer">
       {theme === "light" ? <Moon /> : <Sun />}
     </button>
   );

@@ -3,6 +3,23 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--color-text) 80%, transparent);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: red;
+  }
+
   :root {
     --z-old: 1;
     --z-new: 2;
@@ -26,7 +43,7 @@
   }
 
   * {
-    @apply transition-colors duration-300 ease-in-out;
+    @apply transition-all duration-100 ease-in-out;
   }
 
   body {

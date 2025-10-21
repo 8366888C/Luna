@@ -1,6 +1,7 @@
 ---
-import Seo from "../components/Seo.astro";
-import ThemeToggle from "../components/ThemeToggle";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/misc/Seo.astro";
 const { title, description, image, url } = Astro.props;
 import "../styles/global.css";
 ---
@@ -15,8 +16,9 @@ import "../styles/global.css";
     <Seo {title} {description} {image} {url} />
   </head>
   <body>
-    <ThemeToggle client:load />
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
