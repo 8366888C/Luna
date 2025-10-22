@@ -24,15 +24,19 @@ export default function NavigationMenu() {
       ref={menuRef}
       className="cursor-pointer sm:hidden"
     >
-      {isOpen ? <Quote className="fill-[var(--color-text)]" /> : <Quote />}
+      {isOpen ? (
+        <Quote className="fill-secondary-light dark:fill-secondary-dark" />
+      ) : (
+        <Quote />
+      )}
 
       {isOpen && (
         <div className="absolute right-6 mt-4 w-20 rounded-xl bg-[var(--color-bg)] text-center">
-          <a href="/home" className="block px-4 py-2">
-            Home
+          <a href="/posts" className="block px-4 py-2">
+            Posts
           </a>
-          <a href="/about" className="block px-4 py-2">
-            About
+          <a href="/tags" className="block px-4 py-2">
+            Tags
           </a>
           <a href="/contact" className="block px-4 py-2">
             Contact
