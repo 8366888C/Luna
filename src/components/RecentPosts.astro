@@ -1,30 +1,34 @@
 ---
+import { getCollection } from "astro:content";
 import PostCard from "./misc/PostCard.astro";
+const posts = await getCollection("blogs");
 ---
 
 <section>
-  <hr class="mt-12 mb-8 border-[var(--color-text)]" />
+  <hr
+    class="border-secondary-light dark:border-secondary-dark mt-12 mb-8 opacity-50"
+  />
   <h2 class="text-3xl">Recent Posts</h2>
-  <div class="m-8 mb-16 flex flex-col gap-8">
-    <PostCard
-      title="Customizing Luna"
-      date="13 Jun, 2025"
-      description="How you can enable/disable light & dark mode; and customize color schemes of Luna."
-    />
-    <PostCard
-      title="How to add LaTeX equations in Luna blog posts"
-      date="22 Mar, 2025"
-      description="Learn how to add LaTeX equations in Luna using Markdown, KaTeX, and remark/rehype plugins."
-    />
-    <PostCard
-      title="Dynamic OG image generation in Luna"
-      date="12 Mar, 2025"
-      description="New feature in Luna v1.4.0, introducing dynamic OG image generation for blog posts."
-    />
-    <PostCard
-      title="How to integrate Giscus comments into Luna"
-      date="12 Mar, 2025"
-      description="Comment function on a static blog hosted on Github Pages with Giscus"
-    />
-  </div>
+  <ul class="m-8 mb-16 space-y-8">
+    {
+      posts.map((post: any) => {
+        return (
+          <li>
+            <PostCard
+              title={post.data.title}
+              date={post.data.pubDate
+                .toLocaleString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })
+                .slice(0, 11)}
+              description={post.data.description}
+              url={`/posts/${post.id}`}
+            />
+          </li>
+        );
+      })
+    }
+  </ul>
 </section>

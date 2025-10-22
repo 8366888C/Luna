@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* COLOR SCHEME */
+@theme {
+  /* LIGHT THEME */
+  --color-primary-light: var(--color-gray-100);
+  --color-secondary-light: var(--color-gray-800);
+  --color-accent-light: var(--color-red-500);
+
+  /* DARK THEME */
+  --color-primary-dark: var(--color-gray-800);
+  --color-secondary-dark: var(--color-gray-300);
+  --color-accent-dark: var(--color-red-500);
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -12,34 +25,37 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: color-mix(in srgb, var(--color-text) 80%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary-light) 100%,
+      transparent
+    );
+    border-radius: 9999px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary-dark) 100%,
+      transparent
+    );
     border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: red;
+    background-color: color-mix(
+      in srgb,
+      var(--color-accent-light) 100%,
+      transparent
+    );
   }
 
-  :root {
-    --z-old: 1;
-    --z-new: 2;
-    --color-bg: white;
-    --color-text: black;
-  }
-
-  .dark {
-    --z-old: 2;
-    --z-new: 1;
-    --color-bg: black;
-    --color-text: white;
-  }
-
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    transition:
-      background-color 0.3s,
-      color 0.3s;
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-accent-dark) 100%,
+      transparent
+    );
   }
 
   * {
@@ -47,11 +63,19 @@
   }
 
   body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-red-500 selection:text-white;
+    @apply bg-primary-light text-secondary-light selection:bg-accent-light selection:text-primary-light;
+
+    --z-old: 1;
+    --z-new: 2;
   }
 
   .dark body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-red-500 selection:text-black;
+    @apply bg-primary-dark text-secondary-dark selection:bg-accent-dark selection:text-primary-dark;
+  }
+
+  .dark {
+    --z-old: 2;
+    --z-new: 1;
   }
 }
 

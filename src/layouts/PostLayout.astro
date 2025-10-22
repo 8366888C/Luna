@@ -1,0 +1,49 @@
+---
+import ProgressBar from "../components/misc/ProgressBar";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<ProgressBar client:load />
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={frontmatter.image.url}
+  url={`https://lunakit.netlify.app/posts/${frontmatter.title}`}
+>
+  <main class="mx-13">
+    <article class="space-y-2">
+      <h1 class="text-4xl">{frontmatter.title}</h1>
+      <div class="flex gap-6">
+        <p>
+          {
+            frontmatter.pubDate
+              .toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })
+              .slice(0, 11)
+          }
+        </p>
+        <p>:</p>
+        <p>
+          {
+            frontmatter.tags.map((tag: string) => {
+              return (
+                <span class="hover:text-red-500">
+                  <a href={`/tags/${tag}`}>{tag}</a>
+                </span>
+              );
+            })
+          }
+        </p>
+      </div>
+      <div class="m-8">
+        <slot />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

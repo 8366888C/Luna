@@ -1,10 +1,10 @@
 ---
-import Base from "../layouts/Base.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import RecentPosts from "../components/RecentPosts.astro";
 import { Right, RightArrow } from "../components/misc/Icons";
 ---
 
-<Base
+<BaseLayout
   title="Luna"
   description="A minimalist Astro starter for mini blogs."
   image="./favicon.png"
@@ -26,12 +26,8 @@ import { Right, RightArrow } from "../components/misc/Icons";
       </div>
     </section>
     <RecentPosts />
-    <div class="group flex items-center justify-center gap-3 tracking-wider">
-      <a href="/posts" class="group-hover:text-red-500">All Posts</a>
-      <Right className="stroke-1 group-hover:opacity-0" />
-      <RightArrow
-        className="stroke-1 opacity-0 group-hover:-translate-x-10 group-hover:stroke-red-500 group-hover:opacity-100"
-      />
+    <div class="flex items-center justify-center gap-3 tracking-wider">
+      <a href="/posts" class="hover:text-red-500">All Posts</a>
     </div>
   </main>
-</Base>
+</BaseLayout>
