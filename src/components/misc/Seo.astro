@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+const {
+  title = "Luna",
+  description = "A minimalist Astro starter for mini blogs.",
+  image = "/favicon.png",
+  url = "https://lunakit.netlify.app",
+} = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Luna" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />

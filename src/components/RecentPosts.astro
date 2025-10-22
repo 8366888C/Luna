@@ -1,0 +1,30 @@
+---
+import PostCard from "./misc/PostCard.astro";
+---
+
+<section>
+  <hr class="mt-12 mb-8 border-[var(--color-text)]" />
+  <h2 class="text-3xl">Recent Posts</h2>
+  <div class="m-8 mb-16 flex flex-col gap-8">
+    <PostCard
+      title="Customizing Luna"
+      date="13 Jun, 2025"
+      description="How you can enable/disable light & dark mode; and customize color schemes of Luna."
+    />
+    <PostCard
+      title="How to add LaTeX equations in Luna blog posts"
+      date="22 Mar, 2025"
+      description="Learn how to add LaTeX equations in Luna using Markdown, KaTeX, and remark/rehype plugins."
+    />
+    <PostCard
+      title="Dynamic OG image generation in Luna"
+      date="12 Mar, 2025"
+      description="New feature in Luna v1.4.0, introducing dynamic OG image generation for blog posts."
+    />
+    <PostCard
+      title="How to integrate Giscus comments into Luna"
+      date="12 Mar, 2025"
+      description="Comment function on a static blog hosted on Github Pages with Giscus"
+    />
+  </div>
+</section>

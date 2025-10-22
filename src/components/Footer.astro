@@ -1,0 +1,41 @@
+---
+import {
+  Github,
+  Linkedin,
+  Bluesky,
+  Mail,
+  Rss,
+  Youtube,
+  Discord,
+  Twitter,
+} from "../components/misc/Icons";
+const className = "size-8 stroke-1 hover:stroke-red-500";
+---
+
+<footer class="mx-4 mt-18 mb-4">
+  <div class="mb-8 flex items-center justify-center space-x-8">
+    <a href="https://github.com/8366888C" target="blank"
+      ><Github className={className} /></a
+    >
+    <a href="https://youtube.com/@iron-lobby" target="blank"
+      ><Youtube className={className} /></a
+    >
+    <a href="https://bluesky.com" target="blank"
+      ><Bluesky className={className} /></a
+    >
+    <a href="https://in.linkedin.com" target="blank"
+      ><Linkedin className={className} /></a
+    >
+    <a href="https://discord.com" target="blank"
+      ><Discord className={className} /></a
+    >
+    <a href="https://example.com" target="blank"
+      ><Mail className={className} /></a
+    >
+    <a href="/rss.xml"><Rss className={className} /></a>
+  </div>
+  <div class="flex items-center justify-between text-sm">
+    <p>© 2025 Rahul</p>
+    <p>powered by <a href="">Astro</a> & <a href="">Luna</a></p>
+  </div>
+</footer>
