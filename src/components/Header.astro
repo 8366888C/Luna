@@ -2,17 +2,32 @@
 import ThemeToggle from "../components/misc/ThemeToggle";
 import Navigation from "../components/misc/Navigation.astro";
 import NavigationMenu from "../components/misc/NavigationMenu";
-import { Search } from "../components/misc/Icons";
+import { SearchIcon } from "../components/misc/Icons";
+import { postClass } from "./misc/class";
 ---
 
 <header>
-  <div class="mx-8 my-6 flex items-center justify-between">
-    <a href="/" class="text-2xl tracking-wide">Luna</a>
+  <div class="mx-6 my-4 flex items-center justify-between">
+    <a
+      href="/"
+      class="hover:text-accent-light dark:hover:text-accent-dark text-2xl tracking-wider"
+      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
+        >L</span
+      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
+        >u</span
+      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
+        >n</span
+      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
+        >a</span
+      ></a
+    >
     <div class="flex items-center justify-center gap-6">
       <Navigation />
       <div class="flex items-center justify-center gap-4">
         <ThemeToggle client:load />
-        <Search />
+        <SearchIcon
+          className="active:fill-secondary-light dark:active:fill-secondary-dark"
+        />
         <NavigationMenu client:load />
       </div>
     </div>

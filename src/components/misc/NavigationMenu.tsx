@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Quote } from "./Icons";
+import { QuoteIcon } from "./Icons";
+import { navigationClass } from "./class";
 
 export default function NavigationMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,22 +26,24 @@ export default function NavigationMenu() {
       className="cursor-pointer sm:hidden"
     >
       {isOpen ? (
-        <Quote className="fill-secondary-light dark:fill-secondary-dark" />
+        <QuoteIcon className="fill-secondary-light dark:fill-secondary-dark" />
       ) : (
-        <Quote />
+        <QuoteIcon />
       )}
 
       {isOpen && (
-        <div className="absolute right-6 mt-4 w-20 rounded-xl bg-[var(--color-bg)] text-center">
-          <a href="/posts" className="block px-4 py-2">
-            Posts
-          </a>
-          <a href="/tags" className="block px-4 py-2">
-            Tags
-          </a>
-          <a href="/contact" className="block px-4 py-2">
-            Contact
-          </a>
+        <div className="text-secondary-light dark:bg-primary-dark dark:text-secondary-dark bg-primary-light absolute right-6 mt-4 w-26 rounded-2xl text-center">
+          <div className="my-4 space-y-2">
+            <a href="/posts" className={navigationClass}>
+              Posts
+            </a>
+            <a href="/tags" className={navigationClass}>
+              Tags
+            </a>
+            <a href="/contact" className={navigationClass}>
+              Contact
+            </a>
+          </div>
         </div>
       )}
     </nav>

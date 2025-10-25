@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import RecentPosts from "../components/RecentPosts.astro";
-import { Right, RightArrow } from "../components/misc/Icons";
+import { RightIcon, RightArrowIcon } from "../components/misc/Icons";
+import { navigationClass, urlClass } from "../components/misc/class.ts";
 ---
 
 <BaseLayout
@@ -10,10 +11,10 @@ import { Right, RightArrow } from "../components/misc/Icons";
   image="./favicon.png"
   url="https://lunakit.netlify.app"
 >
-  <main class="mx-13">
+  <main class="mx-6">
     <section>
-      <h1 class="text-6xl">Hey</h1>
-      <div class="m-8 space-y-4">
+      <h1 class="text-5xl">Hey</h1>
+      <div class="m-8 space-y-4 text-lg">
         <p>
           Luna is a static, minimal, responsive and SEO-friendly blog theme on
           Astro. This theme follows best practices and provides accessibility
@@ -21,13 +22,21 @@ import { Right, RightArrow } from "../components/misc/Icons";
           Moreover, additional color schemes can also be configured.
         </p>
         <p>
-          Read the blog posts or check <a href="">README</a> for more info.
+          Read the blog posts or check <a href="" class={urlClass}>README</a> for
+          more info.
         </p>
       </div>
     </section>
     <RecentPosts />
-    <div class="flex items-center justify-center gap-3 tracking-wider">
-      <a href="/posts" class="hover:text-red-500">All Posts</a>
+    <div class="text-center">
+      <a href="/posts" class={`${navigationClass}`}
+        >All Posts
+        <span class="relative">
+          <RightArrowIcon
+            className="stroke-foreground hidden stroke-1 group-hover:block"
+          />
+        </span>
+      </a>
     </div>
   </main>
 </BaseLayout>

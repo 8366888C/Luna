@@ -13,9 +13,9 @@ const { frontmatter } = Astro.props;
   image={frontmatter.image.url}
   url={`https://lunakit.netlify.app/posts/${frontmatter.title}`}
 >
-  <main class="mx-13">
+  <main class="mx-6">
     <article class="space-y-2">
-      <h1 class="text-4xl">{frontmatter.title}</h1>
+      <h1 class="text-5xl">{frontmatter.title}</h1>
       <div class="flex gap-6">
         <p>
           {
@@ -41,7 +41,7 @@ const { frontmatter } = Astro.props;
           }
         </p>
       </div>
-      <div class="m-8">
+      <div class="markdown">
         <slot />
       </div>
     </article>
