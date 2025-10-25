@@ -1,0 +1,95 @@
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  .markdown {
+    /* @apply prose; */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    th {
+      @apply text-foreground mb-3;
+    }
+
+    h3 {
+      @apply italic;
+    }
+
+    p,
+    strong,
+    ol,
+    ul,
+    figcaption,
+    table {
+      @apply text-foreground/90 p-0.5 text-lg;
+    }
+
+    a {
+      @apply text-accent break-words underline-offset-3 hover:underline;
+    }
+
+    ul {
+      @apply overflow-x-clip;
+    }
+
+    li {
+      @apply marker:text-accent;
+    }
+
+    hr {
+      @apply border-foreground;
+    }
+
+    img {
+      @apply border-foreground mx-auto border;
+    }
+
+    figcaption {
+      @apply opacity-75;
+    }
+
+    table {
+      th,
+      td {
+        @apply border-foreground border p-2;
+      }
+
+      th {
+        @apply py-1.5;
+      }
+
+      code {
+        @apply break-all sm:break-normal;
+      }
+    }
+
+    code {
+      @apply bg-accent/75 text-foreground rounded p-1 break-words before:content-none after:content-none;
+    }
+
+    .astro-code {
+      @apply rounded-3xl px-7 py-6;
+    }
+
+    .astro-code code {
+      @apply flex-[1_0_100%] bg-inherit;
+    }
+
+    blockquote {
+      @apply border-s-accent/80 break-words opacity-80;
+    }
+
+    details {
+      @apply text-foreground inline-block cursor-pointer select-none [&_p]:hidden [&_ul]:!my-0;
+    }
+
+    summary {
+      @apply focus-visible:outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-dashed;
+    }
+
+    pre {
+      @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 ---
+import { postClass } from "./class";
+
 const { title, date, description, url } = Astro.props;
 ---
 
 <div>
   <h3 class="text-xl">
-    <a href={url} class="hover:text-accent-light dark:hover:text-accent-dark"
-      >{title}</a
-    >
+    <a href={url} class={postClass}>{title}</a>
   </h3>
   <p>{date}</p>
   <p><em>{description}</em></p>

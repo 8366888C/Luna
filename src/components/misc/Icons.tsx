@@ -6,10 +6,7 @@ import {
   IconSunHigh,
   IconBrandYoutube,
   IconBrandLinkedin,
-  IconMail,
   IconRss,
-  IconBrandBluesky,
-  IconBrandTwitter,
   IconBrandDiscord,
   IconChevronRight,
   IconArrowRight,
@@ -19,58 +16,46 @@ interface IconProps {
   className?: string;
 }
 
-export function Search({ className }: IconProps) {
+export function SearchIcon({ className }: IconProps) {
   return <IconSearch className={className} />;
 }
 
-export function Quote({ className }: IconProps) {
+export function QuoteIcon({ className }: IconProps) {
   return <IconQuote className={className} />;
 }
 
-export function Moon({ className }: IconProps) {
+export function MoonIcon({ className }: IconProps) {
   return <IconMoon className={className} />;
 }
 
-export function Sun({ className }: IconProps) {
+export function SunIcon({ className }: IconProps) {
   return <IconSunHigh className={className} />;
 }
 
-export function Github({ className }: IconProps) {
+export function GithubIcon({ className }: IconProps) {
   return <IconBrandGithub className={className} />;
 }
 
-export function Youtube({ className }: IconProps) {
+export function YoutubeIcon({ className }: IconProps) {
   return <IconBrandYoutube className={className} />;
 }
 
-export function Linkedin({ className }: IconProps) {
+export function LinkedinIcon({ className }: IconProps) {
   return <IconBrandLinkedin className={className} />;
 }
 
-export function Twitter({ className }: IconProps) {
-  return <IconBrandTwitter className={className} />;
-}
-
-export function Bluesky({ className }: IconProps) {
-  return <IconBrandBluesky className={className} />;
-}
-
-export function Discord({ className }: IconProps) {
+export function DiscordIcon({ className }: IconProps) {
   return <IconBrandDiscord className={className} />;
 }
 
-export function Mail({ className }: IconProps) {
-  return <IconMail className={className} />;
-}
-
-export function Rss({ className }: IconProps) {
+export function RssIcon({ className }: IconProps) {
   return <IconRss className={className} />;
 }
 
-export function Right({ className }: IconProps) {
+export function RightIcon({ className }: IconProps) {
   return <IconChevronRight className={className} />;
 }
 
-export function RightArrow({ className }: IconProps) {
+export function RightArrowIcon({ className }: IconProps) {
   return <IconArrowRight className={className} />;
 }

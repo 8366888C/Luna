@@ -10,7 +10,7 @@ image:
 tags: ["luna", "customize", "comments", "giscus"]
 ---
 
-Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites.
+_Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites._
 
 ## How Giscus works
 
@@ -34,7 +34,9 @@ Prerequisites to get Giscus working are
 
 ### Configuring Giscus
 
-Next, configuring Giscus is necessary. In most cases, the preselected defaults are suitable, and you should only modify them if you have a specific reason and know what you are doing. Don't worry too much about making the wrong choices; you can always adjust the configuration later on.
+Next, configuring Giscus is necessary. In most cases, the preselected defaults are suitable, and you should only modify them if you have a **specific reason** and know what you are doing. Don't worry too much about making the **wrong choices**; you can always adjust the **configuration** later on.
+
+To copy text, press <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
 However you need to
 
@@ -43,7 +45,7 @@ However you need to
 - create and set an `Announcement` type discussion on Github if you want to ensure nobody can create random comments directly on Github
 - define the color scheme
 
-After configuring the settings, Giscus provides you with a generated `<script>` tag, which you will need in the next steps.
+After configuring the _settings_, Giscus provides you with a generated `<script>` tag, which you will need in the _next steps_.
 
 ## Simple script tag
 
@@ -83,8 +85,10 @@ Simply add that to the source code of the site. Most likely, if you're using Lun
       data-category="[ENTER CATEGORY NAME HERE]"
       data-category-id="[ENTER CATEGORY ID HERE]"></script>
   </main>
-  <Footer />
+  <footer></footer>
 </Layout>
 ```
 
-And it's done! You have successfully integrated comments in Luna!
+> And it's done! You have successfully integrated comments in Luna!
+
+> Thanks for reading this!

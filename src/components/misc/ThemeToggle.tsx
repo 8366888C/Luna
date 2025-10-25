@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sun, Moon } from "./Icons";
+import { SunIcon, MoonIcon } from "./Icons";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
@@ -64,8 +64,12 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleTheme} className="cursor-pointer">
-      {theme === "light" ? <Moon /> : <Sun />}
+    <button onClick={toggleTheme}>
+      {theme === "light" ? (
+        <MoonIcon className="active:fill-foreground" />
+      ) : (
+        <SunIcon className="active:fill-foreground" />
+      )}
     </button>
   );
 }
