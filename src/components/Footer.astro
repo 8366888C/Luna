@@ -6,39 +6,38 @@ import {
   YoutubeIcon,
   DiscordIcon,
 } from "../components/misc/Icons";
-import { urlClass } from "./misc/class";
-const className =
-  "size-8 stroke-1 hover:stroke-accent-light dark:hover:stroke-accent-dark active:size-6";
+import {
+  footerIconClass,
+  footerMargin,
+  socialMediaClass,
+} from "../styles/utility";
 ---
 
-<footer class="mx-4 mt-18 mb-4">
-  <div class="mb-8 flex items-center justify-center space-x-8">
+<footer class={`${footerMargin}`}>
+  <div class={`${socialMediaClass}`}>
     <a href="https://github.com/8366888C" target="blank"
-      ><GithubIcon className={className} /></a
+      ><GithubIcon className={footerIconClass} /></a
     >
     <a href="https://youtube.com/@iron-lobby" target="blank"
-      ><YoutubeIcon className={className} /></a
+      ><YoutubeIcon className={footerIconClass} /></a
     >
     <a href="https://in.linkedin.com" target="blank"
-      ><LinkedinIcon className={className} /></a
+      ><LinkedinIcon className={footerIconClass} /></a
     >
     <a href="https://discord.com" target="blank"
-      ><DiscordIcon className={className} /></a
+      ><DiscordIcon className={footerIconClass} /></a
     >
-    <a href="/rss.xml"><RssIcon className={className} /></a>
+    <a href="/rss.xml"><RssIcon className={footerIconClass} /></a>
   </div>
-  <div class="flex items-center justify-between text-sm">
+  <div class="text-faint flex items-center justify-between text-sm">
     <p>© 2025 Rahul</p>
     <p>
       powered by <a
-        href=""
-        class="hover:text-accent-light dark:hover:text-accent-dark opacity-100"
-        >Astro</a
-      > & <a
-        href=""
-        class="hover:text-accent-light dark:hover:text-accent-dark opacity-100"
-        >Luna</a
-      >
+        href="https://astro.build"
+        target="blank"
+        class="hover:text-accent">Astro</a
+      > &
+      <a href="" class="hover:text-accent">Luna</a>
     </p>
   </div>
 </footer>

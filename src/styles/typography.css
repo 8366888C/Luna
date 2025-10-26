@@ -4,7 +4,11 @@
   .markdown {
     /* @apply prose; */
 
-    h1,
+    h2 {
+      @apply my-3 text-3xl;
+    }
+
+    /* h1,
     h2,
     h3,
     h4,
@@ -90,6 +94,6 @@
 
     pre {
       @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
-    }
+    } */
   }
 }

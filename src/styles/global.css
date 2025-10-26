@@ -6,15 +6,15 @@
 html.light {
   --background: var(--color-gray-100);
   --foreground: var(--color-gray-800);
-  --accent: var(--color-red-500);
-  --hover: var(--color-gray-50);
+  --accent: var(--color-red-400);
+  --faint: var(--color-gray-500);
 }
 
 html.dark {
   --background: var(--color-gray-800);
   --foreground: var(--color-gray-100);
   --accent: var(--color-green-500);
-  --hover: var(--color-gray-900);
+  --faint: var(--color-gray-400);
 }
 
 /* INIT COLORS */
@@ -22,20 +22,20 @@ html.dark {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  --color-hover: var(--hover);
+  --color-faint: var(--faint);
 }
 
 /* BASE STYLING */
 @layer base {
   /* layouts */
   * {
-    @apply transition-all duration-250 ease-in-out;
+    @apply transition-all duration-150 ease-in-out;
   }
   html {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent selection:text-background flex min-h-svh flex-col;
+    @apply bg-background text-foreground selection:bg-accent selection:text-background relative min-h-svh;
     --z-old: 1;
     --z-new: 2;
   }
@@ -45,6 +45,22 @@ html.dark {
   }
 
   /* utility */
+  h1 {
+    @apply my-3 text-4xl;
+  }
+  h2 {
+    @apply my-3 text-3xl;
+  }
+  p {
+    @apply opacity-90;
+  }
+  em {
+    @apply opacity-80;
+  }
+  hr {
+    @apply border-faint/50 mx-13 my-8;
+  }
+
   button:not(:disabled) {
     cursor: pointer;
   }
@@ -56,7 +72,7 @@ html.dark {
 /* SCROLLBAR STYLING */
 @layer base {
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {

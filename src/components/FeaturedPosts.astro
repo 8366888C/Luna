@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "./misc/PostCard.astro";
+import { sectionMargin } from "../styles/utility";
+const posts = await getCollection("blogs");
+---
+
+<hr />
+<h2>Featured Posts</h2>
+<ul class={sectionMargin}>
+  {
+    posts.map((post: any) => {
+      return (
+        <li>
+          <PostCard
+            title={post.data.title}
+            date={post.data.pubDate
+              .toLocaleString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })
+              .slice(0, 11)}
+            description={post.data.description}
+            url={`/posts/${post.id}`}
+          />
+        </li>
+      );
+    })
+  }
+</ul>

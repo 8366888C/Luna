@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { QuoteIcon } from "./Icons";
-import { navigationClass } from "./class";
+import { BookIcon, QuoteIcon, TagIcon } from "./Icons";
+import { navbarClass, navIconClass, navTextClass } from "../../styles/utility";
 
 export default function NavigationMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,26 +26,25 @@ export default function NavigationMenu() {
       className="cursor-pointer sm:hidden"
     >
       {isOpen ? (
-        <QuoteIcon className="fill-secondary-light dark:fill-secondary-dark" />
+        <QuoteIcon className="fill-foreground size-5" />
       ) : (
-        <QuoteIcon />
+        <QuoteIcon className="size-5" />
       )}
 
-      {isOpen && (
-        <div className="text-secondary-light dark:bg-primary-dark dark:text-secondary-dark bg-primary-light absolute right-6 mt-4 w-26 rounded-2xl text-center">
-          <div className="my-4 space-y-2">
-            <a href="/posts" className={navigationClass}>
-              Posts
-            </a>
-            <a href="/tags" className={navigationClass}>
-              Tags
-            </a>
-            <a href="/contact" className={navigationClass}>
-              Contact
-            </a>
-          </div>
+      <div
+        className={`bg-background drop-shadow-foreground/20 absolute right-3 z-3 mt-3 w-28 rounded-2xl drop-shadow-2xl ${isOpen ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"}`}
+      >
+        <div className="my-4 space-y-2">
+          <a href="/posts" className={`${navbarClass}`}>
+            <BookIcon className={`${navIconClass}`} />
+            <span className={`${navTextClass}`}>Posts</span>
+          </a>
+          <a href="/tags" className={`${navbarClass}`}>
+            <TagIcon className={`${navIconClass}`} />
+            <span className={`${navTextClass}`}>Tags</span>
+          </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

@@ -1,8 +1,15 @@
 ---
-import { navigationClass } from "./class";
+import { BookIcon, TagIcon } from "./Icons";
+import { navbarClass, navIconClass, navTextClass } from "../../styles/utility";
 ---
 
-<nav class="hidden items-center gap-6 sm:flex">
-  <a href="/posts" class={navigationClass}>Posts</a>
-  <a href="/tags" class={navigationClass}>Tags</a>
+<nav class="hidden items-center justify-center gap-6 sm:flex">
+  <a href="/posts" class={navbarClass}>
+    <BookIcon className={navIconClass} />
+    <span class={navTextClass}>Posts</span>
+  </a>
+  <a href="/tags" class={navbarClass}>
+    <TagIcon className={navIconClass} />
+    <span class={navTextClass}>Tags</span>
+  </a>
 </nav>
