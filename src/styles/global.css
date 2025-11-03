@@ -1,20 +1,20 @@
 @import "tailwindcss";
 @import "./typography.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* COLOR SCHEME */
 :root,
 html.light {
   --background: var(--color-gray-100);
   --foreground: var(--color-gray-800);
   --accent: var(--color-red-400);
-  --faint: var(--color-gray-500);
 }
 
 html.dark {
   --background: var(--color-gray-800);
   --foreground: var(--color-gray-100);
-  --accent: var(--color-green-500);
-  --faint: var(--color-gray-400);
+  --accent: var(--color-sky-500);
 }
 
 /* INIT COLORS */
@@ -22,7 +22,6 @@ html.dark {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  --color-faint: var(--faint);
 }
 
 /* BASE STYLING */
@@ -46,10 +45,10 @@ html.dark {
 
   /* utility */
   h1 {
-    @apply my-3 text-4xl;
+    @apply my-6 text-4xl;
   }
   h2 {
-    @apply my-3 text-3xl;
+    @apply my-6 text-3xl;
   }
   p {
     @apply opacity-90;
@@ -58,7 +57,7 @@ html.dark {
     @apply opacity-80;
   }
   hr {
-    @apply border-faint/50 mx-13 my-8;
+    @apply border-foreground/30 mx-13 my-8;
   }
 
   button:not(:disabled) {

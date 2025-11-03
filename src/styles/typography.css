@@ -5,10 +5,10 @@
     /* @apply prose; */
 
     h2 {
-      @apply my-3 text-3xl;
+      @apply my-3 text-4xl;
     }
 
-    /* h1,
+    h1,
     h2,
     h3,
     h4,
@@ -30,7 +30,7 @@
     }
 
     a {
-      @apply text-accent break-words underline-offset-3 hover:underline;
+      @apply text-accent break-words underline-offset-6 hover:underline;
     }
 
     ul {
@@ -94,6 +94,6 @@
 
     pre {
       @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
-    } */
+    }
   }
 }

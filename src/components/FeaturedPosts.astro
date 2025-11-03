@@ -7,7 +7,7 @@ const posts = await getCollection("blogs");
 
 <hr />
 <h2>Featured Posts</h2>
-<ul class={sectionMargin}>
+<ul class={`${sectionMargin} grid grid-cols-2 gap-6`}>
   {
     posts.map((post: any) => {
       return (

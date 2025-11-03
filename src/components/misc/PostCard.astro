@@ -15,13 +15,13 @@ const { title, date, description, url } = Astro.props;
   <h3 class={titleClass}>
     {title}
   </h3>
-  <div class="flex flex-col">
-    <div class="flex gap-2">
+  <div class="flex flex-col gap-1">
+    <div class="flex gap-1">
       <p class={`${subTitleClass}`}>
         <CalendarIcon className={iconClass} />
         {date}
       </p>
-      <p class="opacity-0 group-hover:opacity-100">Hearts</p>
+      <p class="opacity-0 group-hover:opacity-90">Hearts</p>
     </div>
     <em class={descClass}>{description}</em>
   </div>

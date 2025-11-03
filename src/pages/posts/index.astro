@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import PostCard from "../../components/misc/PostCard.astro";
+import PostCard_ from "../../components/misc/PostCard_.astro";
+import { bodyMargin } from "../../styles/utility";
 const allPosts = await getCollection("blogs");
 ---
 
@@ -11,14 +12,16 @@ const allPosts = await getCollection("blogs");
   image="./favicon.png"
   url="https://lunakit.netlify.app/posts"
 >
-  <main class="mx-13">
-    <h1 class="text-6xl">Posts</h1>
-    <ul class="m-8 space-y-8">
+  <main class={bodyMargin}>
+    <div class="flex items-center justify-between">
+      <h1>Posts</h1>
+    </div>
+    <ul class="space-y-3">
       {
         allPosts.map((post: any) => {
           return (
             <li>
-              <PostCard
+              <PostCard_
                 title={post.data.title}
                 date={post.data.pubDate
                   .toLocaleString("en-GB", {
@@ -27,7 +30,6 @@ const allPosts = await getCollection("blogs");
                     year: "numeric",
                   })
                   .slice(0, 11)}
-                description={post.data.description}
                 url={`/posts/${post.id}`}
               />
             </li>

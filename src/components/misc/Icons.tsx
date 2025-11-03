@@ -13,6 +13,8 @@ import {
   IconTagFilled,
   IconBookFilled,
   IconCalendar,
+  IconSortAscending2,
+  IconSortDescending2,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -73,4 +75,12 @@ export function BookIcon({ className }: IconProps) {
 
 export function CalendarIcon({ className }: IconProps) {
   return <IconCalendar className={className} />;
+}
+
+export function AscendingIcon({ className }: IconProps) {
+  return <IconSortAscending2 className={className} />;
+}
+
+export function DescendingIcon({ className }: IconProps) {
+  return <IconSortDescending2 className={className} />;
 }
