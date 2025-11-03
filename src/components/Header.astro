@@ -3,14 +3,14 @@ import ThemeToggle from "../components/misc/ThemeToggle";
 import Navigation from "../components/misc/Navigation.astro";
 import NavigationMenu from "../components/misc/NavigationMenu";
 import { SearchIcon } from "../components/misc/Icons";
-import { postClass } from "./misc/class";
+import { headerMargin } from "../styles/utility";
 ---
 
 <header>
-  <div class="mx-6 my-4 flex items-center justify-between">
+  <div class={`${headerMargin} flex items-center justify-between`}>
     <a
       href="/"
-      class="hover:text-accent-light dark:hover:text-accent-dark text-2xl tracking-wider"
+      class="hover:text-accent-light dark:hover:text-accent-dark text-xl tracking-wider"
       ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
         >L</span
       ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
@@ -21,13 +21,13 @@ import { postClass } from "./misc/class";
         >a</span
       ></a
     >
-    <div class="flex items-center justify-center gap-6">
+    <div class="flex items-center justify-center gap-8">
       <Navigation />
       <div class="flex items-center justify-center gap-4">
         <ThemeToggle client:load />
-        <SearchIcon
-          className="active:fill-secondary-light dark:active:fill-secondary-dark"
-        />
+        <button>
+          <SearchIcon className="active:fill-foreground size-5" />
+        </button>
         <NavigationMenu client:load />
       </div>
     </div>

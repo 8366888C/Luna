@@ -1,5 +1,6 @@
 ---
 import ProgressBar from "../components/misc/ProgressBar";
+import { bodyMargin } from "../styles/utility";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -13,9 +14,9 @@ const { frontmatter } = Astro.props;
   image={frontmatter.image.url}
   url={`https://lunakit.netlify.app/posts/${frontmatter.title}`}
 >
-  <main class="mx-6">
-    <article class="space-y-2">
-      <h1 class="text-5xl">{frontmatter.title}</h1>
+  <main class={`${bodyMargin}`}>
+    <article>
+      <h1>{frontmatter.title}</h1>
       <div class="flex gap-6">
         <p>
           {

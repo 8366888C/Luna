@@ -10,6 +10,11 @@ import {
   IconBrandDiscord,
   IconChevronRight,
   IconArrowRight,
+  IconTagFilled,
+  IconBookFilled,
+  IconCalendar,
+  IconSortAscending2,
+  IconSortDescending2,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -58,4 +63,24 @@ export function RightIcon({ className }: IconProps) {
 
 export function RightArrowIcon({ className }: IconProps) {
   return <IconArrowRight className={className} />;
+}
+
+export function TagIcon({ className }: IconProps) {
+  return <IconTagFilled className={className} />;
+}
+
+export function BookIcon({ className }: IconProps) {
+  return <IconBookFilled className={className} />;
+}
+
+export function CalendarIcon({ className }: IconProps) {
+  return <IconCalendar className={className} />;
+}
+
+export function AscendingIcon({ className }: IconProps) {
+  return <IconSortAscending2 className={className} />;
+}
+
+export function DescendingIcon({ className }: IconProps) {
+  return <IconSortDescending2 className={className} />;
 }

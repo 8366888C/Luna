@@ -4,6 +4,10 @@
   .markdown {
     /* @apply prose; */
 
+    h2 {
+      @apply my-3 text-4xl;
+    }
+
     h1,
     h2,
     h3,
@@ -26,7 +30,7 @@
     }
 
     a {
-      @apply text-accent break-words underline-offset-3 hover:underline;
+      @apply text-accent break-words underline-offset-6 hover:underline;
     }
 
     ul {

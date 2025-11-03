@@ -1,8 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import RecentPosts from "../components/RecentPosts.astro";
+import FeaturedPosts from "../components/FeaturedPosts.astro";
 import { RightIcon, RightArrowIcon } from "../components/misc/Icons";
-import { navigationClass, urlClass } from "../components/misc/class.ts";
+import {
+  bodyMargin,
+  urlClass,
+  routeBarClass,
+  routeIconClass,
+  routeTextClass,
+} from "../styles/utility";
 ---
 
 <BaseLayout
@@ -11,10 +17,10 @@ import { navigationClass, urlClass } from "../components/misc/class.ts";
   image="./favicon.png"
   url="https://lunakit.netlify.app"
 >
-  <main class="mx-6">
+  <main class={`${bodyMargin}`}>
     <section>
-      <h1 class="text-5xl">Hey</h1>
-      <div class="m-8 space-y-4 text-lg">
+      <h1>Hey</h1>
+      <div class="space-y-4 text-lg">
         <p>
           Luna is a static, minimal, responsive and SEO-friendly blog theme on
           Astro. This theme follows best practices and provides accessibility
@@ -22,20 +28,19 @@ import { navigationClass, urlClass } from "../components/misc/class.ts";
           Moreover, additional color schemes can also be configured.
         </p>
         <p>
-          Read the blog posts or check <a href="" class={urlClass}>README</a> for
-          more info.
+          Read the featured blog posts or check <a href="" class={`${urlClass}`}
+            >README</a
+          > for more info.
         </p>
       </div>
     </section>
-    <RecentPosts />
-    <div class="text-center">
-      <a href="/posts" class={`${navigationClass}`}
-        >All Posts
-        <span class="relative">
-          <RightArrowIcon
-            className="stroke-foreground hidden stroke-1 group-hover:block"
-          />
-        </span>
+    <section>
+      <FeaturedPosts />
+    </section>
+    <div class="flex items-center justify-center">
+      <a href="/posts" class={`${routeBarClass}`}>
+        <span class={routeTextClass}>All Posts</span>
+        <RightArrowIcon className={routeIconClass} />
       </a>
     </div>
   </main>

@@ -66,9 +66,9 @@ export default function ThemeToggle() {
   return (
     <button onClick={toggleTheme}>
       {theme === "light" ? (
-        <MoonIcon className="active:fill-foreground" />
+        <MoonIcon className="active:fill-foreground size-5" />
       ) : (
-        <SunIcon className="active:fill-foreground" />
+        <SunIcon className="active:fill-foreground size-5" />
       )}
     </button>
   );
