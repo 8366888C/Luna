@@ -13,9 +13,7 @@ const allPosts = await getCollection("blogs");
   url="https://lunakit.netlify.app/posts"
 >
   <main class={bodyMargin}>
-    <div class="flex items-center justify-between">
-      <h1 class="mb-6 text-4xl">Posts</h1>
-    </div>
+    <h1 class="mb-6 text-4xl">Posts</h1>
     <ul class="space-y-3">
       {
         allPosts.map((post: any) => {

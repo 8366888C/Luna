@@ -10,9 +10,12 @@ image:
 tags: ["luna", "customize", "latex", "markdown"]
 ---
 
-This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents.
+_This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._
 
-<img src="https://images.pexels.com/photos/22690748/pexels-photo-22690748/free-photo-of-close-up-of-complicated-equations-written-on-a-blackboard.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300">
+<figure>
+  <img src="https://images.pexels.com/photos/22690748/pexels-photo-22690748/free-photo-of-close-up-of-complicated-equations-written-on-a-blackboard.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="KaTeX Logo" >
+  <figcaption>KaTeX - Fast math typesetting for the web</figcaption>
+</figure>
 
 ## Instructions
 

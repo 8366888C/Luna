@@ -6,67 +6,70 @@
 
     /* headings */
     h2 {
-      @apply text-3xl;
+      @apply mt-8 mb-3 text-3xl;
     }
     h3 {
-      @apply visible;
-    }
-    h4 {
-      @apply visible;
+      @apply mt-6 mb-2 text-2xl;
     }
 
     /* paragraph */
     p {
-      @apply opacity-90;
+      @apply text-lg opacity-90;
     }
 
     /* url */
     a {
-      @apply visible;
+      @apply text-accent active:text-foreground underline-offset-3 hover:underline hover:underline-offset-6;
     }
 
     /* quote */
     blockquote {
-      @apply visible;
+      @apply bg-foreground/13 my-6 rounded-lg px-3 py-1 text-base opacity-80;
     }
 
     /* image block */
     figure {
-      @apply visible;
+      @apply ring-accent visible my-6 flex flex-col items-center;
     }
     figcaption {
-      @apply visible;
+      @apply text-accent visible py-2 text-sm;
     }
 
     /* bold */
     strong {
-      @apply visible;
+      @apply font-bold opacity-85;
     }
 
     /* description */
     em {
-      @apply opacity-80;
+      @apply font-serif opacity-70;
     }
 
     /* keyboard */
     kbd {
-      @apply visible;
+      @apply rounded-lg px-2 py-0.5 text-base ring-1;
     }
 
-    /* inline code */
+    /*  code */
+    .astro-code {
+      @apply my-6 p-6;
+    }
+    .astro-code code {
+      @apply bg-inherit;
+    }
     code {
-      @apply visible;
+      @apply bg-accent text-background rounded-lg px-2 py-0.5 font-mono text-base opacity-90;
     }
 
     /* lists */
     ol {
-      @apply visible;
+      @apply mx-8 my-1 list-decimal text-lg opacity-90;
     }
     ul {
-      @apply visible;
+      @apply mx-8 my-1 list-disc text-lg opacity-90;
     }
     li {
-      @apply visible;
+      @apply my-1 px-1 leading-relaxed;
     }
 
     /* dictionary */
@@ -82,27 +85,21 @@
 
     /* table */
     table {
-      @apply visible;
-    }
-    thead {
-      @apply visible;
-    }
-    tbody {
-      @apply visible;
+      @apply mx-auto my-8 opacity-90;
     }
     tr {
       @apply visible;
     }
     th {
-      @apply ring-foreground/30 visible px-3 ring-1;
+      @apply bg-foreground/8 ring-foreground/18 visible px-3 py-0.5 text-center ring-1;
     }
     td {
-      @apply visible;
+      @apply ring-foreground/18 px-3 py-1 ring-1;
     }
 
     /* media */
     img {
-      @apply visible;
+      @apply ring-accent ring-2 select-none;
     }
     video {
       @apply visible;

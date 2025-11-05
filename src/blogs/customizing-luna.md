@@ -10,18 +10,17 @@ image:
 tags: ["luna", "customize", "color-scheme"]
 ---
 
-This post will explain how you can enable/disable light and dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website.
-[Choose primary color scheme](#choose-primary-color-scheme) section will explain how you can choose either light or dark mode as the primary color scheme instead of system's prefers-color-scheme.
+_This post will explain how you can enable/disable light and dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website._
 
 ## Enable/disable light & dark mode
 
-Luna theme will include light and dark mode by default. In other words, there will be two color schemes, one for light and another for dark mode. This default behavior can be disabled in `SITE` configuration object.
+Luna theme will include light and dark mode by default. In other words, there will be two color schemes, one for **light** and another for **dark** mode. This default behavior can be disabled in `SITE` configuration object.
 
 ---
 
-- [ ] Enable light & dark mode
-- [ ] Choose primary color scheme
-- [x] Customize color schemes
+> To enable/disable light & dark mode, open the `src/config.ts` file and set the `SITE.lightAndDarkMode` variable to `true` or `false`.
+
+<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>
 
 ```typescript
 // src/config.ts

@@ -5,7 +5,8 @@ export const footerMargin = "mx-3 mb-2 mt-16";
 export const sectionMargin = "mb-13";
 
 // Base
-export const urlClass = "text-accent hover:underline underline-offset-6";
+export const urlClass =
+  "text-accent hover:underline underline-offset-3 hover:underline-offset-6";
 
 // Header Navigations
 export const navbarClass =

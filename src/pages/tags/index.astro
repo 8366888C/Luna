@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { bodyMargin } from "../../styles/utility";
 
 const posts = await getCollection("blogs");
 const tags = [
@@ -14,17 +15,14 @@ const tags = [
   image="./favicon.png"
   url="https://lunakit.netlify.app/tags"
 >
-  <main class="mx-13">
-    <h1 class="text-6xl">Tags</h1>
+  <main class={`${bodyMargin}`}>
+    <h1 class="my-6 text-4xl">Tags</h1>
     <ul class="m-8 space-y-2">
       {
         tags.map((tag) => {
           return (
             <li>
-              <a
-                href={`/tags/${tag}`}
-                class="hover:text-accent-light dark:hover:text-accent-dark text-lg"
-              >
+              <a href={`/tags/${tag}`} class="hover:text-accent text-lg">
                 {tag}
               </a>
             </li>
