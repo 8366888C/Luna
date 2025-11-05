@@ -11,10 +11,17 @@ tags: ["luna", "customize", "color-scheme"]
 ---
 
 This post will explain how you can enable/disable light and dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website.
+[Choose primary color scheme](#choose-primary-color-scheme) section will explain how you can choose either light or dark mode as the primary color scheme instead of system's prefers-color-scheme.
 
 ## Enable/disable light & dark mode
 
 Luna theme will include light and dark mode by default. In other words, there will be two color schemes, one for light and another for dark mode. This default behavior can be disabled in `SITE` configuration object.
+
+---
+
+- [ ] Enable light & dark mode
+- [ ] Choose primary color scheme
+- [x] Customize color schemes
 
 ```typescript
 // src/config.ts
@@ -106,11 +113,14 @@ To customize your own color scheme, specify your light colors inside `:root, htm
 
 Here is the detail explanation of color properties.
 
-<table border="1" cellpadding="8" cellspacing="0">
+<table>
+<thead>
   <tr>
     <th>Color Property</th>
     <th>Definition & Usage</th>
   </tr>
+</thead>
+<tbody>
   <tr>
     <td>--background</td>
     <td>Primary color of the website. Usually the main background.</td>
@@ -131,6 +141,7 @@ Here is the detail explanation of color properties.
     <td>--border</td>
     <td>Border color. Especially used in horizontal row (hr)</td>
   </tr>
+</tbody>
 </table>
 
 Here is an example of changing the light color scheme.

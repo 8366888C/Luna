@@ -4,96 +4,113 @@
   .markdown {
     /* @apply prose; */
 
+    /* headings */
     h2 {
-      @apply my-3 text-4xl;
+      @apply text-3xl;
     }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    th {
-      @apply text-foreground mb-3;
-    }
-
     h3 {
-      @apply italic;
+      @apply visible;
+    }
+    h4 {
+      @apply visible;
     }
 
-    p,
-    strong,
-    ol,
-    ul,
-    figcaption,
-    table {
-      @apply text-foreground/90 p-0.5 text-lg;
+    /* paragraph */
+    p {
+      @apply opacity-90;
     }
 
+    /* url */
     a {
-      @apply text-accent break-words underline-offset-6 hover:underline;
+      @apply visible;
     }
 
-    ul {
-      @apply overflow-x-clip;
-    }
-
-    li {
-      @apply marker:text-accent;
-    }
-
-    hr {
-      @apply border-foreground;
-    }
-
-    img {
-      @apply border-foreground mx-auto border;
-    }
-
-    figcaption {
-      @apply opacity-75;
-    }
-
-    table {
-      th,
-      td {
-        @apply border-foreground border p-2;
-      }
-
-      th {
-        @apply py-1.5;
-      }
-
-      code {
-        @apply break-all sm:break-normal;
-      }
-    }
-
-    code {
-      @apply bg-accent/75 text-foreground rounded p-1 break-words before:content-none after:content-none;
-    }
-
-    .astro-code {
-      @apply rounded-3xl px-7 py-6;
-    }
-
-    .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit;
-    }
-
+    /* quote */
     blockquote {
-      @apply border-s-accent/80 break-words opacity-80;
+      @apply visible;
     }
 
-    details {
-      @apply text-foreground inline-block cursor-pointer select-none [&_p]:hidden [&_ul]:!my-0;
+    /* image block */
+    figure {
+      @apply visible;
+    }
+    figcaption {
+      @apply visible;
     }
 
-    summary {
-      @apply focus-visible:outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-dashed;
+    /* bold */
+    strong {
+      @apply visible;
     }
 
-    pre {
-      @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
+    /* description */
+    em {
+      @apply opacity-80;
+    }
+
+    /* keyboard */
+    kbd {
+      @apply visible;
+    }
+
+    /* inline code */
+    code {
+      @apply visible;
+    }
+
+    /* lists */
+    ol {
+      @apply visible;
+    }
+    ul {
+      @apply visible;
+    }
+    li {
+      @apply visible;
+    }
+
+    /* dictionary */
+    dl {
+      @apply visible;
+    }
+    dt {
+      @apply visible;
+    }
+    dd {
+      @apply visible;
+    }
+
+    /* table */
+    table {
+      @apply visible;
+    }
+    thead {
+      @apply visible;
+    }
+    tbody {
+      @apply visible;
+    }
+    tr {
+      @apply visible;
+    }
+    th {
+      @apply ring-foreground/30 visible px-3 ring-1;
+    }
+    td {
+      @apply visible;
+    }
+
+    /* media */
+    img {
+      @apply visible;
+    }
+    video {
+      @apply visible;
+    }
+
+    /* line breaker */
+    hr {
+      @apply border-foreground/30 mx-13 my-8;
     }
   }
 }

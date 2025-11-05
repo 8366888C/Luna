@@ -13,7 +13,7 @@ html.light {
 
 html.dark {
   --background: var(--color-gray-800);
-  --foreground: var(--color-gray-100);
+  --foreground: var(--color-gray-200);
   --accent: var(--color-sky-500);
 }
 
@@ -44,13 +44,13 @@ html.dark {
   }
 
   /* utility */
-  h1 {
+  /* h1 {
     @apply my-6 text-4xl;
   }
   h2 {
     @apply my-6 text-3xl;
-  }
-  p {
+  } */
+  /* p {
     @apply opacity-90;
   }
   em {
@@ -58,14 +58,11 @@ html.dark {
   }
   hr {
     @apply border-foreground/30 mx-13 my-8;
-  }
+  } */
 
   button:not(:disabled) {
     cursor: pointer;
   }
-  /* footer {
-    @apply max-w-app mx-auto;
-  } */
 }
 
 /* SCROLLBAR STYLING */

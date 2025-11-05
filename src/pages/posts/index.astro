@@ -14,7 +14,7 @@ const allPosts = await getCollection("blogs");
 >
   <main class={bodyMargin}>
     <div class="flex items-center justify-between">
-      <h1>Posts</h1>
+      <h1 class="mb-6 text-4xl">Posts</h1>
     </div>
     <ul class="space-y-3">
       {
@@ -27,10 +27,11 @@ const allPosts = await getCollection("blogs");
                   .toLocaleString("en-GB", {
                     day: "numeric",
                     month: "short",
-                    year: "numeric",
+                    // year: "numeric",
                   })
                   .slice(0, 11)}
                 url={`/posts/${post.id}`}
+                tags={post.data.tags}
               />
             </li>
           );
