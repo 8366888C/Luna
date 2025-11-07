@@ -4,96 +4,110 @@
   .markdown {
     /* @apply prose; */
 
+    /* headings */
     h2 {
-      @apply my-3 text-4xl;
+      @apply mt-8 mb-3 text-3xl;
     }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    th {
-      @apply text-foreground mb-3;
-    }
-
     h3 {
-      @apply italic;
+      @apply mt-6 mb-2 text-2xl;
     }
 
-    p,
-    strong,
-    ol,
-    ul,
-    figcaption,
-    table {
-      @apply text-foreground/90 p-0.5 text-lg;
+    /* paragraph */
+    p {
+      @apply text-lg opacity-90;
     }
 
+    /* url */
     a {
-      @apply text-accent break-words underline-offset-6 hover:underline;
+      @apply text-accent active:text-foreground selection:text-foreground underline-offset-3 hover:underline hover:underline-offset-6;
     }
 
-    ul {
-      @apply overflow-x-clip;
-    }
-
-    li {
-      @apply marker:text-accent;
-    }
-
-    hr {
-      @apply border-foreground;
-    }
-
-    img {
-      @apply border-foreground mx-auto border;
-    }
-
-    figcaption {
-      @apply opacity-75;
-    }
-
-    table {
-      th,
-      td {
-        @apply border-foreground border p-2;
-      }
-
-      th {
-        @apply py-1.5;
-      }
-
-      code {
-        @apply break-all sm:break-normal;
-      }
-    }
-
-    code {
-      @apply bg-accent/75 text-foreground rounded p-1 break-words before:content-none after:content-none;
-    }
-
-    .astro-code {
-      @apply rounded-3xl px-7 py-6;
-    }
-
-    .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit;
-    }
-
+    /* quote */
     blockquote {
-      @apply border-s-accent/80 break-words opacity-80;
+      @apply bg-foreground/13 my-6 px-3 py-1 text-base opacity-80;
     }
 
-    details {
-      @apply text-foreground inline-block cursor-pointer select-none [&_p]:hidden [&_ul]:!my-0;
+    /* bold */
+    strong {
+      @apply font-bold opacity-85;
     }
 
-    summary {
-      @apply focus-visible:outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-dashed;
+    /* description */
+    em {
+      @apply font-serif text-[1rem] opacity-70;
     }
 
-    pre {
-      @apply focus-visible:outline-accent focus-visible:border-transparent focus-visible:outline-2 focus-visible:outline-dashed;
+    /* keyboard */
+    kbd {
+      @apply rounded-lg px-2 py-0.5 font-mono text-base ring-1;
+    }
+
+    /*  code */
+    .astro-code {
+      @apply my-6 p-6;
+    }
+    .astro-code code {
+      @apply bg-inherit;
+    }
+    code {
+      @apply bg-accent text-background rounded-lg px-2 py-0.5 font-mono text-base opacity-90;
+    }
+
+    /* lists */
+    ol {
+      @apply mx-8 my-1 list-decimal text-lg opacity-90;
+    }
+    ul {
+      @apply mx-8 mb-6 list-disc text-lg opacity-90;
+    }
+    li {
+      @apply px-1 leading-relaxed;
+    }
+
+    /* dictionary */
+    dl {
+      @apply visible;
+    }
+    dt {
+      @apply visible;
+    }
+    dd {
+      @apply visible;
+    }
+
+    /* table */
+    table {
+      @apply mx-auto my-8 opacity-90;
+    }
+    tr {
+      @apply visible;
+    }
+    th {
+      @apply bg-foreground/8 ring-foreground/18 visible px-3 py-0.5 text-center ring-1;
+    }
+    td {
+      @apply ring-foreground/18 px-3 py-1 ring-1;
+    }
+
+    /* image block */
+    figure {
+      @apply my-6 flex flex-col items-center;
+    }
+    figcaption {
+      @apply text-accent visible py-2 text-sm;
+    }
+
+    /* media */
+    img {
+      @apply ring-accent ring-2 select-none;
+    }
+    video {
+      @apply ring-accent my-6 ring-2 select-none;
+    }
+
+    /* line breaker */
+    hr {
+      @apply border-foreground/30 mx-13 my-8;
     }
   }
 }

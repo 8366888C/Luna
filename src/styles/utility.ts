@@ -1,11 +1,17 @@
 // Margins
-export const headerMargin = "mx-3 mt-2";
-export const bodyMargin = "m-6";
-export const footerMargin = "mx-3 mb-2 mt-16";
+// export const headerMargin = "mx-3 mt-2";
+// export const bodyMargin = "mx-6 my-8";
+// export const footerMargin = "mx-3 mb-2 mt-16";
+// export const sectionMargin = "mb-13";
+
+export const headerMargin = "mx-auto mt-2 px-3 max-w-3xl";
+export const bodyMargin = "mx-auto my-8 px-6 max-w-3xl";
+export const footerMargin = "mx-auto mb-2 mt-16 px-3  max-w-3xl";
 export const sectionMargin = "mb-13";
 
 // Base
-export const urlClass = "text-accent hover:underline underline-offset-6";
+export const urlClass =
+  "text-accent hover:underline underline-offset-3 hover:underline-offset-6";
 
 // Header Navigations
 export const navbarClass =
@@ -25,7 +31,8 @@ export const liClass =
   "flex flex-col group rounded-lg gap-2 h-full hover:shadow-sm shadow-xl ring-accent hover:ring-1 ring-0 bg-white/30";
 export const titleClass =
   "self-start ring-1 ring-foreground/30 group-hover:ring-0 group-hover:text-accent px-4 py-2 text-xl rounded-lg group-active:bg-accent group-active:text-background";
-export const subTitleClass = "flex gap-2 items-center group-hover:px-4 px-2";
+export const subTitleClass =
+  "opacity-90 flex gap-2 items-center group-hover:px-4 px-2";
 export const descClass = "px-4 pb-3";
 export const iconClass =
   "stroke-1 size-[0rem] opacity-0 group-hover:size-5 group-hover:opacity-90";
@@ -34,7 +41,7 @@ export const iconClass =
 export const liClass_ =
   "flex flex-col group rounded-lg gap-2 h-full shadow-lg hover:shadow-none hover:bg-accent ring-3 ring-background hover:ring-3 hover:ring-accent active:ring-0";
 export const titleClass_ =
-  "self-start text-foreground group-hover:text-background group-hover:font-bold group-hover:tracking-wide mx-4 mt-2 text-xl rounded-lg";
+  "self-start text-foreground group-hover:-translate-x-3 group-hover:text-background group-hover:font-semibold group-hover:tracking-wide text-xl rounded-lg";
 export const subTitleClass_ =
   "flex items-center gap-1 text-[0rem] group-hover:text-sm ring-foreground mx-1 group-hover:mb-3 px-3 rounded-lg bg-background";
 export const iconClass_ = "size-0 group-hover:size-0 stroke-1";

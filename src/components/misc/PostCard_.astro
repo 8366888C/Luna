@@ -1,25 +1,28 @@
 ---
-import {
-  liClass_,
-  titleClass_,
-  subTitleClass_,
-  iconClass_,
-} from "../../styles/utility";
-import { CalendarIcon } from "../misc/Icons";
+import { liClass_, titleClass_, subTitleClass_ } from "../../styles/utility";
+import { RightArrowIcon, RightIcon } from "../misc/Icons";
 
-const { title, date, url } = Astro.props;
+const { title, date, url, tags } = Astro.props;
 ---
 
 <a href={url} class={liClass_}>
-  <h3 class={titleClass_}>
-    {title}
-  </h3>
-  <div class="flex flex-col gap-1">
-    <div class="mx-3 flex space-x-3">
-      <p class={`${subTitleClass_}`}>
+  <div class="mx-4 mt-2 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <RightIcon className="size-5 stroke-1 group-hover:size-0" />
+      <h3 class={titleClass_}>{title}</h3>
+    </div>
+    <div class="flex">
+      <p class="mt-1 text-sm group-hover:text-[0rem] group-hover:opacity-0">
         {date}
       </p>
-      <p class={subTitleClass_}>Hearts</p>
+      <RightArrowIcon
+        className="stroke-background size-0 stroke-2 group-hover:size-6"
+      />
+    </div>
+  </div>
+  <div class="flex flex-col gap-1">
+    <div class="mx-3 flex space-x-3">
+      {tags.map((tag: string) => <p class={subTitleClass_}>{tag}</p>)}
     </div>
   </div>
 </a>

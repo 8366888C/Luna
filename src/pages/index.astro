@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeaturedPosts from "../components/FeaturedPosts.astro";
-import { RightIcon, RightArrowIcon } from "../components/misc/Icons";
+import { RightArrowIcon } from "../components/misc/Icons";
 import {
   bodyMargin,
   urlClass,
@@ -19,8 +19,8 @@ import {
 >
   <main class={`${bodyMargin}`}>
     <section>
-      <h1>Hey</h1>
-      <div class="space-y-4 text-lg">
+      <h1 class="my-6 text-4xl">Hey</h1>
+      <div class="space-y-4 text-[1.125rem]">
         <p>
           Luna is a static, minimal, responsive and SEO-friendly blog theme on
           Astro. This theme follows best practices and provides accessibility
@@ -34,6 +34,7 @@ import {
         </p>
       </div>
     </section>
+    <hr class="border-foreground/30 mx-13 my-8" />
     <section>
       <FeaturedPosts />
     </section>

@@ -12,9 +12,12 @@ import {
   IconArrowRight,
   IconTagFilled,
   IconBookFilled,
-  IconCalendar,
+  IconCalendarWeek,
   IconSortAscending2,
   IconSortDescending2,
+  IconHeart,
+  IconMessage,
+  IconEye,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -74,7 +77,7 @@ export function BookIcon({ className }: IconProps) {
 }
 
 export function CalendarIcon({ className }: IconProps) {
-  return <IconCalendar className={className} />;
+  return <IconCalendarWeek className={className} />;
 }
 
 export function AscendingIcon({ className }: IconProps) {
@@ -83,4 +86,16 @@ export function AscendingIcon({ className }: IconProps) {
 
 export function DescendingIcon({ className }: IconProps) {
   return <IconSortDescending2 className={className} />;
+}
+
+export function HeartIcon({ className }: IconProps) {
+  return <IconHeart className={className} />;
+}
+
+export function MessageIcon({ className }: IconProps) {
+  return <IconMessage className={className} />;
+}
+
+export function EyeIcon({ className }: IconProps) {
+  return <IconEye className={className} />;
 }
