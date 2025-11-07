@@ -1,7 +1,12 @@
 // Margins
-export const headerMargin = "mx-3 mt-2";
-export const bodyMargin = "m-6";
-export const footerMargin = "mx-3 mb-2 mt-16";
+// export const headerMargin = "mx-3 mt-2";
+// export const bodyMargin = "mx-6 my-8";
+// export const footerMargin = "mx-3 mb-2 mt-16";
+// export const sectionMargin = "mb-13";
+
+export const headerMargin = "mx-auto mt-2 px-3 max-w-3xl";
+export const bodyMargin = "mx-auto my-8 px-6 max-w-3xl";
+export const footerMargin = "mx-auto mb-2 mt-16 px-3  max-w-3xl";
 export const sectionMargin = "mb-13";
 
 // Base

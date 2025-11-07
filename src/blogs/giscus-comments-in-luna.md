@@ -38,6 +38,8 @@ Next, configuring Giscus is necessary. In most cases, the preselected defaults a
 
 To copy text, press <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
+---
+
 However you need to
 
 - select the right language for the UI
