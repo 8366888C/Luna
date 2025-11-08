@@ -1,14 +1,12 @@
 ---
-const { type, class: className = "" } = Astro.props;
-const transitionName = type === "post" ? "post-content" : "page-content";
+
 ---
 
-<div transition:name={transitionName} class={className} id="transition-wrapper">
+<div transition:name="page-content">
   <slot />
 </div>
 
 <script is:inline>
-  // Cleanup hover states after Astro page load and on touch events
   function cleanupHover() {
     const hoveredLinks = document.querySelectorAll("ul a:hover");
     hoveredLinks.forEach((link) => {
@@ -20,7 +18,6 @@ const transitionName = type === "post" ? "post-content" : "page-content";
     setTimeout(cleanupHover, 50);
   });
 
-  // Add touch event listener for touch devices
   document.addEventListener("touchstart", cleanupHover, { passive: true });
 </script>
 

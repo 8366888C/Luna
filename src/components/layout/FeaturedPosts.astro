@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import FeaturedCard from "./misc/FeaturedCard.astro";
-import { RightArrowIcon } from "./misc/Icons";
-import PostCard from "./misc/PostCard.astro";
+import { RightArrowIcon } from "../utils/Icons";
+import PostCard from "../ui/PostCard.astro";
 const posts = await getCollection("blogs");
 ---
 

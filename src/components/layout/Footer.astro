@@ -5,29 +5,24 @@ import {
   RssIcon,
   YoutubeIcon,
   DiscordIcon,
-} from "../components/misc/Icons";
-import {
-  footerIconClass,
-  footerMargin,
-  socialMediaClass,
-} from "../styles/utility";
+} from "../utils/Icons";
 ---
 
-<footer class={`${footerMargin}`}>
-  <div class={`${socialMediaClass}`}>
+<footer class="footer-margin">
+  <div class="mt-8 mb-8 flex items-center justify-center space-x-6">
     <a href="https://github.com/8366888C" target="blank"
-      ><GithubIcon className={footerIconClass} /></a
+      ><GithubIcon className="socials" /></a
     >
     <a href="https://youtube.com/@iron-lobby" target="blank"
-      ><YoutubeIcon className={footerIconClass} /></a
+      ><YoutubeIcon className="socials" /></a
     >
     <a href="https://in.linkedin.com" target="blank"
-      ><LinkedinIcon className={footerIconClass} /></a
+      ><LinkedinIcon className="socials" /></a
     >
     <a href="https://discord.com" target="blank"
-      ><DiscordIcon className={footerIconClass} /></a
+      ><DiscordIcon className="socials" /></a
     >
-    <a href="/rss.xml"><RssIcon className={footerIconClass} /></a>
+    <a href="/rss.xml"><RssIcon className="socials" /></a>
   </div>
   <div class="text-foreground/50 flex items-center justify-between text-sm">
     <p>© 2025 Rahul</p>

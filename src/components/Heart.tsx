@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeartIcon } from "./Icons";
+import { HeartIcon } from "./utils/Icons";
 
 export default function Heart() {
   const [count, setCount] = useState(100);

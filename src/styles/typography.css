@@ -8,6 +8,9 @@
   .body-margin {
     @apply mx-auto my-8 max-w-3xl px-6;
   }
+  .footer-margin {
+    @apply mx-auto mt-16 mb-2 max-w-3xl px-3;
+  }
 }
 
 /* CUSTOM CLASSES */
@@ -64,9 +67,9 @@
     @apply bg-accent text-background ring-accent translate-x-27 -translate-y-[2.05rem] rounded-lg px-3 py-1 tracking-wide ring-1 active:ring-0 sm:-translate-y-[2.05rem] md:-translate-y-[2.08rem];
   }
 
-  /* footer */
-  .footer {
-    @apply text-sm;
+  /* socials */
+  .socials {
+    @apply hover:stroke-accent size-8 stroke-1 active:size-6;
   }
 
   /* divider */
