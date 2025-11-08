@@ -1,28 +1,40 @@
 ---
-import {
-  liClass,
-  titleClass,
-  subTitleClass,
-  descClass,
-  iconClass,
-} from "../../styles/utility";
-import { CalendarIcon } from "../misc/Icons";
+import { RightArrowIcon, RightIcon } from "../misc/Icons";
 
-const { title, date, description, url } = Astro.props;
+const { title, date, url, tags } = Astro.props;
 ---
 
-<a href={url} class={liClass}>
-  <h3 class={titleClass}>
-    {title}
-  </h3>
-  <div class="flex flex-col gap-1">
-    <div class="flex gap-1">
-      <p class={`${subTitleClass}`}>
-        <CalendarIcon className={iconClass} />
+<a
+  href={url}
+  class="hover:bg-accent ring-background hover:ring-accent group flex h-full flex-col gap-2 rounded-lg shadow-lg ring-3 hover:shadow-none hover:ring-3 active:ring-0"
+>
+  <div class="mx-4 mt-2 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <RightIcon className="size-5 stroke-1 group-hover:size-0" />
+      <h3
+        class="text-foreground group-hover:text-background self-start rounded-lg text-xl group-hover:-translate-x-3 group-hover:font-semibold group-hover:tracking-wide"
+      >
+        {title}
+      </h3>
+    </div>
+    <div class="flex">
+      <p class="mt-1 text-sm group-hover:text-[0rem] group-hover:opacity-0">
         {date}
       </p>
-      <p class="opacity-0 group-hover:opacity-90">Hearts</p>
+      <RightArrowIcon
+        className="stroke-background size-0 stroke-2 group-hover:size-6"
+      />
     </div>
-    <em class={descClass}>{description}</em>
+  </div>
+  <div class="flex flex-col gap-1">
+    <div class="mx-3 flex space-x-3">
+      {
+        tags.map((tag: string) => (
+          <p class="ring-foreground bg-background mx-1 flex items-center gap-1 rounded-lg px-3 text-[0rem] group-hover:mb-3 group-hover:text-sm">
+            {tag}
+          </p>
+        ))
+      }
+    </div>
   </div>
 </a>

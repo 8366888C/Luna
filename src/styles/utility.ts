@@ -37,15 +37,6 @@ export const descClass = "px-4 pb-3";
 export const iconClass =
   "stroke-1 size-[0rem] opacity-0 group-hover:size-5 group-hover:opacity-90";
 
-// Posts
-export const liClass_ =
-  "flex flex-col group rounded-lg gap-2 h-full shadow-lg hover:shadow-none hover:bg-accent ring-3 ring-background hover:ring-3 hover:ring-accent active:ring-0";
-export const titleClass_ =
-  "self-start text-foreground group-hover:-translate-x-3 group-hover:text-background group-hover:font-semibold group-hover:tracking-wide text-xl rounded-lg";
-export const subTitleClass_ =
-  "flex items-center gap-1 text-[0rem] group-hover:text-sm ring-foreground mx-1 group-hover:mb-3 px-3 rounded-lg bg-background";
-export const iconClass_ = "size-0 group-hover:size-0 stroke-1";
-
 // Footer
 export const footerIconClass =
   "size-8 stroke-1 hover:stroke-accent active:size-6";

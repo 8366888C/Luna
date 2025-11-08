@@ -1,0 +1,70 @@
+---
+const { type, class: className = "" } = Astro.props;
+const transitionName = type === "post" ? "post-content" : "page-content";
+---
+
+<div transition:name={transitionName} class={className} id="transition-wrapper">
+  <slot />
+</div>
+
+<script is:inline>
+  // Cleanup hover states after Astro page load and on touch events
+  function cleanupHover() {
+    const hoveredLinks = document.querySelectorAll("ul a:hover");
+    hoveredLinks.forEach((link) => {
+      link.style.opacity = "";
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    setTimeout(cleanupHover, 50);
+  });
+
+  // Add touch event listener for touch devices
+  document.addEventListener("touchstart", cleanupHover, { passive: true });
+</script>
+
+<style is:inline>
+  @supports (view-transition-name: none) {
+    @media not (prefers-reduced-motion: reduce) {
+      ::view-transition-old(post-content),
+      ::view-transition-old(page-content) {
+        animation: fade-out 0.2s cubic-bezier(0.2, 0, 0.1, 1) forwards;
+      }
+
+      ::view-transition-new(post-content),
+      ::view-transition-new(page-content) {
+        opacity: 0;
+        animation: fade-in 0.2s ease 0.1s forwards;
+        will-change: filter, opacity, transform;
+      }
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateZ(0);
+    }
+    30% {
+      opacity: 0.5;
+      filter: blur(4px);
+      transform: translateZ(0);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateZ(0);
+    }
+  }
+</style>
