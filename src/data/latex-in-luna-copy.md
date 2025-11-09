@@ -1,20 +1,23 @@
 ---
-slug: "luna-blog-pipeline"
-title: "Workflow process for Luna blog posts"
-description: "Mardown blogs to automatic publish on Luna."
+slug: "latex-in-luna-copy"
+title: "How to add LaTeX equations in Luna"
+description: "How to use LaTeX equations in your Markdown files for Luna."
 date: 2022-03-22
 author: "Rahul"
 image:
-  url: "https://cdn.pixabay.com/photo/2024/11/03/17/49/mountain-9172053_1280.jpg"
-  alt: "Mountain landscape with hiking trail"
-tags: ["luna", "blog", "github", "markdown"]
+  url: "https://cdn.pixabay.com/photo/2025/05/14/10/09/bridge-9599215_1280.jpg"
+  alt: "Still lake reflecting a bridge, trees, and clouds during sunset"
+tags: ["luna", "customize", "latex", "markdown"]
 
-featured: true
+featured: false
 ---
 
 _This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._
 
-<img src="https://images.pexels.com/photos/22690748/pexels-photo-22690748/free-photo-of-close-up-of-complicated-equations-written-on-a-blackboard.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300">
+<figure>
+  <img src="https://images.pexels.com/photos/22690748/pexels-photo-22690748/free-photo-of-close-up-of-complicated-equations-written-on-a-blackboard.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="KaTeX Logo" >
+  <figcaption>KaTeX - Fast math typesetting for the web</figcaption>
+</figure>
 
 ## Instructions
 

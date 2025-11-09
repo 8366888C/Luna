@@ -1,5 +1,5 @@
 ---
-slug: "giscus-comments-in-luna"
+slug: "giscus-comments-in-luna-copy"
 title: "How to integrate Giscus comments into Luna"
 description: "Comment function on a static blog hosted on Github Pages with Giscus"
 date: 2022-03-20
@@ -9,7 +9,7 @@ image:
   alt: "Still waters reflecting clouds and distant mountains during sunset"
 tags: ["luna", "customize", "comments", "giscus"]
 
-featured: true
+featured: false
 ---
 
 _Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites._

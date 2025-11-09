@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SunIcon, MoonIcon } from "../utils/Icons";
+import { SunIcon, MoonIcon } from "../util/Icons";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");

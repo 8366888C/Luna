@@ -1,12 +1,12 @@
 ---
-import { RightArrowIcon, RightIcon } from "../utils/Icons";
+import { RightArrowIcon, RightIcon } from "../util/Icons";
 
 const { title, date, url, tags } = Astro.props;
 ---
 
 <a
   href={url}
-  class="hover:bg-accent ring-background hover:ring-accent group flex h-full flex-col gap-2 rounded-lg shadow-lg ring-3 hover:shadow-none hover:ring-3 active:ring-0"
+  class="hover:bg-accent ring-background hover:ring-accent group flex h-full flex-col gap-2 rounded-lg shadow-lg ring-3 select-none hover:shadow-none hover:ring-3 active:ring-0"
 >
   <div class="mx-4 mt-2 flex items-center justify-between gap-6">
     <div class="flex items-center gap-3">

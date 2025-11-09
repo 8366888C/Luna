@@ -1,13 +1,15 @@
 ---
 slug: "latex-in-luna"
 title: "How to add LaTeX equations in Luna"
-pubDate: 2022-03-22
 description: "How to use LaTeX equations in your Markdown files for Luna."
+date: 2022-03-22
 author: "Rahul"
 image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
+  url: "https://cdn.pixabay.com/photo/2025/05/14/10/09/bridge-9599215_1280.jpg"
+  alt: "Still lake reflecting a bridge, trees, and clouds during sunset"
 tags: ["luna", "customize", "latex", "markdown"]
+
+featured: true
 ---
 
 _This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._

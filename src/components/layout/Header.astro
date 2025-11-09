@@ -2,33 +2,21 @@
 import ThemeToggle from "../ui/ThemeToggle";
 import Navigation from "../ui/Navigation.astro";
 import NavigationMenu from "../ui/NavigationMenu";
-import { SearchIcon } from "../utils/Icons";
+import { SearchIcon } from "../util/Icons";
 ---
 
-<header>
-  <div class="header-margin flex items-center justify-between">
-    <a
-      href="/"
-      class="hover:text-accent-light dark:hover:text-accent-dark text-xl tracking-wider"
-      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
-        >L</span
-      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
-        >u</span
-      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
-        >n</span
-      ><span class="hover:text-secondary-light dark:hover:text-secondary-dark"
-        >a</span
-      ></a
-    >
-    <div class="flex items-center justify-center gap-8">
-      <Navigation />
-      <div class="flex items-center justify-center gap-4">
-        <ThemeToggle client:load />
-        <button>
-          <SearchIcon className="active:fill-foreground size-5" />
-        </button>
-        <NavigationMenu client:load />
-      </div>
+<header
+  class="header-margin bg-background sticky top-0 z-0 flex items-center justify-between"
+>
+  <a href="/" class="text-xl tracking-wider">Luna</a>
+  <div class="flex items-center justify-center gap-8">
+    <Navigation />
+    <div class="flex items-center justify-center gap-4">
+      <ThemeToggle client:load />
+      <button>
+        <SearchIcon className="active:fill-foreground size-5" />
+      </button>
+      <NavigationMenu client:load />
     </div>
   </div>
 </header>

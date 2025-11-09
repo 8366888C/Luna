@@ -1,5 +1,5 @@
 ---
-slug: "luna-blog-pipeline"
+slug: "luna-blog-pipeline-copy"
 title: "Workflow process for Luna blog posts"
 description: "Mardown blogs to automatic publish on Luna."
 date: 2022-03-22
@@ -9,7 +9,7 @@ image:
   alt: "Mountain landscape with hiking trail"
 tags: ["luna", "blog", "github", "markdown"]
 
-featured: true
+featured: false
 ---
 
 _This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._

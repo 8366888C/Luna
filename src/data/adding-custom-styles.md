@@ -1,13 +1,15 @@
 ---
-slug: "adding-custom-styles"
+slug: "adding-custom-styles-copy"
 title: "How to add custom tailwind classes in Luna"
-pubDate: 2022-04-13
 description: "How to add custom Tailwind CSS classes and LaTeX support in Markdown files for Luna."
+date: 2022-04-13
 author: "Rahul"
 image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
+  url: "https://cdn.pixabay.com/photo/2022/06/21/21/56/konigssee-7276585_1280.jpg"
+  alt: "Mountain landscape"
 tags: ["luna", "customize", "tailwind", "markdown"]
+
+featured: false
 ---
 
 _This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._
