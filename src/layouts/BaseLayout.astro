@@ -1,9 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Seo from "../components/misc/Seo.astro";
+import Seo from "../components/utils/Seo.astro";
+import Header from "../components/layout/Header.astro";
+import PageTransitions from "../components/utils/PageTransitions.astro";
+import Footer from "../components/layout/Footer.astro";
 const { title, description, image, url } = Astro.props;
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -14,11 +16,14 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <Seo {title} {description} {image} {url} />
+    <ViewTransitions />
   </head>
   <body>
-    <Header />
-    <slot />
-    <Footer />
+    <PageTransitions>
+      <Header />
+      <slot />
+      <Footer />
+    </PageTransitions>
   </body>
 </html>
 

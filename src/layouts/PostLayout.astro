@@ -1,8 +1,8 @@
 ---
-import ProgressBar from "../components/misc/ProgressBar";
+import ProgressBar from "../components/ui/ProgressBar";
 import { bodyMargin } from "../styles/utility";
 import BaseLayout from "./BaseLayout.astro";
-import Title from "../components/misc/Title.astro";
+import BlogHeader from "../components/layout/BlogHeader.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -17,7 +17,7 @@ const { frontmatter } = Astro.props;
 >
   <main class={`${bodyMargin}`}>
     <article>
-      <Title frontmatter={frontmatter} />
+      <BlogHeader frontmatter={frontmatter} />
       <div class="markdown">
         <slot />
       </div>

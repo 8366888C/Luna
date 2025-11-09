@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import PostCard_ from "../../components/misc/PostCard_.astro";
+import PostCard from "../../components/ui/PostCard.astro";
 import { bodyMargin } from "../../styles/utility";
 const allPosts = await getCollection("blogs");
 ---
@@ -13,13 +13,13 @@ const allPosts = await getCollection("blogs");
   url="https://lunakit.netlify.app/posts"
 >
   <main class={bodyMargin}>
-    <h1 class="mb-6 text-4xl">Posts</h1>
+    <h1 class="heading">Posts</h1>
     <ul class="space-y-3">
       {
         allPosts.map((post: any) => {
           return (
             <li>
-              <PostCard_
+              <PostCard
                 title={post.data.title}
                 date={post.data.pubDate
                   .toLocaleString("en-GB", {

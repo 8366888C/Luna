@@ -1,14 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FeaturedPosts from "../components/FeaturedPosts.astro";
-import { RightArrowIcon } from "../components/misc/Icons";
-import {
-  bodyMargin,
-  urlClass,
-  routeBarClass,
-  routeIconClass,
-  routeTextClass,
-} from "../styles/utility";
+import FeaturedPosts from "../components/layout/FeaturedPosts.astro";
+import Newsletter from "../components/layout/Newsletter.astro";
 ---
 
 <BaseLayout
@@ -17,10 +10,10 @@ import {
   image="./favicon.png"
   url="https://lunakit.netlify.app"
 >
-  <main class={`${bodyMargin}`}>
+  <main class="body-margin">
     <section>
-      <h1 class="my-6 text-4xl">Hey</h1>
-      <div class="space-y-4 text-[1.125rem]">
+      <h1 class="heading">Hey</h1>
+      <div class="paragraph">
         <p>
           Luna is a static, minimal, responsive and SEO-friendly blog theme on
           Astro. This theme follows best practices and provides accessibility
@@ -28,21 +21,19 @@ import {
           Moreover, additional color schemes can also be configured.
         </p>
         <p>
-          Read the featured blog posts or check <a href="" class={`${urlClass}`}
+          Read the featured blog posts or check <a href="" class="link"
             >README</a
           > for more info.
         </p>
       </div>
     </section>
-    <hr class="border-foreground/30 mx-13 my-8" />
+    <hr />
     <section>
       <FeaturedPosts />
     </section>
-    <div class="flex items-center justify-center">
-      <a href="/posts" class={`${routeBarClass}`}>
-        <span class={routeTextClass}>All Posts</span>
-        <RightArrowIcon className={routeIconClass} />
-      </a>
-    </div>
+    <hr />
+    <section>
+      <Newsletter />
+    </section>
   </main>
 </BaseLayout>

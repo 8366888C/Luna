@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PostCard_ from "../../components/misc/PostCard_.astro";
+import PostCard from "../../components/ui/PostCard.astro";
 import { getCollection } from "astro:content";
 import { bodyMargin } from "../../styles/utility";
 
@@ -37,7 +37,7 @@ const { posts } = Astro.props;
         posts.map((post: any) => {
           return (
             <li>
-              <PostCard_
+              <PostCard
                 title={post.data.title}
                 date={post.data.pubDate
                   .toLocaleString("en-GB", {

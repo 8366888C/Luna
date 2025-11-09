@@ -1,18 +1,12 @@
 ---
-import Heart from "./Heart";
-import {
-  CalendarIcon,
-  HeartIcon,
-  MessageIcon,
-  EyeIcon,
-  TagIcon,
-} from "./Icons";
+import Heart from "../Heart";
+import { CalendarIcon, TagIcon } from "../utils/Icons";
 
 const { frontmatter } = Astro.props;
 ---
 
 <div>
-  <h1 class="bg-background mb-3 text-4xl">
+  <h1 class="title">
     {frontmatter.title}
   </h1>
   <div class="mb-3">

@@ -8,7 +8,7 @@
 html.light {
   --background: var(--color-gray-100);
   --foreground: var(--color-gray-800);
-  --accent: var(--color-red-400);
+  --accent: var(--color-red-500);
 }
 
 html.dark {
@@ -34,7 +34,7 @@ html.dark {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent selection:text-background relative min-h-svh;
+    @apply bg-background text-foreground selection:bg-accent selection:text-background relative min-h-svh antialiased;
     --z-old: 1;
     --z-new: 2;
   }
@@ -42,23 +42,6 @@ html.dark {
     --z-old: 2;
     --z-new: 1;
   }
-
-  /* utility */
-  /* h1 {
-    @apply my-6 text-4xl;
-  }
-  h2 {
-    @apply my-6 text-3xl;
-  } */
-  /* p {
-    @apply opacity-90;
-  }
-  em {
-    @apply opacity-80;
-  }
-  hr {
-    @apply border-foreground/30 mx-13 my-8;
-  } */
 
   button:not(:disabled) {
     cursor: pointer;
@@ -68,7 +51,7 @@ html.dark {
 /* SCROLLBAR STYLING */
 @layer base {
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {

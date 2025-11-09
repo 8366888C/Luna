@@ -15,9 +15,9 @@ _Hosting a thin static blog on a platform like [Github Pages](https://docs.githu
 ## How Giscus works
 
 [Giscus uses the Github API](https://github.com/giscus/giscus?tab=readme-ov-file#how-it-works) to read and store comments made by Github users in the Discussions associated with a repository.
-
+<br><br>
 Embed the Giscus client-side script bundle on your site, configure it with the correct repository URL, and users can view and write comments (when logged into Github).
-
+<br><br>
 The approach is serverless, as the comments are stored on Github and dynamically loaded from there on client side, hence perfect for a static blog, like Luna.
 
 ## Setting up Giscus

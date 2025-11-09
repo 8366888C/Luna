@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { QuoteIcon } from "./Icons";
+import { QuoteIcon } from "../utils/Icons";
 import { navbarClass, navTextClass } from "../../styles/utility";
 
 export default function NavigationMenu() {
