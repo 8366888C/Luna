@@ -43,7 +43,10 @@ const { frontmatter } = Astro.props;
     <div class="space-x-1">
       {
         frontmatter.tags.map((tag: string) => (
-          <a href={`/tags/${tag}`} class="hover:text-accent text-sm opacity-90">
+          <a
+            href={`/tags/${tag}/1`}
+            class="hover:text-accent text-sm opacity-90"
+          >
             {tag}
           </a>
         ))

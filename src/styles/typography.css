@@ -17,7 +17,7 @@
 @layer base {
   /* navbar */
   .navigation {
-    @apply hover:text-accent flex items-center justify-center gap-1 rounded-lg py-1 text-base tracking-wider ring-0 sm:text-base;
+    @apply hover:text-accent active:text-foreground flex items-center justify-center gap-1 rounded-lg py-1 text-base tracking-wider ring-0 select-none;
   }
 
   /* heading */

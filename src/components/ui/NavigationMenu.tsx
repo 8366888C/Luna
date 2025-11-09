@@ -27,7 +27,7 @@ export default function NavigationMenu() {
     <nav
       onClick={() => setIsOpen(!isOpen)}
       ref={menuRef}
-      className="relative cursor-pointer sm:hidden"
+      className="relative hidden cursor-pointer"
     >
       {isOpen ? (
         <QuoteIcon className="fill-foreground size-5" />

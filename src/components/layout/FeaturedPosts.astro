@@ -20,7 +20,7 @@ const featuredPosts = posts.filter((post) => post.data.featured === true);
                 month: "short",
               })
               .slice(0, 11)}
-            url={`/posts/${post.id}`}
+            url={`/blog/${post.id}`}
             tags={post.data.tags}
           />
         </li>
@@ -29,7 +29,7 @@ const featuredPosts = posts.filter((post) => post.data.featured === true);
   }
 </ul>
 <div class="flex items-center justify-center">
-  <a href="/posts/1" class="button group">
+  <a href="/blog/1" class="button group">
     <span class="button-text">All Posts</span>
     <RightArrowIcon className="button-icon" />
   </a>
