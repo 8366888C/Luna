@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { QuoteIcon } from "../utils/Icons";
-import { navbarClass, navTextClass } from "../../styles/utility";
+import { QuoteIcon } from "../util/Icons";
 
 export default function NavigationMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +27,7 @@ export default function NavigationMenu() {
     <nav
       onClick={() => setIsOpen(!isOpen)}
       ref={menuRef}
-      className="relative cursor-pointer sm:hidden"
+      className="relative hidden cursor-pointer"
     >
       {isOpen ? (
         <QuoteIcon className="fill-foreground size-5" />
@@ -41,14 +40,14 @@ export default function NavigationMenu() {
           onTransitionEnd={() => {
             if (!isOpen) setIsVisible(false);
           }}
-          className={`bg-background absolute right-3 z-3 mt-3 w-23 rounded-2xl drop-shadow-2xl ${isOpen ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}`}
+          className={`bg-background fixed right-3 z-30 mt-3 w-23 rounded-2xl drop-shadow-2xl ${isOpen ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}`}
         >
           <div className="my-4 space-y-2">
-            <a href="/posts" className={`${navbarClass}`}>
-              <span className={`${navTextClass}`}>Posts</span>
+            <a href="/posts" className="navigation">
+              Posts
             </a>
-            <a href="/tags" className={`${navbarClass}`}>
-              <span className={`${navTextClass}`}>Tags</span>
+            <a href="/tags" className="navigation">
+              Tags
             </a>
           </div>
         </div>

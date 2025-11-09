@@ -1,6 +1,5 @@
 ---
 import ProgressBar from "../components/ui/ProgressBar";
-import { bodyMargin } from "../styles/utility";
 import BaseLayout from "./BaseLayout.astro";
 import BlogHeader from "../components/layout/BlogHeader.astro";
 
@@ -15,7 +14,7 @@ const { frontmatter } = Astro.props;
   image={frontmatter.image.url}
   url={`https://lunakit.netlify.app/posts/${frontmatter.title}`}
 >
-  <main class={`${bodyMargin}`}>
+  <main class="body-margin">
     <article>
       <BlogHeader frontmatter={frontmatter} />
       <div class="markdown">

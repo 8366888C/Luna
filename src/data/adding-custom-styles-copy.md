@@ -1,13 +1,13 @@
 ---
-slug: "luna-blog-pipeline"
-title: "Workflow process for Luna blog posts"
-description: "Mardown blogs to automatic publish on Luna."
-date: 2022-03-22
+slug: "adding-custom-styles"
+title: "How to add custom tailwind classes in Luna"
+description: "How to add custom Tailwind CSS classes and LaTeX support in Markdown files for Luna."
+date: 2022-04-13
 author: "Rahul"
 image:
-  url: "https://cdn.pixabay.com/photo/2024/11/03/17/49/mountain-9172053_1280.jpg"
-  alt: "Mountain landscape with hiking trail"
-tags: ["luna", "blog", "github", "markdown"]
+  url: "https://cdn.pixabay.com/photo/2022/06/21/21/56/konigssee-7276585_1280.jpg"
+  alt: "Mountain landscape"
+tags: ["luna", "customize", "tailwind", "markdown"]
 
 featured: true
 ---

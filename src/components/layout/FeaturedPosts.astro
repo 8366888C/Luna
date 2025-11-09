@@ -1,25 +1,26 @@
 ---
 import { getCollection } from "astro:content";
-import { RightArrowIcon } from "../utils/Icons";
+import { RightArrowIcon } from "../util/Icons";
 import PostCard from "../ui/PostCard.astro";
 const posts = await getCollection("blogs");
+const featuredPosts = posts.filter((post) => post.data.featured === true);
 ---
 
 <h2 class="section-heading">F E A T U R E D</h2>
 <ul class="column">
   {
-    posts.map((post: any) => {
+    featuredPosts.map((post: any) => {
       return (
         <li>
           <PostCard
             title={post.data.title}
-            date={post.data.pubDate
+            date={post.data.date
               .toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "short",
               })
               .slice(0, 11)}
-            url={`/posts/${post.id}`}
+            url={`/blog/${post.id}`}
             tags={post.data.tags}
           />
         </li>
@@ -28,7 +29,7 @@ const posts = await getCollection("blogs");
   }
 </ul>
 <div class="flex items-center justify-center">
-  <a href="/posts" class="button group">
+  <a href="/blog/1" class="button group">
     <span class="button-text">All Posts</span>
     <RightArrowIcon className="button-icon" />
   </a>

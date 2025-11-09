@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/ui/PostCard.astro";
+import { getCollection } from "astro:content";
+import Pagination from "../../../components/ui/Pagination.astro";
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const allPosts = await getCollection("blogs");
+  const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+
+  return tags.flatMap((tag) => {
+    const filteredPosts = allPosts.filter((post: any) =>
+      post.data.tags.includes(tag),
+    );
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: 8,
+    });
+  });
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<BaseLayout
+  title={tag}
+  description={`Posts tagged with ${tag}`}
+  image="./favicon.png"
+  url={`https://lunakit.netlify.app/tags/${tag}`}
+>
+  <main class="body-margin">
+    <h1 class="my-6 text-4xl">{tag}</h1>
+    <ul class="space-y-3">
+      {
+        page.data.map((post: any) => {
+          return (
+            <li>
+              <PostCard
+                title={post.data.title}
+                date={post.data.date
+                  .toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                  })
+                  .slice(0, 11)}
+                url={`/blog/${post.id}`}
+                tags={post.data.tags}
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+    <Pagination page={page} />
+  </main>
+</BaseLayout>

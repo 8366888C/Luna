@@ -12,9 +12,9 @@ html.light {
 }
 
 html.dark {
-  --background: var(--color-gray-800);
-  --foreground: var(--color-gray-200);
-  --accent: var(--color-sky-500);
+  --background: var(--color-zinc-800);
+  --foreground: var(--color-zinc-300);
+  --accent: var(--color-yellow-500);
 }
 
 /* INIT COLORS */

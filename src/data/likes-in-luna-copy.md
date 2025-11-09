@@ -1,15 +1,15 @@
 ---
-slug: "luna-blog-pipeline"
-title: "Workflow process for Luna blog posts"
-description: "Mardown blogs to automatic publish on Luna."
+slug: "likes-in-luna-copy"
+title: "Adding Anonymous Likes in Luna"
+description: "How to add a custom anonymous Likes feature in Luna."
 date: 2022-03-22
 author: "Rahul"
 image:
-  url: "https://cdn.pixabay.com/photo/2024/11/03/17/49/mountain-9172053_1280.jpg"
-  alt: "Mountain landscape with hiking trail"
-tags: ["luna", "blog", "github", "markdown"]
+  url: "https://cdn.pixabay.com/photo/2023/07/01/18/21/water-8100724_1280.jpg"
+  alt: "Shoreline of a lake with mountains in the background"
+tags: ["luna", "customize", "likes", "markdown"]
 
-featured: true
+featured: false
 ---
 
 _This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._

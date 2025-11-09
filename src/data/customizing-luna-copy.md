@@ -1,5 +1,5 @@
 ---
-slug: "customizing-luna"
+slug: "customizing-luna-copy"
 title: "Customizing Luna color schemes"
 description: "How you can enable/disable light & dark mode; and customize color schemes of Luna."
 date: 2022-07-01
@@ -9,7 +9,7 @@ image:
   alt: "Mountains and lake landscape"
 tags: ["luna", "customize", "color-scheme"]
 
-featured: true
+featured: false
 ---
 
 _This post will explain how you can enable/disable light and dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website._
