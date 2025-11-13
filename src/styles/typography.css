@@ -3,13 +3,19 @@
 /* MARGINS */
 @layer base {
   .header-margin {
-    @apply mx-auto max-w-3xl px-3 py-2;
+    @apply px-3 py-2;
   }
   .body-margin {
-    @apply mx-auto max-w-3xl px-6 py-3;
+    @apply mx-auto max-w-4xl;
+  }
+  .main-margin {
+    @apply px-6 py-3;
+  }
+  .center {
+    @apply mx-auto max-w-3xl pb-13;
   }
   .footer-margin {
-    @apply mx-auto max-w-3xl px-3 pt-16 pb-2;
+    @apply px-3 pt-16 pb-2;
   }
 }
 
@@ -17,18 +23,26 @@
 @layer base {
   /* navbar */
   .navigation {
-    @apply hover:text-accent active:text-foreground flex items-center justify-center gap-1 rounded-lg py-1 text-base tracking-wider ring-0 select-none;
+    @apply hover:text-accent active:text-foreground text-base tracking-wider select-none;
+  }
+
+  /* button */
+  .button {
+    @apply text-accent ring-accent hover:bg-accent hover:text-background rounded-lg px-3 pt-1 pb-1.5 tracking-wide ring-1 hover:font-semibold active:ring-0;
   }
 
   /* heading */
   .heading {
     @apply py-6 text-5xl font-semibold select-none;
   }
+  .sub-heading {
+    @apply py-6 text-5xl;
+  }
   .section-heading {
-    @apply py-8 text-center text-2xl font-light tracking-widest select-none;
+    @apply pb-6 text-center text-2xl font-light tracking-widest select-none;
   }
   .blog-title {
-    @apply py-3 pt-6 text-5xl font-semibold;
+    @apply py-3 pt-6 text-5xl font-semibold select-none;
   }
 
   /* common */
@@ -38,24 +52,11 @@
   .link {
     @apply text-accent active:text-foreground selection:text-foreground decoration-dashed underline-offset-3 transition-all duration-100 ease-in-out hover:underline hover:underline-offset-6;
   }
-
-  /* button */
-  .button {
-    @apply ring-accent hover:bg-accent flex items-center gap-1 rounded-lg px-1.5 py-1 ring-1 hover:px-3 active:ring-0;
+  .image {
+    @apply h-auto w-full object-cover;
   }
-  .button-text {
-    @apply text-accent group-hover:text-background translate-x-1.5 opacity-100 transition-all duration-100 ease-in-out group-hover:translate-x-0.5;
-  }
-  .button-icon {
-    @apply stroke-background size-2 -translate-x-1.5 stroke-1 opacity-0 group-hover:size-6 group-hover:translate-x-0.5 group-hover:opacity-100;
-  }
-
-  /* lists */
-  .column {
-    @apply grid gap-3 rounded-xl py-8 sm:grid-cols-2;
-  }
-  .row {
-    @apply visible;
+  .index {
+    @apply selection:text-foreground text-foreground hover:text-accent active:text-foreground decoration-dashed underline-offset-3 transition-all duration-100 ease-in-out hover:underline hover:underline-offset-6;
   }
 
   /* socials */
@@ -65,7 +66,7 @@
 
   /* divider */
   hr {
-    @apply border-foreground/30 mx-13 mt-13 mb-13;
+    @apply border-foreground/30 m-13;
   }
 }
 
@@ -76,10 +77,13 @@
 
     /* headings */
     h2 {
-      @apply mt-8 mb-3 text-3xl;
+      @apply pt-8 pb-3 text-3xl;
     }
     h3 {
-      @apply mt-6 mb-2 text-2xl;
+      @apply pt-6 pb-2 text-2xl;
+    }
+    h4 {
+      @apply pt-6 pb-2 text-xl;
     }
 
     /* paragraph */
@@ -99,7 +103,7 @@
 
     /* bold */
     strong {
-      @apply font-bold opacity-85;
+      @apply font-bold opacity-90 dark:opacity-100;
     }
 
     /* description */

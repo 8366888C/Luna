@@ -1,0 +1,21 @@
+---
+const { years } = Astro.props;
+---
+
+<div class="space-x-3 pt-3">
+  {
+    years.map((year: string) => (
+      <a
+        href={`/archive/${year}/1`}
+        class:list={[
+          "button",
+          Astro.url.pathname.startsWith(`/archive/${year}`)
+            ? "text-background bg-accent font-semibold"
+            : "",
+        ]}
+      >
+        {year}
+      </a>
+    ))
+  }
+</div>

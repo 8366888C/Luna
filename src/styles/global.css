@@ -34,7 +34,7 @@ html.dark {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent selection:text-background relative min-h-svh antialiased;
+    @apply bg-background text-foreground selection:bg-accent selection:text-background antialiased;
     --z-old: 1;
     --z-new: 2;
   }

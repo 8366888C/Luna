@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { BlogType } from "../../content/content.config";
 
-const allPosts = await getCollection("blogs");
+const blogs = await getCollection("blog");
 const tags = [
-  ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
+  ...new Set(blogs.map((blog: BlogType) => blog.data.tags).flat()),
 ].sort();
 ---
 
@@ -14,9 +15,9 @@ const tags = [
   image="./favicon.png"
   url="https://lunakit.netlify.app/tags"
 >
-  <main class="body-margin">
+  <div class="center">
     <h1 class="heading">Tags</h1>
-    <ul class="mx-8 my-3 space-y-3">
+    <ul class="mx-8 my-3 grid space-y-3">
       {
         tags.map((tag) => {
           return (
@@ -29,5 +30,5 @@ const tags = [
         })
       }
     </ul>
-  </main>
+  </div>
 </BaseLayout>
