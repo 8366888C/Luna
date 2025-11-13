@@ -1,0 +1,41 @@
+---
+import {
+  GithubIcon,
+  LinkedinIcon,
+  RssIcon,
+  YoutubeIcon,
+  DiscordIcon,
+} from "../components/util/Icons";
+---
+
+<footer class="footer-margin sticky bottom-0 z-0">
+  <div class="flex items-center justify-center space-x-6 pb-8">
+    <a href="https://github.com/8366888C" target="blank" aria-label="gitbub"
+      ><GithubIcon className="socials" /></a
+    >
+    <a
+      href="https://youtube.com/@iron-lobby"
+      target="blank"
+      aria-label="youtube"><YoutubeIcon className="socials" /></a
+    >
+    <a href="https://in.linkedin.com" target="blank" aria-label="linkedin"
+      ><LinkedinIcon className="socials" /></a
+    >
+    <a href="https://discord.com" target="blank" aria-label="discord"
+      ><DiscordIcon className="socials" /></a
+    >
+    <a href="/rss.xml" aria-label="rss"><RssIcon className="socials" /></a>
+  </div>
+  <div class="text-foreground/50 flex items-center justify-between text-sm">
+    <p>© 2025 Rahul</p>
+    <p>
+      powered by <a
+        href="https://astro.build"
+        target="blank"
+        class="hover:text-accent"
+        aria-label="astro site">Astro</a
+      > &
+      <a href="" class="hover:text-accent" aria-label="luna site">Luna</a>
+    </p>
+  </div>
+</footer>

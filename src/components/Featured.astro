@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "../components/PostCard.astro";
+import { RightIcon } from "../components/util/Icons";
+import type { BlogType } from "../content/content.config";
+const blogs = await getCollection("blog");
+const featuredBlogs = blogs.filter(
+  (blog: BlogType) => blog.data.featured === true,
+);
+---
+
+<h2 class="section-heading">F E A T U R E D</h2>
+<ul class="space-y-3 py-8">
+  {
+    featuredBlogs.map((blog: BlogType) => {
+      return (
+        <li>
+          <PostCard
+            title={blog.data.title}
+            date={blog.data.date
+              .toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+              })
+              .slice(0, 11)}
+            url={`/${blog.data.slug}`}
+            tags={blog.data.tags}
+          />
+        </li>
+      );
+    })
+  }
+</ul>

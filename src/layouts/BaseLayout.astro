@@ -1,8 +1,7 @@
 ---
 import Seo from "../components/util/Seo.astro";
-import Header from "../components/layout/Header.astro";
-import PageTransitions from "../components/util/PageTransitions.astro";
-import Footer from "../components/layout/Footer.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title, description, image, url } = Astro.props;
 import "../styles/global.css";
 ---
@@ -16,9 +15,9 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <Seo {title} {description} {image} {url} />
   </head>
-  <body>
+  <body class="body-margin">
     <Header />
-    <main class="bg-background relative z-10 min-h-svh">
+    <main class="main-margin bg-background relative z-1 min-h-svh">
       <slot />
     </main>
     <Footer />

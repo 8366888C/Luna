@@ -18,6 +18,9 @@ import {
   IconHeart,
   IconMessage,
   IconEye,
+  IconMenu,
+  IconX,
+  IconMenu2,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -98,4 +101,12 @@ export function MessageIcon({ className }: IconProps) {
 
 export function EyeIcon({ className }: IconProps) {
   return <IconEye className={className} />;
+}
+
+export function MenuIcon({ className }: IconProps) {
+  return <IconMenu2 className={className} />;
+}
+
+export function CloseIcon({ className }: IconProps) {
+  return <IconX className={className} />;
 }

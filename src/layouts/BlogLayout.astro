@@ -1,25 +1,26 @@
 ---
-import ProgressBar from "../components/ui/ProgressBar";
+import ProgressBar from "../components/blog/ProgressBar";
 import BaseLayout from "./BaseLayout.astro";
-import BlogHeader from "../components/layout/BlogHeader.astro";
+import Title from "../components/blog/Title.astro";
+import Index from "../components/blog/Index";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
 ---
-
-<ProgressBar client:load />
 
 <BaseLayout
   title={frontmatter.title}
   description={frontmatter.description}
   image={frontmatter.image.url}
-  url={`https://lunakit.netlify.app/posts/${frontmatter.title}`}
+  url={`https://lunakit.netlify.app/blog/${frontmatter.title}`}
 >
-  <main class="body-margin">
-    <article>
-      <BlogHeader frontmatter={frontmatter} />
-      <div class="markdown">
+  <ProgressBar client:load />
+  <article>
+    <Index client:load headings={headings} />
+    <div class="center">
+      <Title frontmatter={frontmatter} />
+      <section class="markdown">
         <slot />
-      </div>
-    </article>
-  </main>
+      </section>
+    </div>
+  </article>
 </BaseLayout>

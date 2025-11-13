@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FeaturedPosts from "../components/layout/FeaturedPosts.astro";
-import Newsletter from "../components/layout/Newsletter.astro";
-import Introduction from "../components/layout/Introduction.astro";
+import Introduction from "../components/Introduction.astro";
+import Featured from "../components/Featured.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <BaseLayout
@@ -11,17 +11,17 @@ import Introduction from "../components/layout/Introduction.astro";
   image="./favicon.svg"
   url="https://lunakit.netlify.app"
 >
-  <main class="body-margin">
+  <div class="center">
     <section>
       <Introduction />
     </section>
     <hr />
     <section>
-      <FeaturedPosts />
+      <Featured />
     </section>
     <hr />
     <section>
       <Newsletter />
     </section>
-  </main>
+  </div>
 </BaseLayout>

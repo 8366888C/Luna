@@ -1,0 +1,45 @@
+---
+import ThemeToggle from "./ThemeToggle";
+import { RssIcon, SearchIcon } from "../components/util/Icons";
+import { matchPathname } from "astro/assets/utils";
+---
+
+<header
+  class="header-margin sticky top-0 z-0 flex items-center justify-between"
+>
+  <a
+    href="/"
+    class:list={[
+      "text-xl tracking-wider select-none",
+      Astro.url.pathname === "/" ? "text-accent" : "",
+    ]}>Luna</a
+  >
+  <div class="flex items-center justify-center gap-8">
+    <nav class="flex items-center justify-center gap-4">
+      <a
+        href="/archive/1"
+        class:list={[
+          "navigation",
+          Astro.url.pathname.startsWith("/archive") ? "text-accent" : "",
+        ]}>archive</a
+      >
+      <a
+        href="/tags"
+        class:list={[
+          "navigation",
+          Astro.url.pathname.startsWith("/tags") ? "text-accent" : "",
+        ]}>tags</a
+      >
+    </nav>
+
+    <div class="flex items-center justify-center gap-4">
+      <ThemeToggle client:load />
+      <a href="/rss.xml" aria-label="rss"
+        ><RssIcon className="active-foreground size-5" /></a
+      >
+      <button>
+        <SearchIcon className="active:fill-foreground size-5" />
+      </button>
+    </div>
+  </div>
+</header>
