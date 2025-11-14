@@ -8,12 +8,10 @@ image:
   url: "https://cdn.pixabay.com/photo/2024/01/18/10/07/sunset-8516639_1280.jpg"
   alt: "Still waters reflecting clouds and distant mountains during sunset"
   caption: "photo by xyz : pixabay"
-tags: ["luna", "markdown", "guide", "showcase", "typography"]
+tags: ["luna", "markdown", "guide", "showcase"]
 
-featured: false
+featured: true
 ---
-
-_Welcome to the complete showcase of Luna's Markdown and typography features. This guide demonstrates every available formatting option to help you create beautiful, well-structured blog posts._
 
 <figure>
   <img

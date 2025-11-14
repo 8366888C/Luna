@@ -13,8 +13,6 @@ tags: ["luna", "markdown", "guide", "showcase", "typography"]
 featured: false
 ---
 
-_Welcome to the complete showcase of Luna's Markdown and typography features. This guide demonstrates every available formatting option to help you create beautiful, well-structured blog posts._
-
 <figure>
   <img
     src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

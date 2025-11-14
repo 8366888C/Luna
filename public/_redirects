@@ -1,2 +1,4 @@
 /archive    /archive/1    301
 /tags/:tag  /tags/:tag/1  301
+/rss        /rss.xml      301
+/feed       /rss.xml      301

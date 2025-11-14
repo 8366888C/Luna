@@ -1,0 +1,60 @@
+---
+import {
+  CalendarIcon,
+  RightArrowIcon,
+  RightIcon,
+  ClockIcon,
+} from "../components/util/Icons";
+
+const { title, date, url, tags, readTime } = Astro.props;
+---
+
+<a
+  href={url}
+  class="hover:bg-accent hover:ring-accent group ring-background flex h-full flex-col gap-3 rounded-lg shadow-lg ring-3 select-none hover:shadow-none hover:ring-3 active:ring-0 dark:shadow-2xl"
+>
+  <div class="mx-4 mt-2 flex justify-between gap-6">
+    <h3
+      class="text-foreground group-hover:text-background self-start rounded-lg text-xl group-hover:font-semibold group-hover:tracking-wide"
+    >
+      {title}
+    </h3>
+    <div class="mt-1 flex">
+      <RightArrowIcon
+        className="stroke-background size-0 stroke-2 group-hover:size-6"
+      />
+      <RightIcon
+        className="stroke-foreground size-6 stroke-1 group-hover:size-0"
+      />
+    </div>
+  </div>
+  <div>
+    <div class="mx-4 mb-3 flex flex-wrap gap-6 group-hover:mb-0">
+      <div class="flex gap-1 font-mono">
+        <CalendarIcon
+          className="stroke-foreground size-4 stroke-1 group-hover:size-0"
+        />
+        <p class="text-sm opacity-90 group-hover:text-[0rem]">
+          {date}
+        </p>
+      </div>
+      <div class="flex gap-1 font-mono">
+        <ClockIcon
+          className="stroke-foreground size-4 stroke-1 group-hover:size-0"
+        />
+        <p class="text-sm opacity-90 group-hover:text-[0rem]">
+          {readTime} min read
+        </p>
+      </div>
+    </div>
+    <div class="mx-3 flex flex-wrap">
+      {
+        tags.map((tag: string) => (
+          <p class="ring-foreground bg-background mx-1 rounded-lg px-3 pb-0.5 text-[0rem] opacity-90 group-hover:mb-3 group-hover:text-sm">
+            {tag}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</a>

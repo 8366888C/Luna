@@ -4,17 +4,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* COLOR SCHEME */
-:root,
-html.light {
-  --background: var(--color-gray-100);
-  --foreground: var(--color-gray-800);
-  --accent: var(--color-red-500);
-}
 
-html.dark {
+.dark {
   --background: var(--color-zinc-800);
   --foreground: var(--color-zinc-300);
   --accent: var(--color-yellow-500);
+}
+
+.light {
+  --background: var(--color-gray-100);
+  --foreground: var(--color-gray-800);
+  --accent: var(--color-red-500);
 }
 
 /* INIT COLORS */
@@ -28,13 +28,12 @@ html.dark {
 @layer base {
   /* layouts */
   * {
-    @apply transition-all duration-150 ease-in-out;
+    @apply transition-all ease-in-out duration-initial;
   }
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    @apply bg-background text-foreground selection:bg-accent selection:text-background overflow-y-scroll scroll-smooth antialiased;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent selection:text-background antialiased;
     --z-old: 1;
     --z-new: 2;
   }

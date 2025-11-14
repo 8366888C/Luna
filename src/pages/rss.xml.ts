@@ -1,18 +1,15 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import type { BlogType } from "../content/content.config";
+import type { APIContext } from "astro";
 
-interface RSSType {
-  site: URL;
-  items: {
-    title: string;
-    description: string;
-    date: Date;
-    url: URL;
-  };
-}
+export async function GET(context: APIContext) {
+  if (!context.site) {
+    return new Response("Site is not defined on the request context", {
+      status: 500,
+    });
+  }
 
-export async function GET(context: RSSType) {
   const blogs: BlogType[] = await getCollection("blog");
   return rss({
     title: "Luna",
@@ -21,8 +18,8 @@ export async function GET(context: RSSType) {
     items: blogs.map((blog: BlogType) => ({
       title: blog.data.title,
       description: blog.data.description,
-      date: blog.data.date,
-      url: `/${blog.data.slug}`,
+      pubDate: blog.data.date,
+      link: `/${blog.data.slug}`,
     })),
   });
 }

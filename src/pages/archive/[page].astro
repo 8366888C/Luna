@@ -40,7 +40,7 @@ const { page } = Astro.props as { page: { data: BlogType[] } };
       <a href="/archive/1" class="heading">Archive</a>
       <Category years={years} />
     </div>
-    <ul class="space-y-3">
+    <ul class="my-3 space-y-3">
       {
         page.data.map((blog: BlogType) => (
           <li>

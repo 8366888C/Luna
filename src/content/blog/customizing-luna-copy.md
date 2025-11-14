@@ -13,8 +13,6 @@ tags: ["luna", "customize", "color-scheme"]
 featured: false
 ---
 
-_This post will explain how you can enable/disable light and dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website._
-
 ## Enable/disable light & dark mode
 
 Luna theme will include light and dark mode by default. In other words, there will be two color schemes, one for **light** and another for **dark** mode. This default behavior can be disabled in `SITE` configuration object.

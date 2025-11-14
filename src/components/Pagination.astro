@@ -2,7 +2,7 @@
 const { page } = Astro.props;
 ---
 
-<nav class="my-13 flex items-center justify-center gap-8 select-none">
+<nav class="my-3 flex items-center justify-center gap-8 select-none">
   <a
     href={page.url.prev || "#"}
     class={`${page.url.prev ? "hover:text-accent" : "text-foreground/60"}`}

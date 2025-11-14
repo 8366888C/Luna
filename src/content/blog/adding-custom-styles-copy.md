@@ -8,12 +8,10 @@ image:
   url: "https://cdn.pixabay.com/photo/2022/06/21/21/56/konigssee-7276585_1280.jpg"
   alt: "Mountain landscape"
   caption: "photo by xyz : pixabay"
-tags: ["luna", "customize", "tailwind", "markdown"]
+tags: ["luna", "customize", "markdown"]
 
 featured: true
 ---
-
-_This document demonstrates how to use LaTeX equations in your Markdown files for Luna. LaTeX is a powerful typesetting system often used for mathematical and scientific documents._
 
 <img
   src="https://images.pexels.com/photos/22690748/pexels-photo-22690748/free-photo-of-close-up-of-complicated-equations-written-on-a-blackboard.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
