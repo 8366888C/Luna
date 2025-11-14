@@ -5,7 +5,13 @@ import type { BlogType } from "../content/content.config";
 
 export async function getStaticPaths() {
   const blogs: BlogType[] = await getCollection("blog");
-  return blogs.map((blog: BlogType) => ({
+  const blogs_ = blogs.map((blog) => {
+    const words = (blog.body ?? "").split(/\s+/).filter(Boolean).length;
+    const minutes = Math.ceil(words / 200);
+
+    return { ...blog, data: { ...blog.data, readTime: minutes } };
+  });
+  return blogs_.map((blog: BlogType) => ({
     params: { slug: blog.data.slug },
     props: { blog },
   }));
@@ -15,6 +21,10 @@ const { blog } = Astro.props;
 const { Content, headings } = await render(blog);
 ---
 
-<BlogLayout frontmatter={blog.data} headings={headings}>
+<BlogLayout
+  frontmatter={blog.data}
+  headings={headings}
+  readTime={blog.data.readTime}
+>
   <Content />
 </BlogLayout>

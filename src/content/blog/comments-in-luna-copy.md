@@ -10,10 +10,8 @@ image:
   caption: "photo by xyz : pixabay"
 tags: ["luna", "customize", "comments", "giscus"]
 
-featured: false
+featured: true
 ---
-
-_Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites._
 
 ## How Giscus works
 

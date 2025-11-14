@@ -9,11 +9,6 @@ const blogs = defineCollection({
     description: z.string(),
     date: z.date(),
     author: z.string(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-      caption: z.string(),
-    }),
     tags: z.array(z.string()),
     featured: z.boolean(),
   }),

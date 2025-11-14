@@ -8,14 +8,12 @@ image:
   url: "https://cdn.pixabay.com/photo/2024/01/18/10/07/sunset-8516639_1280.jpg"
   alt: "Still waters reflecting clouds and distant mountains during sunset"
   caption: "photo by xyz : pixabay"
-tags: ["luna", "customize", "comments", "giscus"]
+tags: ["luna", "customize", "comments"]
 
 featured: true
 ---
 
-_Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites._
-
-## How Giscus works
+## [How Giscus works](#how-giscus-works)
 
 [Giscus uses the Github API](https://github.com/giscus/giscus?tab=readme-ov-file#how-it-works) to read and store comments made by Github users in the Discussions associated with a repository.
 
@@ -28,11 +26,11 @@ Embed the Giscus client-side script bundle on your site, configure it with the c
 The approach is serverless, as the comments are stored on Github and dynamically
 loaded from there on client side, hence perfect for a static blog, like Luna.
 
-## Setting up Giscus
+## [Setting up Giscus](#setting-up-giscus)
 
 Giscus can be set up easily on [giscus.app](https://giscus.app/), but I will outline the process shortly still.
 
-### Prerequisites
+### [Prerequisites](#prerequisites)
 
 Prerequisites to get Giscus working are
 
@@ -40,7 +38,11 @@ Prerequisites to get Giscus working are
 - the [Giscus app](https://github.com/apps/giscus)
 - the [Discussions](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository) feature is turned on for your repository
 
-### Configuring Giscus
+#### [Enable Discussions](#enable-discussions)
+
+To enable Discussions for your repository, navigate to the `Settings` tab of your repository, then select `Discussions` from the sidebar. Finally, check the box labeled `Enable Discussions for this repository`.
+
+### [Configuring Giscus](#configuring-giscus)
 
 Next, configuring Giscus is necessary. In most cases, the preselected defaults are suitable, and you should only modify them if you have a **specific reason** and know what you are doing. Don't worry too much about making the **wrong choices**; you can always adjust the **configuration** later on.
 
@@ -57,7 +59,7 @@ However you need to
 
 After configuring the _settings_, Giscus provides you with a generated `<script>` tag, which you will need in the _next steps_.
 
-## Simple script tag
+## [Simple script tag](#simple-script-tag)
 
 You should now have a script tag that looks like this:
 

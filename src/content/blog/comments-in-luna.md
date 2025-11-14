@@ -13,8 +13,6 @@ tags: ["luna", "customize", "comments", "giscus"]
 featured: false
 ---
 
-_Hosting a thin static blog on a platform like [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites._
-
 ## How Giscus works
 
 [Giscus uses the Github API](https://github.com/giscus/giscus?tab=readme-ov-file#how-it-works) to read and store comments made by Github users in the Discussions associated with a repository.

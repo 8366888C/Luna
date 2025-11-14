@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const { title, description, image, url } = Astro.props;
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -14,30 +15,33 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <Seo {title} {description} {image} {url} />
+    <ClientRouter />
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      const prefersLight = window.matchMedia(
+        "(prefers-color-scheme: light)",
+      ).matches;
+
+      if (savedTheme === "light" || (!savedTheme && prefersLight)) {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.add("light");
+      } else if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body class="body-margin">
     <Header />
-    <main class="main-margin bg-background relative z-1 min-h-svh">
+    <main
+      class="main-margin bg-background relative z-1 min-h-svh"
+      transition:animate="initial"
+    >
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<script is:inline>
-  try {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const prefersLight = window.matchMedia(
-      "(prefers-color-scheme: dark",
-    ).matches;
-
-    if (saved === "dark" || (!saved && prefersDark)) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  } catch (_) {}
-</script>

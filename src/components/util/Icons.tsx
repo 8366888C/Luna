@@ -21,6 +21,8 @@ import {
   IconMenu,
   IconX,
   IconMenu2,
+  IconClockHour3,
+  IconBrandTwitter,
 } from "@tabler/icons-react";
 
 interface IconProps {
@@ -109,4 +111,12 @@ export function MenuIcon({ className }: IconProps) {
 
 export function CloseIcon({ className }: IconProps) {
   return <IconX className={className} />;
+}
+
+export function ClockIcon({ className }: IconProps) {
+  return <IconClockHour3 className={className} />;
+}
+
+export function TwitterIcon({ className }: IconProps) {
+  return <IconBrandTwitter className={className} />;
 }

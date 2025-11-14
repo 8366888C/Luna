@@ -4,7 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 import Title from "../components/blog/Title.astro";
 import Index from "../components/blog/Index";
 
-const { frontmatter, headings } = Astro.props;
+const { frontmatter, headings, readTime } = Astro.props;
 ---
 
 <BaseLayout
@@ -15,9 +15,9 @@ const { frontmatter, headings } = Astro.props;
 >
   <ProgressBar client:load />
   <article>
-    <Index client:load headings={headings} />
+    <!-- <Index client:load headings={headings} /> -->
     <div class="center">
-      <Title frontmatter={frontmatter} />
+      <Title frontmatter={frontmatter} readTime={readTime} />
       <section class="markdown">
         <slot />
       </section>

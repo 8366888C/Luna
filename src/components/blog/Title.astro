@@ -1,29 +1,17 @@
 ---
-import { CalendarIcon, TagIcon } from "../util/Icons";
+import { CalendarIcon, ClockIcon, TagIcon } from "../util/Icons";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, readTime } = Astro.props;
 ---
 
-<!-- <figure class="group">
-  <img
-    src={frontmatter.image.url}
-    alt={frontmatter.image.alt}
-    loading="lazy"
-    decoding="async"
-    class="image"
-  />
-  <figcaption class="text-center opacity-0 group-hover:opacity-100">
-    {frontmatter.image.caption}
-  </figcaption>
-</figure> -->
 <h1 class="blog-title">
   {frontmatter.title}
 </h1>
-<div class="mb-3">
-  <div class="flex gap-3">
-    <div class="flex gap-1">
-      <CalendarIcon className="size-4 stroke-1" />
-      <p class="font-mono text-sm opacity-90">
+<div class="mt-2 space-y-1">
+  <div class="flex gap-8">
+    <div class="flex gap-2">
+      <CalendarIcon className="size-5 stroke-1" />
+      <p class="font-mono text-base opacity-90">
         {
           frontmatter.date
             .toLocaleDateString("en-GB", {
@@ -35,18 +23,21 @@ const { frontmatter } = Astro.props;
         }
       </p>
     </div>
-    <!-- <Heart client:load /> -->
+    <div class="flex gap-2">
+      <ClockIcon className="size-5 stroke-1" />
+      <p class="font-mono text-base opacity-90">{readTime} min read</p>
+    </div>
   </div>
   <div class="group flex items-center gap-2">
     <TagIcon
-      className="fill-background stroke-foreground group-hover:fill-foreground group-hover:stroke-background size-4 stroke-1"
+      className="fill-background stroke-foreground group-hover:fill-foreground group-hover:stroke-background size-5 stroke-1"
     />
     <div class="space-x-1">
       {
         frontmatter.tags.map((tag: string) => (
           <a
             href={`/tags/${tag}/1`}
-            class="hover:text-accent text-sm opacity-90"
+            class="hover:text-accent text-base opacity-90"
           >
             {tag}
           </a>

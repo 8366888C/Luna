@@ -1,33 +1,13 @@
 ---
-import {
-  GithubIcon,
-  LinkedinIcon,
-  RssIcon,
-  YoutubeIcon,
-  DiscordIcon,
-} from "../components/util/Icons";
+import Socials from "./Socials.astro";
 ---
 
 <footer class="footer-margin sticky bottom-0 z-0">
-  <div class="flex items-center justify-center space-x-6 pb-8">
-    <a href="https://github.com/8366888C" target="blank" aria-label="gitbub"
-      ><GithubIcon className="socials" /></a
-    >
-    <a
-      href="https://youtube.com/@iron-lobby"
-      target="blank"
-      aria-label="youtube"><YoutubeIcon className="socials" /></a
-    >
-    <a href="https://in.linkedin.com" target="blank" aria-label="linkedin"
-      ><LinkedinIcon className="socials" /></a
-    >
-    <a href="https://discord.com" target="blank" aria-label="discord"
-      ><DiscordIcon className="socials" /></a
-    >
-    <a href="/rss.xml" aria-label="rss"><RssIcon className="socials" /></a>
-  </div>
-  <div class="text-foreground/50 flex items-center justify-between text-sm">
-    <p>© 2025 Rahul</p>
+  <Socials />
+  <div
+    class="text-foreground/50 flex items-center justify-between text-sm select-none"
+  >
+    <p>© 2025 MIT License</p>
     <p>
       powered by <a
         href="https://astro.build"

@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { SunIcon, MoonIcon } from "./util/Icons";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("");
 
   // initialization from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const initialTheme = savedTheme || "dark";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
     setTheme(initialTheme);
     document.documentElement.classList.toggle(
       "light",
@@ -43,7 +44,7 @@ export default function ThemeToggle() {
     transition.ready.then(() => {
       const path = [
         `circle(0% at ${x}px ${y}px)`,
-        `circle(200% at ${x}px ${y}px)`,
+        `circle(150% at ${x}px ${y}px)`,
       ];
 
       document.documentElement.animate(
@@ -51,7 +52,7 @@ export default function ThemeToggle() {
           clipPath: theme === "dark" ? path : [...path].reverse(),
         },
         {
-          duration: 400,
+          duration: 600,
           easing: "ease-in-out",
           fill: "forwards",
           pseudoElement:
@@ -68,6 +69,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={`Activate ${theme === "light" ? "dark" : "light"} mode`}
       aria-pressed={theme === "dark"}
+      title={`Activate ${theme === "light" ? "dark" : "light"} mode`}
     >
       {theme === "light" ? (
         <MoonIcon className="active:fill-foreground size-5" />

@@ -37,7 +37,7 @@ const { tag } = Astro.params as { tag: string };
 >
   <div class="center">
     <h1 class="sub-heading">{tag}</h1>
-    <ul class="space-y-3">
+    <ul class="my-3 space-y-3">
       {
         page.data.map((blog: BlogType) => {
           return (

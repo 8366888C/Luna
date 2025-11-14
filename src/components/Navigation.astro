@@ -1,0 +1,20 @@
+---
+
+---
+
+<nav class="flex items-center justify-center gap-4">
+  <a
+    href="/archive/1"
+    class:list={[
+      "navigation",
+      Astro.url.pathname.startsWith("/archive") ? "text-accent" : "",
+    ]}>archive</a
+  >
+  <a
+    href="/tags"
+    class:list={[
+      "navigation",
+      Astro.url.pathname.startsWith("/tags") ? "text-accent" : "",
+    ]}>tags</a
+  >
+</nav>

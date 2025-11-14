@@ -1,30 +1,40 @@
 ---
 import { getCollection } from "astro:content";
-import PostCard from "../components/PostCard.astro";
-import { RightIcon } from "../components/util/Icons";
 import type { BlogType } from "../content/content.config";
-const blogs = await getCollection("blog");
-const featuredBlogs = blogs.filter(
+import FeatureCard from "./FeatureCard.astro";
+
+const blogs: BlogType[] = await getCollection("blog");
+const blogs_ = blogs.map((blog) => {
+  const words = (blog.body ?? "").split(/\s+/).filter(Boolean).length;
+  const minutes = Math.ceil(words / 200);
+  return {
+    ...blog,
+    data: { ...blog.data, readTime: minutes },
+  };
+});
+const featuredBlogs = blogs_.filter(
   (blog: BlogType) => blog.data.featured === true,
 );
 ---
 
 <h2 class="section-heading">F E A T U R E D</h2>
-<ul class="space-y-3 py-8">
+<ul class="grid gap-3 py-6 md:grid-cols-2">
   {
     featuredBlogs.map((blog: BlogType) => {
       return (
         <li>
-          <PostCard
+          <FeatureCard
             title={blog.data.title}
             date={blog.data.date
               .toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "short",
+                year: "numeric",
               })
               .slice(0, 11)}
             url={`/${blog.data.slug}`}
             tags={blog.data.tags}
+            readTime={blog.data.readTime}
           />
         </li>
       );
