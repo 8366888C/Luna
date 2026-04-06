@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# aureus-setup-anchor
+npx aureus verify -- $1
