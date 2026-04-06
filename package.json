@@ -2,6 +2,15 @@
   "name": "ryze",
   "type": "module",
   "version": "0.0.1",
+  "description": "A reader-friendly blog starter with accessibility, SEO and responsiveness out of the box",
+  "keywords": [],
+  "homepage": "ryze.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8366888C/ryze.git"
+  },
+  "license": "MIT",
+  "author": "Subhashis Hansda <subhashishansda8@gmail.com>",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -9,9 +18,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky"
   },
   "dependencies": {
     "astro": "^6.1.3"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
