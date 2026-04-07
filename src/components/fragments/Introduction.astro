@@ -1,0 +1,93 @@
+---
+import ScrambledText from "../animation/ScrambledText";
+import { buttonVariants } from "../ui/button";
+import { Badge } from "../ui/badge";
+import {
+  RiMailLine,
+  RiMailFill,
+  RiMapPinLine,
+  RiMapPinFill,
+  RiLinkedinBoxFill,
+  RiYoutubeFill,
+  RiMediumFill,
+  RiBlueskyFill,
+  RiGithubFill,
+  RiTwitterXFill,
+} from "@remixicon/react";
+---
+
+<div class="pt-8 flex cursor-default gap-3 select-none">
+  {
+    /* <Badge variant="secondary">
+          <span className="opacity-80">Unreal</span>
+        </Badge>
+        <Badge variant="secondary">
+          <span className="opacity-80">Web</span>
+        </Badge>
+        <Badge variant="secondary">
+          <span className="opacity-80">Data</span>
+        </Badge> */
+  }
+  <Badge variant="secondary">
+    <span class="opacity-80">Software Developer</span>
+  </Badge>
+</div>
+<div class="flex justify-between items-center select-none">
+  <h1 class="pt-3 pb-3 text-5xl font-semibold">Subhashis Hansda</h1>
+  <div class="flex gap-3">
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+      ><RiLinkedinBoxFill /></a
+    >
+    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+      ><RiYoutubeFill /></a
+    >
+    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+      ><RiMediumFill /></a
+    >
+    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+      ><RiTwitterXFill /></a
+    >
+    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+      ><RiGithubFill /></a
+    >
+  </div>
+</div>
+
+<div class="flex flex-col gap-1 md:flex-row md:gap-8 select-none">
+  <a
+    href="mailto:subhashishansda8@gmail.com"
+    class="flex items-center gap-3 opacity-80 hover:opacity-100 active:opacity-100 animation group"
+  >
+    <div>
+      <RiMailLine className="size-4 group-hover:size-0" />
+      <RiMailFill className="size-0 group-hover:size-4" />
+    </div>
+    <p
+      class="space-y-3 text-base leading-relaxed group-hover:text-accent-foreground animation group-active:text-foreground"
+    >
+      subhashishansda8
+    </p>
+  </a>
+  <a
+    href="https://www.google.com/maps/place/Ahmedabad"
+    class="flex items-center gap-3 opacity-80 hover:opacity-100 active:opacity-100 animation group"
+  >
+    <div>
+      <RiMapPinLine className="size-4 group-hover:size-0" />
+      <RiMapPinFill className="size-0 group-hover:size-4" />
+    </div>
+    <p
+      class="space-y-3 text-base leading-relaxed group-hover:text-accent-foreground animation group-active:text-foreground"
+    >
+      Ahmedabad, India
+    </p>
+  </a>
+</div>
+<ScrambledText radius={60} className="paragraph my-6 mb-8" client:load>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id illo inventore,
+  perspiciatis esse incidunt exercitationem facilis vel rerum veniam iusto fuga
+  placeat. Incidunt illo voluptas sequi doloremque, voluptatum dignissimos eos!
+</ScrambledText>
+<a href="/resume" class={buttonVariants({ variant: "default", size: "sm" })}
+  >Resume</a
+>
