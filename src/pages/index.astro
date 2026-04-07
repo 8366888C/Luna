@@ -1,11 +1,17 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Introduction from "@/components/fragments/Introduction.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Welcome to Ryze! Wondering what to do next? Check out the Ryze documentation at https://github.com/8366888C/ryze
+// Dont know how to code. Head over to https://dash.ryze.pages.dev to configure everything in a visual dashboard
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <section>
+    <Introduction />
+  </section>
+  <hr />
+  <section>
+    <h2 class="section-heading">F E A T U R E D</h2>
+  </section>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import ThemeToggle from "@/components/misc/ThemeToggle";
+import { Navigation } from "../misc/Navigation";
+const pathname = Astro.url.pathname;
+---
+
+<header class="header-margin bg-background sticky top-0 z-2 backdrop-blue-3xl">
+  <div class="flex items-center justify-between">
+    <nav>
+      <Navigation pathname={pathname} client:load />
+    </nav>
+    <ThemeToggle client:load />
+  </div>
+</header>
