@@ -1,0 +1,37 @@
+---
+import BlogFilter from "@/components/client/BlogFilter";
+import BlogCard from "@/components/static/BlogCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { RiArrowGoBackLine } from "@remixicon/react";
+import { getCollection } from "astro:content";
+import { parse } from "date-fns";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => {
+    const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
+    const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
+    return bDate.getTime() - aDate.getTime();
+  });
+---
+
+<BaseLayout>
+  <div transition:animate="fade">
+    <a href="/" class="button group inline-block">
+      <div class="mt-10 flex items-center gap-2 active:translate-x-3 animation">
+        <RiArrowGoBackLine
+          className="size-4 fill-muted-foreground group-hover:fill-primary"
+        />
+        <span
+          class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6"
+          >back</span
+        >
+      </div>
+    </a>
+
+    <h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Blog</h1>
+    <div class="">
+      <BlogFilter client:load posts={posts} />
+    </div>
+  </div>
+</BaseLayout>

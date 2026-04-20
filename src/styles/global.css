@@ -54,20 +54,20 @@
     @apply transition-all duration-150 ease-in-out;
   }
   .paragraph {
-    @apply space-y-6 text-lg leading-relaxed opacity-90;
+    @apply space-y-6 text-base leading-relaxed opacity-90;
   }
   .paragraph-short {
     @apply space-y-3 text-base leading-relaxed opacity-80;
   }
   .link {
-    @apply text-accent-foreground active:text-foreground decoration-dashed underline-offset-3 hover:underline hover:underline-offset-6;
+    @apply underline-offset-3 hover:underline hover:underline-offset-6;
   }
   .socials {
     @apply hover:stroke-accent-foreground size-8;
   }
 
   hr {
-    @apply border-ring m-13 my-18;
+    @apply border-ring m-13 my-18 opacity-60;
   }
 }
 
@@ -230,8 +230,26 @@
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--color-foreground);
+    opacity: 0.2;
   }
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-accent-foreground);
+    opacity: 0.4;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 2px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-muted-foreground);
   }
 }
