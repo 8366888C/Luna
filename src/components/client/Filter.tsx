@@ -17,59 +17,125 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { BlogCard } from "@/components/client/BlogCard";
+import { PortfolioCard } from "@/components/client/PortfolioCard";
 import { cn } from "@/lib/utils";
-import type { blogCategoryType, blogConfig } from "@/lib/types";
+import type {
+  blogCategoryType,
+  blogConfig,
+  portfolioCategoryType,
+  portfolioConfig,
+} from "@/lib/types";
 
-interface BlogFilterProps {
-  posts: blogConfig[];
+type FilterType = "blog" | "portfolio";
+
+interface FilterItem {
+  id: string;
+  data?: {
+    date: string;
+    category: string;
+    tags: string[];
+  };
+  keywords?: string[];
+  category?: string;
+  date?: string;
 }
 
-const CATEGORIES: blogCategoryType[] = [
+interface FilterProps {
+  items: blogConfig[] | portfolioConfig[];
+  type?: FilterType;
+}
+
+const BLOG_CATEGORIES: blogCategoryType[] = [
   "engineering",
   "workflow",
   "strategy",
   "devlog",
 ];
 
-export default function BlogFilter({ posts }: BlogFilterProps) {
-  const [category, setCategory] = React.useState<blogCategoryType | null>(null);
+const PORTFOLIO_CATEGORIES: portfolioCategoryType[] = [
+  "robotics",
+  "analytics",
+  "gameplay",
+  "software",
+  "ai",
+];
+
+function isBlogItem(item: FilterItem): item is blogConfig {
+  return !!item.data?.tags;
+}
+
+function getItemTags(item: FilterItem): string[] {
+  return item.data?.tags || item.keywords || [];
+}
+
+function getItemCategory(item: FilterItem): string {
+  return item.data?.category || item.category || "";
+}
+
+export default function Filter({ items, type = "blog" }: FilterProps) {
+  const [category, setCategory] = React.useState<
+    blogCategoryType | portfolioCategoryType | null
+  >(null);
   const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
   const [sortOrder, setSortOrder] = React.useState<"asc" | "desc">("desc");
   const [filterOpen, setFilterOpen] = React.useState(false);
 
+  const allCategories =
+    type === "blog" ? BLOG_CATEGORIES : PORTFOLIO_CATEGORIES;
+  type CategoryFilterType = blogCategoryType | portfolioCategoryType;
+
   const allTags = React.useMemo(() => {
     const tagSet = new Set<string>();
-    posts.forEach((post) => {
-      post.data.tags.forEach((tag) => tagSet.add(tag));
-    });
+    if (items && Array.isArray(items)) {
+      items.forEach((item: FilterItem) => {
+        const tags = getItemTags(item);
+        if (tags) {
+          tags.forEach((tag) => tagSet.add(tag));
+        }
+      });
+    }
     return Array.from(tagSet).sort();
-  }, [posts]);
+  }, [items, type]);
 
   const isFilterActive = category !== null || selectedTags.length > 0;
 
-  const filteredAndSortedPosts = React.useMemo(() => {
-    let result = [...posts];
+  const filteredAndSortedItems = React.useMemo(() => {
+    if (!items || !Array.isArray(items)) {
+      return [];
+    }
+    let result = [...items] as FilterItem[];
 
     if (category !== null) {
-      result = result.filter((post) => post.data.category === category);
+      result = result.filter(
+        (item) => getItemCategory(item) === category,
+      ) as typeof items;
     }
 
     if (selectedTags.length > 0) {
-      result = result.filter((post) =>
-        selectedTags.some((tag) => post.data.tags.includes(tag)),
-      );
+      result = result.filter((item) => {
+        const itemTags = getItemTags(item);
+        return selectedTags.some((tag) => itemTags.includes(tag));
+      }) as typeof items;
     }
 
     result.sort((a, b) => {
-      const dateA = parse(a.data.date, "dd-MM-yyyy", new Date());
-      const dateB = parse(b.data.date, "dd-MM-yyyy", new Date());
+      const dateA = parse(
+        a.data?.date || a.date || "",
+        "dd-MM-yyyy",
+        new Date(),
+      );
+      const dateB = parse(
+        b.data?.date || b.date || "",
+        "dd-MM-yyyy",
+        new Date(),
+      );
       return sortOrder === "desc"
         ? dateB.getTime() - dateA.getTime()
         : dateA.getTime() - dateB.getTime();
     });
 
     return result;
-  }, [posts, category, selectedTags, sortOrder]);
+  }, [items, category, selectedTags, sortOrder, type]);
 
   const handleReset = () => {
     setCategory(null);
@@ -77,7 +143,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
     setSortOrder("desc");
   };
 
-  const handleCategoryChange = (cat: blogCategoryType) => {
+  const handleCategoryChange = (cat: CategoryFilterType) => {
     setCategory((prev) => (prev === cat ? null : cat));
   };
 
@@ -113,7 +179,6 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                   )}
                   {isFilterActive && (
                     <RiFilterFill className="fill-muted-foreground" />
-                    // <span className="absolute -top-0.5 -right-0.5 size-1.5 rounded-full bg-muted-foreground" />
                   )}
                 </span>
               </Button>
@@ -129,11 +194,13 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                 Category
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {CATEGORIES.map((cat) => (
+                {allCategories.map((cat) => (
                   <button
                     key={cat}
                     type="button"
-                    onClick={() => handleCategoryChange(cat)}
+                    onClick={() =>
+                      handleCategoryChange(cat as CategoryFilterType)
+                    }
                     className={cn(
                       "cursor-pointer text-xs px-2 py-0.5 rounded border",
                       category === cat
@@ -150,7 +217,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <p className="text-xs font-medium text-muted-foreground">
-                  Tags
+                  {type === "blog" ? "Tags" : "Keywords"}
                 </p>
                 <Checkbox
                   checked={allTagsSelected}
@@ -213,12 +280,18 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
         </Button>
       </div>
       <div className="space-y-4">
-        {filteredAndSortedPosts.length === 0 ? (
-          <p className="paragraph text-center mt-12">No posts found.</p>
+        {filteredAndSortedItems.length === 0 ? (
+          <p className="paragraph text-center mt-12">
+            No {type === "blog" ? "posts" : "projects"} found.
+          </p>
         ) : (
-          filteredAndSortedPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))
+          filteredAndSortedItems.map((item) =>
+            type === "blog" ? (
+              <BlogCard key={item.id} post={item as blogConfig} />
+            ) : (
+              <PortfolioCard key={item.id} project={item as portfolioConfig} />
+            ),
+          )
         )}
       </div>
     </div>
