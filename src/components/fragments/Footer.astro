@@ -1,7 +1,29 @@
 ---
-
+import site_config from "@/site-config.json";
+import { SocialIcon } from "@/lib/icons";
+import type { siteConfig } from "@/lib/types";
 ---
 
-<footer class="footer-margin bg-background sticky bottom-0 z-0">
-  <h1>World</h1>
+<footer
+  class="footer-margin font-mono antialiased bg-background text-foreground select-none sticky bottom-0 z-0"
+>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-muted-foreground">
+        &copy; {new Date().getFullYear()}
+        {site_config.introduction.heading}. All rights reserved.
+      </p>
+    </div>
+    <div>
+      <p class="text-sm text-muted-foreground">
+        powered by <a
+          href="https://astro.build/"
+          class="hover:text-accent-foreground">Astro</a
+        > and <a
+          href="https://astro.build/themes/details/ryze/"
+          class="hover:text-accent-foreground">Ryze</a
+        >
+      </p>
+    </div>
+  </div>
 </footer>

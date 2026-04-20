@@ -1,0 +1,47 @@
+---
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import site_config from "@/site-config.json";
+
+const { pathname } = Astro.props;
+const isCurrent = (href: string) => pathname === href;
+---
+
+{
+  site_config.bNavigation && (
+    <>
+      <Breadcrumb className="select-none">
+        <BreadcrumbList>
+          {/* Home */}
+          <BreadcrumbItem>
+            {isCurrent("/") ? (
+              <BreadcrumbPage>{site_config.homeLabel}</BreadcrumbPage>
+            ) : (
+              <BreadcrumbLink href="/">{site_config.homeLabel}</BreadcrumbLink>
+            )}
+          </BreadcrumbItem>
+
+          {site_config.navigationItems &&
+            site_config.navigationItems.map((item) => (
+              <>
+                <BreadcrumbSeparator>•</BreadcrumbSeparator>
+                <BreadcrumbItem>
+                  {pathname.startsWith(`/${item}`) ? (
+                    <BreadcrumbPage>{item}</BreadcrumbPage>
+                  ) : (
+                    <BreadcrumbLink href={`/${item}`}>{item}</BreadcrumbLink>
+                  )}
+                </BreadcrumbItem>
+              </>
+            ))}
+        </BreadcrumbList>
+      </Breadcrumb>
+    </>
+  )
+}
