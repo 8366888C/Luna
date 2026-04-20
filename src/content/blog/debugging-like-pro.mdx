@@ -1,0 +1,105 @@
+---
+draft: false
+featured: false
+date: "05-04-2026"
+title: "Debugging Like a Pro"
+description: "Systematic approaches to finding and fixing bugs faster"
+category: "devlog"
+tags: ["debugging", "tools", "troubleshooting"]
+author: "Subhashis Hansda"
+heroImage: ""
+---
+
+## The Debugging Mindset
+
+> Bugs are opportunities to learn about your system.
+
+## Systematic Approach
+
+### 1. Reproduce
+First, consistently reproduce the bug.
+
+```javascript
+// Create a minimal reproduction
+test("bug reproduction", () => {
+  // Given: specific conditions
+  // When: action taken
+  // Then: unexpected result
+});
+```
+
+### 2. Isolate
+Find the smallest code that causes the issue.
+
+### 3. Analyze
+Use debugging tools effectively.
+
+## Tools of the Trade
+
+### Browser DevTools
+- Network tab
+- Elements inspector  
+- Console and breakpoints
+
+### VS Code Debugger
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Debug",
+  "program": "${workspaceFolder}/index.js"
+}
+```
+
+### Logging Patterns
+
+```typescript
+// Before
+console.log("here");
+
+// Better
+console.log("[DEBUG] userService.create:", { email, role });
+```
+
+## Common Patterns
+
+### Race Conditions
+```typescript
+// Problem
+const user = await getUser();
+await updateUser(user.id, { lastLogin: new Date() });
+
+// Fix
+await user.$transaction(async (tx) => {
+  // Atomic operation
+});
+```
+
+### Memory Leaks
+```typescript
+// Check for listener buildup
+// Use WeakRef where possible
+// Clean up in useEffect cleanup
+```
+
+### Async Issues
+```typescript
+// Problem: unchecked promise
+handleClick();
+
+// Fix: proper error handling
+async function handleClick() {
+  try {
+    await doSomething();
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+## When Stuck
+
+1. Take a break
+2. Explain the bug to someone (or a duck)
+3. Search the error message
+4. Check the source code

@@ -1,0 +1,85 @@
+---
+draft: false
+featured: false
+date: "20-03-2026"
+title: "Understanding React Server Components"
+description: "A deep dive into React Server Components and how they change the game"
+category: "engineering"
+tags: ["react", "rsc", "next.js", "frontend"]
+author: "Subhashis Hansda"
+heroImage: ""
+---
+
+## What are Server Components?
+
+React Server Components (RSC) allow you to render components exclusively on the server, never sending their JavaScript to the client.
+
+### Key Differences
+
+| Feature | Client Components | Server Components |
+|---------|--------------|--------------|
+| JavaScript | Shipped to client | Stays on server |
+| Interactivity | Can use hooks | No hooks allowed |
+| Data Fetching | useEffect | async/await |
+
+## How It Works
+
+```tsx
+// This runs on the server
+async function BlogPost({ id }) {
+  const post = await fetchPost(id);
+  
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+    </article>
+  );
+}
+
+// This runs on the client  
+function LikeButton({ postId }) {
+  const [liked, setLiked] = useState(false);
+  
+  return (
+    <button onClick={() => setLiked(!liked)}>
+      {liked ? "Liked" : "Like"}
+    </button>
+  );
+}
+```
+
+## Combining Server and Client
+
+```tsx
+import BlogPost from "./BlogPost";
+import LikeButton from "./LikeButton";
+
+function PostPage({ params }) {
+  return (
+    <>
+      <BlogPost id={params.id} />
+      <LikeButton postId={params.id} />
+    </>
+  );
+}
+```
+
+## Benefits
+
+1. **Zero Bundle Size** for server components
+2. **Direct Backend Access** without API routes
+3. **Automatic Code Splitting**
+4. **Streaming** with Suspense
+
+## When to Use Each
+
+Use Server Components for:
+- Data fetching
+- Accessing backend resources
+- Keeping sensitive logic server-side
+
+Use Client Components for:
+- Interactivity
+- useState, useEffect
+- Browser APIs

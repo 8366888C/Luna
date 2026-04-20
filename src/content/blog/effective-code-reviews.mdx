@@ -1,0 +1,75 @@
+---
+draft: false
+featured: false
+date: "12-04-2026"
+title: "Effective Code Reviews"
+description: "How to give and receive feedback that improves code quality"
+category: "workflow"
+tags: ["code review", "software teams", "collaboration"]
+author: "Subhashis Hansda"
+heroImage: ""
+---
+
+## Why Code Reviews Matter
+
+Code reviews are about learning, not policing.
+
+### Benefits
+
+1. Catch bugs before production
+2. Share knowledge across the team
+3. Maintain code quality
+4. Mentor junior developers
+
+## Giving Good Reviews
+
+### Be Kind
+> "What if this was your code?"
+
+### Be Specific
+```typescript
+// Bad comment
+// This is wrong
+
+// Good comment
+// Consider using useMemo here since calculatePrice 
+// is expensive and called on every render.
+```
+
+### Focus on What Matters
+- Logic errors (critical)
+- Security issues (critical)
+- Code style (prefer自动化)
+
+## Receiving Reviews
+
+### Don't Take It Personally
+Feedback is about the code, not you.
+
+### Ask Questions
+> "What would you suggest instead?"
+
+### Explain Your Thinking
+Sometimes there's context the reviewer is missing.
+
+## Review Checklist
+
+- [ ] Code does what it claims
+- [ ] No security vulnerabilities
+- [ ] Tests are included
+- [ ] Code is readable
+- [ ] No duplicated logic
+
+## Tools
+
+- GitHub Pull Requests
+- GitLab Merge Requests
+- Phabricator
+- GitHub Enterprise
+
+## Running Effective Reviews
+
+- Keep PRs small (less than 400 lines)
+- Review within 24 hours
+- Use automation for style
+- Be available for questions
