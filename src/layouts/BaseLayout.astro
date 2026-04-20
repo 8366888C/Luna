@@ -3,47 +3,14 @@ import { ClientRouter } from "astro:transitions";
 import Header from "@/components/fragments/Header.astro";
 import Footer from "@/components/fragments/Footer.astro";
 import "@/styles/global.css";
+import "@/styles/typography.css";
+import Head from "@/components/fragments/Head.astro";
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <ClientRouter />
-    <title>Astro Basics</title>
-    <script is:inline>
-      const getThemePreference = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      };
-      const isDark = getThemePreference() === "dark";
-      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-      if (typeof localStorage !== "undefined") {
-        const observer = new MutationObserver(() => {
-          const isDark = document.documentElement.classList.contains("dark");
-          localStorage.setItem("theme", isDark ? "dark" : "light");
-        });
-        observer.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-      }
-    </script>
-  </head>
-  <body class="body-margin" transition:animate="fade">
+<html lang="en" transition:animate="fade">
+  <Head />
+  <body class="body-margin">
     <Header />
     {/* Content */}
     <main class="main-margin">
