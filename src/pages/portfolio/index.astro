@@ -2,16 +2,15 @@
 import Filter from "@/components/client/Filter";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { RiArrowGoBackLine } from "@remixicon/react";
-import { getCollection } from "astro:content";
+import portfolio_config from "@/portfolio-config.json";
 import { parse } from "date-fns";
+import type { portfolioConfig } from "@/lib/types";
 
-const blogs = (await getCollection("blog"))
-  .filter((blog) => !blog.data.draft)
-  .sort((a, b) => {
-    const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
-    const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
-    return bDate.getTime() - aDate.getTime();
-  });
+const projects = portfolio_config.sort((a, b) => {
+  const dateA = parse(a.date, "dd-MM-yyyy", new Date());
+  const dateB = parse(b.date, "dd-MM-yyyy", new Date());
+  return dateB.getTime() - dateA.getTime();
+});
 ---
 
 <BaseLayout>
@@ -28,9 +27,13 @@ const blogs = (await getCollection("blog"))
       </div>
     </a>
 
-    <h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Blog</h1>
+    <h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Portfolio</h1>
     <div class="">
-      <Filter client:load type="blog" items={blogs} />
+      <Filter
+        client:load
+        type="portfolio"
+        items={projects as portfolioConfig[]}
+      />
     </div>
   </div>
 </BaseLayout>
