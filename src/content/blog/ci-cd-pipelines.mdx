@@ -1,0 +1,86 @@
+---
+draft: false
+featured: false
+date: "15-04-2026"
+title: "Introduction to CI/CD Pipelines"
+description: "Setting up automated testing and deployment"
+category: "workflow"
+tags: ["ci/cd", "devops", "automation", "github actions"]
+author: "Subhashis Hansda"
+heroImage: ""
+---
+
+## What is CI/CD?
+
+### Continuous Integration
+Automatically test code changes.
+
+### Continuous Deployment
+Automatically deploy successful changes.
+
+## GitHub Actions Example
+
+```yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm test
+        
+      - name: Build
+        run: npm run build
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Deploy
+        run: npm run deploy
+```
+
+## Best Practices
+
+1. **Fail fast** - Run tests before deployment
+2. **Small pipelines** - Faster feedback
+3. **Cache dependencies** - Save time
+4. **Secret management** - Never commit secrets
+
+## Common Issues
+
+- Flaky tests
+- Long build times
+- Not running locally
+
+## Tools
+
+- GitHub Actions
+- GitLab CI
+- Jenkins
+- CircleCI
+- Netlify
+- Vercel

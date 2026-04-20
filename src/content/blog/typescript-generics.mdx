@@ -1,0 +1,102 @@
+---
+draft: false
+featured: false
+date: "08-04-2026"
+title: "Understanding TypeScript Generics"
+description: "A deep dive into TypeScript generics with practical examples"
+category: "engineering"
+tags: ["typescript", "generics", "types"]
+author: "Subhashis Hansda"
+heroImage: ""
+---
+
+## What are Generics?
+
+Generics allow you to create reusable components that work with any type while maintaining type safety.
+
+## Basic Example
+
+```typescript
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+const num = identity(5);        // type: number
+const str = identity("hello");   // type: string
+```
+
+## Generic Interfaces
+
+```typescript
+interface ApiResponse<T> {
+  data: T;
+  status: number;
+  message: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+}
+
+const response: ApiResponse<User> = {
+  data: { id: 1, name: "John" },
+  status: 200,
+  message: "Success"
+};
+```
+
+## Generic Constraints
+
+```typescript
+interface Lengthwise {
+  length: number;
+}
+
+function logLength<T extends Lengthwise>(arg: T): number {
+  return arg.length;
+}
+
+logLength("hello"); // OK
+logLength([1, 2, 3]); // OK
+logLength(123); // Error: number doesn't have length
+```
+
+## Utility Types
+
+### Partial
+```typescript
+interface User {
+  id: number;
+  name: string;
+}
+
+type PartialUser = Partial<User>;
+// { id?: number; name?: string; }
+```
+
+### Pick
+```typescript
+type UserName = Pick<User, "name">;
+// { name: string }
+```
+
+### Omit
+```typescript
+type WithoutId = Omit<User, "id">;
+// { name: string }
+```
+
+## Real-World Example
+
+```typescript
+function fetchApi<T>(url: string): Promise<T> {
+  return fetch(url).then(res => res.json());
+}
+
+const users = await fetchApi<User[]>("/api/users");
+```
+
+## Conclusion
+
+Generics are essential for building flexible, type-safe libraries.
