@@ -1,0 +1,39 @@
+[
+  {
+    "featured": true,
+    "id": "taskflow-app",
+    "date": "15-03-2026",
+    "category": "software",
+    "title": "TaskFlow",
+    "tagline": "A modern project management tool for agile teams",
+    "description": "TaskFlow is a comprehensive project management application built for modern agile teams. It features real-time collaboration, Kanban boards, sprint planning, and detailed analytics to help teams ship faster.",
+    "keywords": ["React", "Node.js", "WebSocket", "PostgreSQL"],
+    "links": [
+      { "label": "Live Demo", "url": "https://taskflow.example.com" },
+      { "label": "Source Code", "url": "https://github.com" }
+    ],
+    "video": ["https://youtube.com"],
+    "images": [
+      "/a.png",
+      "/b.png",
+      "/c.png",
+      "/d.png",
+      "/e.png",
+      "/f.png",
+      "/g.png",
+      "/h.png"
+    ],
+    "brief": {
+      "motivation": [
+        "Existing project management tools were either too complex or too simple for our team's needs",
+        "Wanted to create a solution that balances power with simplicity"
+      ],
+      "capabilities": [
+        "Real-time collaboration with WebSocket connections",
+        "Kanban boards with drag-and-drop functionality",
+        "Sprint planning and velocity tracking",
+        "Detailed analytics and reporting dashboards"
+      ]
+    }
+  }
+]
