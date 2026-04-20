@@ -1,6 +1,6 @@
 ---
-import ThemeToggle from "@/components/misc/ThemeToggle";
-import { Navigation } from "../misc/Navigation";
+import Navigation from "../static/Navigation.astro";
+import Utility from "../static/Utility.astro";
 const pathname = Astro.url.pathname;
 ---
 
@@ -9,6 +9,6 @@ const pathname = Astro.url.pathname;
     <nav>
       <Navigation pathname={pathname} client:load />
     </nav>
-    <ThemeToggle client:load />
+    <Utility />
   </div>
 </header>
