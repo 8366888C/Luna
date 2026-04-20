@@ -1,0 +1,53 @@
+---
+import site_config from "@/site-config.json";
+import portfolio_config from "@/portfolio-config.json";
+import { getCollection } from "astro:content";
+import { parse } from "date-fns";
+import FeaturedBlog from "../static/FeaturedBlog.astro";
+import FeaturedPortfolio from "../static/FeaturedPortfolio.astro";
+
+const featuredPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft && post.data.featured)
+  .sort((a, b) => {
+    const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
+    const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
+    return bDate.getTime() - aDate.getTime();
+  })
+  .slice(0, 2);
+---
+
+<h2 class="section-heading">F E A T U R E D</h2>
+{
+  site_config.featured.important === "portfolio"
+    ? site_config.featured.portfolio.visible && (
+        <div class="grid grid-cols-2 gap-8 pt-13">
+          {portfolio_config.map(
+            (item) => item.featured && <FeaturedPortfolio item={item} />,
+          )}
+        </div>
+      )
+    : site_config.featured.blog.visible && (
+        <div class="">
+          {featuredPosts.map((post) => {
+            return <FeaturedBlog post={post} />;
+          })}
+        </div>
+      )
+}
+{
+  site_config.featured.important === "portfolio"
+    ? site_config.featured.blog.visible && (
+        <div class="">
+          {featuredPosts.map((post) => {
+            return <FeaturedBlog post={post} />;
+          })}
+        </div>
+      )
+    : site_config.featured.portfolio.visible && (
+        <div class="grid grid-cols-2 gap-8 pt-13">
+          {portfolio_config.map(
+            (item) => item.featured && <FeaturedPortfolio item={item} />,
+          )}
+        </div>
+      )
+}

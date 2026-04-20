@@ -1,0 +1,8 @@
+---
+import { format, parse } from "date-fns";
+
+const { post } = Astro.props;
+
+const parsedDate = parse(post.data.date, "dd-MM-yyyy", new Date());
+const formattedDate = format(parsedDate, "MMM, yyyy");
+---
