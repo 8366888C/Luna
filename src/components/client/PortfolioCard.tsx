@@ -1,62 +1,56 @@
 "use client";
 
-import { RiArrowRightUpLine, RiCalendar2Line } from "@remixicon/react";
-import { format, parse } from "date-fns";
+import type { portfolioConfig } from "@/lib/types";
 
 interface PortfolioCardProps {
-  project: {
-    id: string;
-    date: string;
-    category: "robotics" | "analytics" | "gameplay" | "software" | "ai";
-    title: string;
-    tagline: string;
-    description: string;
-    keywords: string[];
-  };
+  item: portfolioConfig;
 }
 
-export function PortfolioCard({ project }: PortfolioCardProps) {
-  const parsedDate = parse(project.date, "dd-MM-yyyy", new Date());
-  const formattedDate = format(parsedDate, "MMM dd, yyyy");
+export function PortfolioCard({ item }: PortfolioCardProps) {
+  const firstImage =
+    item.images && item.images.length > 0 ? item.images[0] : null;
 
   return (
     <a
-      href={`/portfolio/${project.id}`}
-      className="px-4 py-2 border border-border rounded-sm hover:border-accent-foreground scale-100 active:scale-100 hover:scale-102 animation group block"
+      href={`/portfolio/${item.id}`}
+      className="group block bg-muted border border-border overflow-hidden hover:border-foreground/30 relative hover:bg-card active:scale-98 hover:scale-102 animation"
     >
-      <div className="flex items-center justify-between">
-        <p className="text-xl leading-relaxed font-light pb-1 group-hover:font-normal animation">
-          {project.title}
-        </p>
-        <RiArrowRightUpLine className="animation size-5 opacity-0 translate-x-3 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
-      </div>
-      <div className="flex gap-6 items-center">
-        <div className="flex gap-3 items-center">
-          <RiCalendar2Line className="size-4 fill-muted-foreground scale-0 group-hover:scale-100 animation" />
-          <p className="animation text-sm text-muted-foreground group-hover:translate-x-0 -translate-x-6.5">
-            {formattedDate}
-          </p>
+      {firstImage && (
+        <div className="aspect-4/3 overflow-hidden">
+          <img
+            src={firstImage}
+            alt={item.title}
+            className="w-full h-full object-cover grayscale-100 group-hover:grayscale-0 animation"
+          />
         </div>
-        {project.keywords && project.keywords.length > 0 && (
-          <div className="flex gap-2 flex-wrap">
-            {project.keywords.slice(0, 3).map((keyword: string) => (
+      )}
+
+      <div className="p-3 bg-muted group-hover:bg-card animation z-10 group-hover:-translate-y-14 h-20 translate-y-0">
+        <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-100 group-hover:opacity-0 animation">
+          {item.category}
+        </span>
+
+        <h3 className="mt-2 text-xl group-hover:font-medium leading-snug text-foreground/80 group-hover:text-foreground animation mb-0.5 line-clamp-1 -translate-y-1 group-hover:-translate-y-8.5">
+          {item.title}
+        </h3>
+
+        {item.keywords && item.keywords.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {item.keywords.slice(0, 3).map((keyword) => (
               <span
                 key={keyword}
-                className="animation scale-0 group-hover:scale-100 text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded"
+                className="text-xs px-2 py-0.5 bg-muted/60 text-muted-foreground/80 rounded-sm border border-border scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 animation translate-y-5.5"
               >
                 {keyword}
               </span>
             ))}
           </div>
         )}
-        <span className="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded">
-          {project.category}
-        </span>
-      </div>
 
-      <p className="text-base text-muted-foreground mt-3 mb-1">
-        {project.description}
-      </p>
+        <p className="text-base text-muted-foreground line-clamp-2 opacity-0 group-hover:opacity-100 animation -translate-y-7 group-hover:-translate-y-15">
+          {item.tagline || item.description}
+        </p>
+      </div>
     </a>
   );
 }

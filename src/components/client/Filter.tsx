@@ -16,8 +16,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { BlogCard } from "@/components/client/BlogCard";
-import { PortfolioCard } from "@/components/client/PortfolioCard";
 import { cn } from "@/lib/utils";
 import type {
   blogCategoryType,
@@ -40,9 +38,26 @@ interface FilterItem {
   date?: string;
 }
 
-interface FilterProps {
-  items: blogConfig[] | portfolioConfig[];
-  type?: FilterType;
+interface FilterResult {
+  items: FilterItem[];
+  filteredAndSortedItems: FilterItem[];
+  category: blogCategoryType | portfolioCategoryType | null;
+  selectedTags: string[];
+  sortOrder: "asc" | "desc";
+  setCategory: React.Dispatch<
+    React.SetStateAction<blogCategoryType | portfolioCategoryType | null>
+  >;
+  setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+  setSortOrder: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
+  handleReset: () => void;
+  isFilterActive: boolean;
+  allCategories: (blogCategoryType | portfolioCategoryType)[];
+  allTags: string[];
+  handleCategoryChange: (cat: blogCategoryType | portfolioCategoryType) => void;
+  handleTagToggle: (tag: string) => void;
+  handleToggleAllTags: (checked: boolean) => void;
+  filterOpen: boolean;
+  setFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const BLOG_CATEGORIES: blogCategoryType[] = [
@@ -60,10 +75,6 @@ const PORTFOLIO_CATEGORIES: portfolioCategoryType[] = [
   "ai",
 ];
 
-function isBlogItem(item: FilterItem): item is blogConfig {
-  return !!item.data?.tags;
-}
-
 function getItemTags(item: FilterItem): string[] {
   return item.data?.tags || item.keywords || [];
 }
@@ -72,7 +83,10 @@ function getItemCategory(item: FilterItem): string {
   return item.data?.category || item.category || "";
 }
 
-export default function Filter({ items, type = "blog" }: FilterProps) {
+export function useFilter(
+  items: FilterItem[],
+  type: FilterType = "blog",
+): FilterResult {
   const [category, setCategory] = React.useState<
     blogCategoryType | portfolioCategoryType | null
   >(null);
@@ -157,143 +171,168 @@ export default function Filter({ items, type = "blog" }: FilterProps) {
     setSelectedTags(checked ? [...allTags] : []);
   };
 
+  return {
+    items,
+    filteredAndSortedItems,
+    category,
+    selectedTags,
+    sortOrder,
+    setCategory,
+    setSelectedTags,
+    setSortOrder,
+    handleReset,
+    isFilterActive,
+    allCategories,
+    allTags,
+    handleCategoryChange,
+    handleTagToggle,
+    handleToggleAllTags,
+    filterOpen,
+    setFilterOpen,
+  };
+}
+
+interface FilterControlsProps {
+  filter: FilterResult;
+  type: FilterType;
+}
+
+export function FilterControls({ filter, type }: FilterControlsProps) {
+  const {
+    isFilterActive,
+    sortOrder,
+    handleReset,
+    filterOpen,
+    setFilterOpen,
+    allCategories,
+    allTags,
+    selectedTags,
+    handleCategoryChange,
+    handleTagToggle,
+    handleToggleAllTags,
+    setSortOrder,
+    category,
+  } = filter;
+
   const allTagsSelected =
     selectedTags.length === allTags.length && allTags.length > 0;
   const someTagsSelected = selectedTags.length > 0 && !allTagsSelected;
 
+  type CategoryFilterType = blogCategoryType | portfolioCategoryType;
+
   return (
-    <div className="flex flex-col gap-3 animation">
-      <div className="flex items-center gap-2 justify-end">
-        {/* popover */}
-        <Popover open={filterOpen} onOpenChange={setFilterOpen}>
-          <PopoverTrigger
-            render={
-              <Button
-                variant={isFilterActive ? "secondary" : "outline"}
-                size="icon-sm"
-                className={cn("cursor-pointer", isFilterActive && "bg-muted")}
-              >
-                <span className="relative">
-                  {!isFilterActive && (
-                    <RiFilterLine className="fill-muted-foreground" />
-                  )}
-                  {isFilterActive && (
-                    <RiFilterFill className="fill-muted-foreground" />
-                  )}
-                </span>
-              </Button>
-            }
-          ></PopoverTrigger>
-          <PopoverContent
-            align="start"
-            className="flex w-53 flex-col gap-3 p-3 -translate-x-11 -translate-y-9"
-            sideOffset={4}
-          >
-            <div className="flex flex-col gap-2">
-              <p className="text-xs font-medium text-muted-foreground">
-                Category
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {allCategories.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() =>
-                      handleCategoryChange(cat as CategoryFilterType)
-                    }
-                    className={cn(
-                      "cursor-pointer text-xs px-2 py-0.5 rounded border",
-                      category === cat
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-transparent border-border text-muted-foreground hover:bg-muted",
-                    )}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-medium text-muted-foreground">
-                  {type === "blog" ? "Tags" : "Keywords"}
-                </p>
-                <Checkbox
-                  checked={allTagsSelected}
-                  indeterminate={someTagsSelected}
-                  onCheckedChange={(checked) =>
-                    handleToggleAllTags(checked === true)
-                  }
-                />
-              </div>
-              <div className="max-h-32 overflow-y-auto pr-1">
-                {allTags.map((tag) => (
-                  <label
-                    key={tag}
-                    className="flex cursor-pointer items-center justify-between gap-2 py-1"
-                  >
-                    <span className="text-sm text-muted-foreground">{tag}</span>
-                    <Checkbox
-                      checked={selectedTags.includes(tag)}
-                      onCheckedChange={() => handleTagToggle(tag)}
-                    />
-                  </label>
-                ))}
-              </div>
-            </div>
-          </PopoverContent>
-        </Popover>
-
-        {/* sort */}
-        <div className="flex gap-1">
-          <Button
-            variant={sortOrder === "asc" ? "secondary" : "outline"}
-            size="icon-sm"
-            onClick={() => setSortOrder("asc")}
-            className="cursor-pointer"
-          >
-            <RiArrowUpSLine className="size-5 fill-muted-foreground" />
-          </Button>
-          <Button
-            variant={sortOrder === "desc" ? "secondary" : "outline"}
-            size="icon-sm"
-            onClick={() => setSortOrder("desc")}
-            className="cursor-pointer"
-          >
-            <RiArrowDownSLine className="size-5 fill-muted-foreground" />
-          </Button>
-        </div>
-
-        {/* refresh */}
-        <Button
-          variant={isFilterActive ? "outline" : "secondary"}
-          size="icon-sm"
-          onClick={handleReset}
-          disabled={!isFilterActive}
-          className={cn(
-            "cursor-pointer",
-            !isFilterActive && "cursor-not-allowed",
-          )}
+    <div className="flex items-center gap-2 justify-end">
+      <Popover open={filterOpen} onOpenChange={setFilterOpen}>
+        <PopoverTrigger
+          render={
+            <Button
+              variant={isFilterActive ? "secondary" : "outline"}
+              size="icon-sm"
+              className={cn("cursor-pointer", isFilterActive && "bg-muted")}
+            >
+              <span className="relative">
+                {!isFilterActive && (
+                  <RiFilterLine className="fill-muted-foreground" />
+                )}
+                {isFilterActive && (
+                  <RiFilterFill className="fill-muted-foreground" />
+                )}
+              </span>
+            </Button>
+          }
+        ></PopoverTrigger>
+        <PopoverContent
+          align="start"
+          className="flex w-53 flex-col gap-3 p-3 -translate-x-11 -translate-y-9"
+          sideOffset={4}
         >
-          <RiLoopLeftLine className="size-4 fill-muted-foreground" />
+          <div className="flex flex-col gap-2">
+            <p className="text-xs font-medium text-muted-foreground">
+              Category
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {allCategories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() =>
+                    handleCategoryChange(cat as CategoryFilterType)
+                  }
+                  className={cn(
+                    "cursor-pointer text-xs px-2 py-0.5 rounded border",
+                    category === cat
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
+                  )}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-muted-foreground">
+                {type === "blog" ? "Tags" : "Keywords"}
+              </p>
+              <Checkbox
+                checked={allTagsSelected}
+                indeterminate={someTagsSelected}
+                onCheckedChange={(checked) =>
+                  handleToggleAllTags(checked === true)
+                }
+              />
+            </div>
+            <div className="max-h-32 overflow-y-auto pr-1">
+              {allTags.map((tag) => (
+                <label
+                  key={tag}
+                  className="flex cursor-pointer items-center justify-between gap-2 py-1"
+                >
+                  <span className="text-sm text-muted-foreground">{tag}</span>
+                  <Checkbox
+                    checked={selectedTags.includes(tag)}
+                    onCheckedChange={() => handleTagToggle(tag)}
+                  />
+                </label>
+              ))}
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
+
+      <div className="flex gap-1">
+        <Button
+          variant={sortOrder === "asc" ? "secondary" : "outline"}
+          size="icon-sm"
+          onClick={() => setSortOrder("asc")}
+          className="cursor-pointer"
+        >
+          <RiArrowUpSLine className="size-5 fill-muted-foreground" />
+        </Button>
+        <Button
+          variant={sortOrder === "desc" ? "secondary" : "outline"}
+          size="icon-sm"
+          onClick={() => setSortOrder("desc")}
+          className="cursor-pointer"
+        >
+          <RiArrowDownSLine className="size-5 fill-muted-foreground" />
         </Button>
       </div>
-      <div className="space-y-4">
-        {filteredAndSortedItems.length === 0 ? (
-          <p className="paragraph text-center mt-12">
-            No {type === "blog" ? "posts" : "projects"} found.
-          </p>
-        ) : (
-          filteredAndSortedItems.map((item) =>
-            type === "blog" ? (
-              <BlogCard key={item.id} post={item as blogConfig} />
-            ) : (
-              <PortfolioCard key={item.id} project={item as portfolioConfig} />
-            ),
-          )
+
+      <Button
+        variant={isFilterActive ? "outline" : "secondary"}
+        size="icon-sm"
+        onClick={handleReset}
+        disabled={!isFilterActive}
+        className={cn(
+          "cursor-pointer",
+          !isFilterActive && "cursor-not-allowed",
         )}
-      </div>
+      >
+        <RiLoopLeftLine className="size-4 fill-muted-foreground" />
+      </Button>
     </div>
   );
 }
