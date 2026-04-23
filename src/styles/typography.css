@@ -26,47 +26,41 @@
 
     /* Headings */
     h1 {
-      @apply text-4xl font-semibold mt-10 mb-6 tracking-tight;
+      @apply text-5xl font-semibold mt-10 mb-6 tracking-tight;
     }
     h2 {
-      @apply text-3xl font-semibold mt-10 mb-5 tracking-tight border-b border-border pb-3;
+      @apply text-4xl font-semibold mt-10 mb-5 tracking-tight border-b border-border pb-3;
     }
     h3 {
-      @apply text-2xl font-semibold mt-8 mb-4 tracking-tight;
+      @apply text-3xl font-semibold mt-8 mb-4 tracking-tight;
     }
     h4 {
-      @apply text-xl font-semibold mt-6 mb-3;
-    }
-    h5 {
-      @apply text-lg font-semibold mt-4 mb-2;
-    }
-    h6 {
-      @apply text-base font-semibold mt-4 mb-2 text-muted-foreground;
+      @apply text-2xl font-semibold mt-6 mb-3;
     }
 
     /* Paragraphs */
     p {
-      @apply mb-5 leading-relaxed text-foreground/90;
+      @apply mb-5 leading-relaxed text-foreground/90 text-base;
     }
 
     /* Links */
     a {
-      @apply text-foreground underline-offset-3 hover:underline hover:underline-offset-6 transition-all duration-150 decoration-border decoration-1;
+      @apply text-foreground underline-offset-3 hover:underline hover:underline-offset-6 transition-all duration-150 decoration-border decoration-1 text-base;
     }
 
     /* Lists */
     ul {
-      @apply list-disc list-outside ml-6 mb-5 space-y-2;
+      @apply list-disc list-outside ml-6 mb-5 space-y-2 text-base;
     }
     ol {
-      @apply list-decimal list-outside ml-6 mb-5 space-y-2;
+      @apply list-decimal list-outside ml-6 mb-5 space-y-2 text-base;
     }
     li {
-      @apply leading-relaxed;
+      @apply leading-relaxed text-base;
     }
     li > ul,
     li > ol {
-      @apply mt-2 mb-0;
+      @apply mt-2 mb-0 text-base;
     }
 
     /* Blockquotes */
@@ -79,16 +73,16 @@
 
     /* Inline Code - Shiki styled */
     code:not(pre code) {
-      @apply bg-[--shiki-bg] text-[--shiki-fg] px-1.5 py-0.5 rounded text-sm font-mono;
+      @apply bg-[--shiki-bg] text-[--shiki-fg] px-1.5 py-0.5 rounded text-base font-mono;
     }
 
     /* Shiki Code Blocks */
     pre.astro-code {
-      @apply p-4 my-6 overflow-x-auto font-mono text-sm leading-relaxed rounded-lg;
+      @apply p-4 my-6 overflow-x-auto font-mono text-base leading-relaxed rounded-lg;
       border: 1px solid oklch(0.92 0.004 286.32);
     }
     pre.astro-code code {
-      @apply bg-transparent p-0 text-sm font-mono leading-relaxed block;
+      @apply bg-transparent p-0 text-base font-mono leading-relaxed block;
     }
     pre.astro-code .line {
       @apply block;
@@ -109,10 +103,10 @@
       @apply w-full my-6 border-collapse;
     }
     th {
-      @apply border border-border bg-muted px-4 py-3 text-left font-semibold text-sm uppercase tracking-wide;
+      @apply border border-border bg-muted px-4 py-3 text-left font-semibold text-base uppercase tracking-wide;
     }
     td {
-      @apply border border-border px-4 py-3 text-sm;
+      @apply border border-border px-4 py-3 text-base;
     }
     tr:nth-child(even) {
       @apply bg-muted/30;
@@ -151,7 +145,7 @@
 
     /* Keyboard */
     kbd {
-      @apply bg-muted text-muted-foreground px-2 py-1 rounded text-xs font-mono border border-border;
+      @apply bg-muted text-muted-foreground px-2 py-1 rounded text-sm font-mono border border-border;
     }
 
     /* Mark */

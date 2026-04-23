@@ -1,5 +1,5 @@
 ---
-import Filter from "@/components/client/Filter";
+import FilterPortfolio from "@/components/client/FilterPortfolio";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { RiArrowGoBackLine } from "@remixicon/react";
 import portfolio_config from "@/portfolio-config.json";
@@ -29,11 +29,7 @@ const projects = portfolio_config.sort((a, b) => {
 
     <h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Portfolio</h1>
     <div class="">
-      <Filter
-        client:load
-        type="portfolio"
-        items={projects as portfolioConfig[]}
-      />
+      <FilterPortfolio client:load items={projects as portfolioConfig[]} />
     </div>
   </div>
 </BaseLayout>

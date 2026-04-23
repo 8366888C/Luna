@@ -1,11 +1,8 @@
 ---
-import Featured from "@/components/fragments/Featured.astro";
+import Section from "@/components/fragments/Section.astro";
 import Introduction from "@/components/fragments/Introduction.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import site_config from "@/site-config.json";
-
-// Welcome to Ryze! Wondering what to do next? Check out the Ryze documentation at https://github.com/8366888C/ryze
-// Dont know how to code. Head over to https://dash.ryze.pages.dev to configure everything in a visual dashboard
 ---
 
 <BaseLayout>
@@ -13,13 +10,16 @@ import site_config from "@/site-config.json";
     <section>
       {site_config.bIntroduction && <Introduction />}
     </section>
+
     <hr />
-    <section>
-      {
-        site_config.featured.portfolio && site_config.featured.blog && (
-          <Featured />
-        )
-      }
-    </section>
+
+    {
+      (site_config.featured.portfolio.visible ||
+        site_config.featured.blog.visible) && (
+        <section>
+          <Section />
+        </section>
+      )
+    }
   </div>
 </BaseLayout>
