@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [v1.3.0](https://github.com/8366888C/Ryze/releases/tag/v1.3.0) | 2026-04-23
+
+### Features
+- redesigned blog and portfolio cards [ea3ed83](https://github.com/8366888C/Ryze/commit/ea3ed83)
+### Other
+- code cleanup [ca18bf5](https://github.com/8366888C/Ryze/commit/ca18bf5)
+- update changelog [32562ab](https://github.com/8366888C/Ryze/commit/32562ab)
+- update license and changelog [78bf1de](https://github.com/8366888C/Ryze/commit/78bf1de)
+
 ## [v1.2.0](https://github.com/8366888C/Ryze/releases/tag/v1.2.0) | 2026-04-20
 
 ### Features
