@@ -8,7 +8,7 @@
 - add global site config and portfolio config [59a833d](https://github.com/8366888C/Ryze/commit/59a833d)
 - add rss [e158603](https://github.com/8366888C/Ryze/commit/e158603)
 - add markdown blog support [f08ff96](https://github.com/8366888C/Ryze/commit/f08ff96)
-- - add introduction section, navigation, and theme toggle [b2fa32b](https://github.com/8366888C/Ryze/commit/b2fa32b)
+- add introduction section, navigation, and theme toggle [b2fa32b](https://github.com/8366888C/Ryze/commit/b2fa32b)
 
 ### Other
 
@@ -17,6 +17,6 @@
 - utility functions and types [9c14588](https://github.com/8366888C/Ryze/commit/9c14588)
 - code cleanup and style changes [37bf133](https://github.com/8366888C/Ryze/commit/37bf133)
 - corrected project version [f587e0a](https://github.com/8366888C/Ryze/commit/f587e0a)
-- - initial commit from aureus [895fbe7](https://github.com/8366888C/Ryze/commit/895fbe7)
+- initial commit from aureus [895fbe7](https://github.com/8366888C/Ryze/commit/895fbe7)
 - fresh astro install [38bc287](https://github.com/8366888C/Ryze/commit/38bc287)
 - delete previous project [1490f9f](https://github.com/8366888C/Ryze/commit/1490f9f)
