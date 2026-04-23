@@ -98,3 +98,14 @@ export type blogCategoryType =
   | "workflow"
   | "strategy"
   | "devlog";
+
+export interface BlogPost {
+  id: string;
+  data: {
+    title: string;
+    date: string;
+    category: blogCategoryType;
+    tags: string[];
+    description: string;
+  };
+}

@@ -34,6 +34,6 @@
   "featured": {
     "portfolio": { "visible": true },
     "blog": { "visible": true },
-    "important": "portfolio"
+    "important": "blog"
   }
 }

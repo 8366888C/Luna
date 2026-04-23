@@ -1,5 +1,5 @@
 ---
-import Filter from "@/components/client/Filter";
+import FilterBlog from "@/components/client/FilterBlog";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { RiArrowGoBackLine } from "@remixicon/react";
 import { getCollection } from "astro:content";
@@ -30,7 +30,7 @@ const blogs = (await getCollection("blog"))
 
     <h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Blog</h1>
     <div class="">
-      <Filter client:load type="blog" items={blogs} />
+      <FilterBlog client:load items={blogs} />
     </div>
   </div>
 </BaseLayout>

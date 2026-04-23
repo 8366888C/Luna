@@ -18,7 +18,7 @@
       "https://www.youtube.com/watch?v=MLpWrANjFbI"
     ],
     "images": [
-      "https://unsplash.com/photos/two-vehicles-parked-on-a-hilltop-with-people-GpXJcT0U-3M",
+      "https://images.unsplash.com/photo-1773178454646-d506f9e37696?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw",
       "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c",
       "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0",
@@ -42,7 +42,7 @@
     }
   },
   {
-    "featured": false,
+    "featured": true,
     "id": "devtrace",
     "date": "20-03-2026",
     "category": "software",
@@ -60,12 +60,13 @@
       "https://www.youtube.com/watch?v=MLpWrANjFbI"
     ],
     "images": [
-      "https://unsplash.com/photos/1555069781-e981ea553242",
-      "https://unsplash.com/photos/1451186583921-b62996a88e95",
-      "https://unsplash.com/photos/1518770660438-63b8d50e3ab8",
-      "https://unsplash.com/photos/1516110830867-a9c6f4470f26",
-      "https://unsplash.com/photos/1555069781-e981ea553243",
-      "https://unsplash.com/photos/1451186583921-b62996a88e96"
+      "https://images.unsplash.com/photo-1770131091439-9aa7274f544f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw",
+      "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c",
+      "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0",
+      "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs",
+      "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE",
+      "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"
     ],
     "brief": {
       "motivation": [
@@ -83,7 +84,7 @@
     }
   },
   {
-    "featured": false,
+    "featured": true,
     "id": "pixelquest",
     "date": "25-03-2026",
     "category": "gameplay",
@@ -96,15 +97,15 @@
       { "label": "itch.io", "url": "https://pixelquest.itch.io" },
       { "label": "Discord", "url": "https://discord.gg/pixelquest" }
     ],
-    "video": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    ],
+    "video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
     "images": [
-      "https://unsplash.com/photos/1511512574072-0a0fc37a15e1",
-      "https://unsplash.com/photos/1511887014822-e4dbf4755280",
-      "https://unsplash.com/photos-1506317291941-a851e18853e2",
-      "https://unsplash.com/photos-1511887014822-e4dbf4755281",
-      "https://unsplash.com/photos/1511512574072-0a0fc37a15e2"
+      "https://images.unsplash.com/photo-1774017092224-54c07e928a39?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw",
+      "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c",
+      "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0",
+      "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs",
+      "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE",
+      "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"
     ],
     "brief": {
       "motivation": [
@@ -122,7 +123,7 @@
     }
   },
   {
-    "featured": false,
+    "featured": true,
     "id": "analytics-dashboard",
     "date": "01-04-2026",
     "category": "analytics",
@@ -140,11 +141,13 @@
       "https://www.youtube.com/watch?v=abc123"
     ],
     "images": [
-      "https://unsplash.com/photos/1551289203-e52b0e49aa1d",
-      "https://unsplash.com/photos/1460925898422-ea0d114b1f4d",
-      "https://unsplash.com/photos-1551289203-e52b0e49aa1e",
-      "https://unsplash.com/photos-1460925898422-ea0d114b1f4e",
-      "https://unsplash.com/photos-1551289203-e52b0e49aa1f"
+      "https://images.unsplash.com/photo-1761872802877-f4a229449340?q=80&w=1033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw",
+      "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c",
+      "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0",
+      "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs",
+      "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE",
+      "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"
     ],
     "brief": {
       "motivation": [
@@ -175,9 +178,7 @@
       { "label": "Documentation", "url": "https://docs.neuralviz.ai" },
       { "label": "PyPI", "url": "https://pypi.org" }
     ],
-    "video": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    ],
+    "video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
     "images": [
       "https://unsplash.com/photos-1677442947998-7e7a56d370a2",
       "https://unsplash.com/photos-1555069781-e981ea553244",
@@ -253,9 +254,7 @@
       { "label": "Documentation", "url": "https://saasboiler.dev/docs" },
       { "label": "Demo", "url": "https://demo.saasboiler.dev" }
     ],
-    "video": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    ],
+    "video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
     "images": [
       "https://unsplash.com/photos-1522547885215-2587e55e07e9",
       "https://unsplash.com/photos-1523275331400-1a4f6e0d1a47",
@@ -331,9 +330,7 @@
       { "label": "Documentation", "url": "https://marketpredictor.ai/docs" },
       { "label": "API Reference", "url": "https://api.marketpredictor.ai" }
     ],
-    "video": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    ],
+    "video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
     "images": [
       "https://unsplash.com/photos-1611974785245-8ab367c44a30",
       "https://unsplash.com/photos-1551289203-e52b0e49aa1g",
@@ -409,9 +406,7 @@
       { "label": "Play Now", "url": "https://runner.game" },
       { "label": "Discord", "url": "https://discord.gg/runnergame" }
     ],
-    "video": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    ],
+    "video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
     "images": [
       "https://unsplash.com/photos-1511887014822-e4dbf4755282",
       "https://unsplash.com/photos-1511887014822-e4dbf4755283",
