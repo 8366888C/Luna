@@ -3,168 +3,168 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    --shiki-bg: #24292e;
-    --shiki-fg: #e1e4e8;
-    --shiki-comment: #8b949e;
-    --shiki-keyword: #ff7b72;
-    --shiki-string: #a5d6ff;
-    --shiki-function: #d2a8ff;
-    --shiki-variable: #ffa657;
-    --shiki-number: #79c0ff;
-    --shiki-operator: #ff7b72;
-    --shiki-punctuation: #c9d1d9;
-  }
+	:root {
+		--shiki-bg: #24292e;
+		--shiki-fg: #e1e4e8;
+		--shiki-comment: #8b949e;
+		--shiki-keyword: #ff7b72;
+		--shiki-string: #a5d6ff;
+		--shiki-function: #d2a8ff;
+		--shiki-variable: #ffa657;
+		--shiki-number: #79c0ff;
+		--shiki-operator: #ff7b72;
+		--shiki-punctuation: #c9d1d9;
+	}
 }
 
 /* ! MARKDOWN TYPOGRAPHY */
 /* Shiki-powered code blocks with design language */
 
 @layer base {
-  .prose {
-    @apply text-base leading-relaxed;
+	.prose {
+		@apply text-base leading-relaxed;
 
-    /* Headings */
-    h1 {
-      @apply text-5xl font-semibold mt-10 mb-6 tracking-tight;
-    }
-    h2 {
-      @apply text-4xl font-semibold mt-10 mb-5 tracking-tight border-b border-border pb-3;
-    }
-    h3 {
-      @apply text-3xl font-semibold mt-8 mb-4 tracking-tight;
-    }
-    h4 {
-      @apply text-2xl font-semibold mt-6 mb-3;
-    }
+		/* Headings */
+		h1 {
+			@apply text-5xl font-semibold mt-10 mb-6 tracking-tight;
+		}
+		h2 {
+			@apply text-4xl font-semibold mt-10 mb-5 tracking-tight border-b border-border pb-3;
+		}
+		h3 {
+			@apply text-3xl font-semibold mt-8 mb-4 tracking-tight;
+		}
+		h4 {
+			@apply text-2xl font-semibold mt-6 mb-3;
+		}
 
-    /* Paragraphs */
-    p {
-      @apply mb-5 leading-relaxed text-foreground/90 text-base;
-    }
+		/* Paragraphs */
+		p {
+			@apply mb-5 leading-relaxed text-foreground/90 text-base;
+		}
 
-    /* Links */
-    a {
-      @apply text-foreground underline-offset-3 hover:underline hover:underline-offset-6 transition-all duration-150 decoration-border decoration-1 text-base;
-    }
+		/* Links */
+		a {
+			@apply text-foreground underline-offset-3 hover:underline hover:underline-offset-6 transition-all duration-150 decoration-border decoration-1 text-base;
+		}
 
-    /* Lists */
-    ul {
-      @apply list-disc list-outside ml-6 mb-5 space-y-2 text-base;
-    }
-    ol {
-      @apply list-decimal list-outside ml-6 mb-5 space-y-2 text-base;
-    }
-    li {
-      @apply leading-relaxed text-base;
-    }
-    li > ul,
-    li > ol {
-      @apply mt-2 mb-0 text-base;
-    }
+		/* Lists */
+		ul {
+			@apply list-disc list-outside ml-6 mb-5 space-y-2 text-base;
+		}
+		ol {
+			@apply list-decimal list-outside ml-6 mb-5 space-y-2 text-base;
+		}
+		li {
+			@apply leading-relaxed text-base;
+		}
+		li > ul,
+		li > ol {
+			@apply mt-2 mb-0 text-base;
+		}
 
-    /* Blockquotes */
-    blockquote {
-      @apply border-l-[3px] border-foreground pl-5 my-6 not-italic text-muted-foreground;
-    }
-    blockquote p {
-      @apply mb-0;
-    }
+		/* Blockquotes */
+		blockquote {
+			@apply border-l-[3px] border-foreground pl-5 my-6 not-italic text-muted-foreground;
+		}
+		blockquote p {
+			@apply mb-0;
+		}
 
-    /* Inline Code - Shiki styled */
-    code:not(pre code) {
-      @apply bg-[--shiki-bg] text-[--shiki-fg] px-1.5 py-0.5 rounded text-base font-mono;
-    }
+		/* Inline Code - Shiki styled */
+		code:not(pre code) {
+			@apply bg-[--shiki-bg] text-[--shiki-fg] px-1.5 py-0.5  text-base font-mono;
+		}
 
-    /* Shiki Code Blocks */
-    pre.astro-code {
-      @apply p-4 my-6 overflow-x-auto font-mono text-base leading-relaxed rounded-lg;
-      border: 1px solid oklch(0.92 0.004 286.32);
-    }
-    pre.astro-code code {
-      @apply bg-transparent p-0 text-base font-mono leading-relaxed block;
-    }
-    pre.astro-code .line {
-      @apply block;
-    }
+		/* Shiki Code Blocks */
+		pre.astro-code {
+			@apply p-4 my-6 overflow-x-auto font-mono text-base leading-relaxed;
+			border: 1px solid oklch(0.92 0.004 286.32);
+		}
+		pre.astro-code code {
+			@apply bg-transparent p-0 text-base font-mono leading-relaxed block;
+		}
+		pre.astro-code .line {
+			@apply block;
+		}
 
-    /* Horizontal rule */
-    hr {
-      @apply border-border my-10;
-    }
+		/* Horizontal rule */
+		hr {
+			@apply border-border my-10;
+		}
 
-    /* Images */
-    img {
-      @apply rounded-lg my-6 max-w-full border border-border;
-    }
+		/* Images */
+		img {
+			@apply my-6 max-w-full border border-border;
+		}
 
-    /* Tables */
-    table {
-      @apply w-full my-6 border-collapse;
-    }
-    th {
-      @apply border border-border bg-muted px-4 py-3 text-left font-semibold text-base uppercase tracking-wide;
-    }
-    td {
-      @apply border border-border px-4 py-3 text-base;
-    }
-    tr:nth-child(even) {
-      @apply bg-muted/30;
-    }
+		/* Tables */
+		table {
+			@apply w-full border-collapse;
+		}
+		th {
+			@apply border border-border bg-muted px-4 py-3 text-left font-semibold text-base uppercase tracking-wide;
+		}
+		td {
+			@apply border border-border px-4 py-3 text-base;
+		}
+		tr:nth-child(even) {
+			@apply bg-muted/30;
+		}
 
-    /* Strong and Emphasis */
-    strong {
-      @apply font-semibold text-foreground;
-    }
-    em {
-      @apply italic;
-    }
-    strong em {
-      @apply font-semibold italic;
-    }
+		/* Strong and Emphasis */
+		strong {
+			@apply font-semibold text-foreground;
+		}
+		em {
+			@apply italic;
+		}
+		strong em {
+			@apply font-semibold italic;
+		}
 
-    /* Abbreviations */
-    abbr {
-      @apply underline decoration-dotted cursor-help text-muted-foreground;
-    }
+		/* Abbreviations */
+		abbr {
+			@apply underline decoration-dotted cursor-help text-muted-foreground;
+		}
 
-    /* Details and Summary */
-    details {
-      @apply my-4 border border-border rounded-lg p-4;
-    }
-    summary {
-      @apply cursor-pointer font-semibold list-none;
-    }
-    summary::before {
-      content: "▸";
-      @apply mr-2;
-    }
-    details[open] summary::before {
-      content: "▾";
-    }
+		/* Details and Summary */
+		details {
+			@apply my-4 border border-border p-4;
+		}
+		summary {
+			@apply cursor-pointer font-semibold list-none;
+		}
+		summary::before {
+			content: "▸";
+			@apply mr-2;
+		}
+		details[open] summary::before {
+			content: "▾";
+		}
 
-    /* Keyboard */
-    kbd {
-      @apply bg-muted text-muted-foreground px-2 py-1 rounded text-sm font-mono border border-border;
-    }
+		/* Keyboard */
+		kbd {
+			@apply bg-muted text-muted-foreground px-2 py-1 text-sm font-mono border border-border;
+		}
 
-    /* Mark */
-    mark {
-      @apply bg-accent px-1 rounded text-foreground;
-    }
+		/* Mark */
+		mark {
+			@apply bg-accent px-1 text-foreground;
+		}
 
-    /* Task Lists */
-    ul:has(input[type="checkbox"]) {
-      @apply list-none ml-0;
-    }
-    ul:has(input[type="checkbox"]) li {
-      @apply flex items-center gap-2;
-    }
-    ul:has(input[type="checkbox"]) li::before {
-      content: none;
-    }
-    ul:has(input[type="checkbox"]) input[type="checkbox"] {
-      @apply accent-foreground;
-    }
-  }
+		/* Task Lists */
+		ul:has(input[type="checkbox"]) {
+			@apply list-none ml-0;
+		}
+		ul:has(input[type="checkbox"]) li {
+			@apply flex items-center gap-2;
+		}
+		ul:has(input[type="checkbox"]) li::before {
+			content: none;
+		}
+		ul:has(input[type="checkbox"]) input[type="checkbox"] {
+			@apply accent-foreground;
+		}
+	}
 }

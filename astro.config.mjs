@@ -10,12 +10,16 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   devToolbar: { enabled: false },
 
-  integrations: [react(), sitemap(), mdx({
-    shikiConfig: {
-      theme: "github-dark",
-      wrap: true,
-    },
-  })],
+  integrations: [
+    react(),
+    sitemap(),
+    mdx({
+      shikiConfig: {
+        theme: "github-dark",
+        wrap: true,
+      },
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

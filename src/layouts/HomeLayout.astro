@@ -1,9 +1,9 @@
 ---
 import Header from "@/components/fragments/Header.astro";
-import Footer from "@/components/fragments/Footer.astro";
 import "@/styles/global.css";
 import "@/styles/typography.css";
 import Head from "@/components/fragments/Head.astro";
+import FooterSnake from "@/components/fragments/FooterSnake.astro";
 ---
 
 <!doctype html>
@@ -15,6 +15,6 @@ import Head from "@/components/fragments/Head.astro";
 		<main class="">
 			<slot />
 		</main>
-		<Footer />
+		<FooterSnake client:load />
 	</body>
 </html>

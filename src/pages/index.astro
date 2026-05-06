@@ -1,25 +1,34 @@
 ---
 import Section from "@/components/fragments/Section.astro";
 import Introduction from "@/components/fragments/Introduction.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
 import site_config from "@/site-config.json";
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import FeaturedBlog from "@/components/static/FeaturedBlog.astro";
+import FeaturedPortfolio from "@/components/static/FeaturedPortfolio.astro";
+
+// Client components
+import { SocialCTA } from "@/components/client/SocialCTA";
 ---
 
-<BaseLayout>
-  <div>
-    <section>
-      {site_config.bIntroduction && <Introduction />}
-    </section>
+<HomeLayout>
+	<div transition:animate="fade">
+		{/* Introduction Section */}
+		{site_config.bIntroduction && <Introduction />}
 
-    <hr />
-
-    {
-      (site_config.featured.portfolio.visible ||
-        site_config.featured.blog.visible) && (
-        <section>
-          <Section />
-        </section>
-      )
-    }
-  </div>
-</BaseLayout>
+		{/* Featured */}
+		{site_config.featured.blog && site_config.featured.portfolio && <Section title="recent" />}
+		{
+			site_config.featured.important === "portfolio" ? (
+				<>
+					<FeaturedPortfolio />
+					<FeaturedBlog />
+				</>
+			) : (
+				<>
+					<FeaturedBlog />
+					<FeaturedPortfolio />
+				</>
+			)
+		}
+	</div>
+</HomeLayout>
