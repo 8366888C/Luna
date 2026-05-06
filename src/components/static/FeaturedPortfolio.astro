@@ -1,0 +1,30 @@
+---
+import site_config from "@/site-config.json";
+import portfolio_config from "@/portfolio-config.json";
+import { parse } from "date-fns";
+import Section from "@/components/fragments/Section.astro";
+import { FeaturedPortfolioCard } from "../client/FeaturedPortfolioCard";
+import { RiArrowRightLine } from "@remixicon/react";
+
+const projects = portfolio_config.sort((a, b) => {
+	const dateA = parse(a.date, "dd-MM-yyyy", new Date());
+	const dateB = parse(b.date, "dd-MM-yyyy", new Date());
+	return dateB.getTime() - dateA.getTime();
+});
+---
+
+{
+	site_config.featured.portfolio.visible && projects.length > 0 && (
+		<section class="border border-border p-6 mt-10">
+			<div class="flex items-center justify-between">
+				<p class="text-muted-foreground">things i've built and shipped</p>
+				<a href="/portfolio" class="flex px-3 py-1 bg-background hover:bg-muted border border-foreground/30 hover:border-foreground/50 active:scale-93 animation group">
+					<span class="text-foreground/80 text-xs">view all</span>
+				</a>
+			</div>
+			<div class="mt-6">
+				<FeaturedPortfolioCard items={projects} client:load />
+			</div>
+		</section>
+	)
+}
