@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [v1.4.0](https://github.com/8366888C/Ryze/releases/tag/v1.4.0) | 2026-05-06
+
+### Features
+- add fastfetch style page [a914b06](https://github.com/8366888C/Ryze/commit/a914b06)
+- add resume page [53a52ea](https://github.com/8366888C/Ryze/commit/53a52ea)
+- snake game [98a4d9c](https://github.com/8366888C/Ryze/commit/98a4d9c)
+### Other
+- redesign featured components and cards [d0fc2f9](https://github.com/8366888C/Ryze/commit/d0fc2f9)
+- code cleanup and redesign [aa2ecf6](https://github.com/8366888C/Ryze/commit/aa2ecf6)
+- remove dummy blogs and components [6b6d90d](https://github.com/8366888C/Ryze/commit/6b6d90d)
+
 ## [v1.3.0](https://github.com/8366888C/Ryze/releases/tag/v1.3.0) | 2026-04-23
 
 ### Features
