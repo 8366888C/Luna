@@ -1,0 +1,25 @@
+---
+import site_config from "@/site-config.json";
+import { RiArrowRightUpLine } from "@remixicon/react";
+import Snake from "@/components/client/Snake";
+---
+
+<footer class="footer-margin font-mono antialiased bg-background text-foreground select-none sticky bottom-0 z-0">
+    <p class="text-sm text-muted-foreground mb-4 text-center">Need a break? Play a quick game of snake!</p>
+    <Snake client:load />
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <p class="text-sm text-muted-foreground">
+                &copy; {new Date().getFullYear()}
+                {site_config.introduction.heading}. All rights reserved.
+            </p>
+        </div>
+        <div>
+            <p class="text-sm text-muted-foreground">
+                powered by <a href="https://astro.build/" class="hover:text-accent-foreground transition-colors">Astro</a>
+                <span class="text-muted-foreground/80">&</span>
+                <a href="https://astro.build/themes/details/ryze/" class="hover:text-accent-foreground transition-colors">Ryze</a>
+            </p>
+        </div>
+    </div>
+</footer>
