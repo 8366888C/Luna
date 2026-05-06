@@ -1,0 +1,17 @@
+---
+import "@/styles/global.css";
+import "@/styles/typography.css";
+import Head from "@/components/fragments/Head.astro";
+import Header from "@/components/fragments/Header.astro";
+---
+
+<!doctype html>
+<html lang="en" transition:animate="fade">
+	<Head />
+	<body class="body-margin">
+		{/* Content */}
+		<main class="main-margin">
+			<slot />
+		</main>
+	</body>
+</html>

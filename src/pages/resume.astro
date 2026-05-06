@@ -1,0 +1,283 @@
+---
+import ResumeLayout from "@/layouts/ResumeLayout.astro";
+import { RiMailLine, RiMapPinLine, RiLinksLine, RiGithubLine, RiLinkedinBoxLine } from "@remixicon/react";
+---
+
+<ResumeLayout>
+	<div transition:animate="fade" class="max-w-4xl mx-auto">
+		{/* Header */}
+		<div class="text-center mb-16 mt-8">
+			<h1 class="text-5xl font-semibold select-none mb-2">John Doe</h1>
+			<p class="text-xl text-muted-foreground mb-6">Senior Software Engineer</p>
+			<div class="flex flex-wrap justify-center items-center gap-4 text-base text-muted-foreground">
+				<div class="flex items-center gap-1.5">
+					<RiMailLine className="size-4" />
+					<span>john.doe@example.com</span>
+				</div>
+				<span class="text-border">|</span>
+				<div class="flex items-center gap-1.5">
+					<RiMapPinLine className="size-4" />
+					<span>San Francisco, CA</span>
+				</div>
+			</div>
+			<div class="flex justify-center gap-5 mt-4">
+				<a href="https://github.com" class="text-muted-foreground hover:text-foreground animation">
+					<RiGithubLine className="size-5" />
+				</a>
+				<a href="https://linkedin.com" class="text-muted-foreground hover:text-foreground animation">
+					<RiLinkedinBoxLine className="size-5" />
+				</a>
+				<a href="https://portfolio.example.com" class="text-muted-foreground hover:text-foreground animation">
+					<RiLinksLine className="size-5" />
+				</a>
+			</div>
+		</div>
+
+		{/* Summary */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-8">Professional Summary</h2>
+			<p class="text-center max-w-2xl mx-auto leading-relaxed text-base text-muted-foreground">
+				Results-driven Senior Software Engineer with 8+ years of experience building scalable web applications and leading engineering teams.
+				Specialized in React, Node.js, and cloud architecture. Proven track record of delivering high-impact features, mentoring developers,
+				and driving technical excellence. Passionate about clean code, user experience, and leveraging technology to solve complex problems.
+			</p>
+		</section>
+
+		{/* Experience - Vertical Timeline */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-12">Work Experience</h2>
+			<div class="relative">
+				{/* Vertical line */}
+				<div class="absolute left-0 md:left-1/3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent"></div>
+
+				{/* Job 1 */}
+				<div class="relative mb-12 md:flex md:gap-0">
+					<div class="md:w-1/3 text-left md:text-right md:pr-12 pb-3 md:pb-0">
+						<span class="text-xs text-muted-foreground font-mono">2022 - Present</span>
+					</div>
+					<div class="md:w-2/3 md:pl-12 relative">
+						<div class="absolute left-[-5px] md:left-[-5px] top-1 w-2.5 h-2.5 bg-background border border-border rounded-full"></div>
+						<div>
+							<h3 class="text-base font-semibold">Senior Software Engineer</h3>
+							<p class="text-xs text-muted-foreground mb-4 font-mono">TechCorp Inc.</p>
+							<ul class="space-y-2 text-base text-muted-foreground">
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Led a team of 6 engineers to build a microservices-based e-commerce platform serving 1M+ users</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Architected and implemented real-time inventory management system reducing stock discrepancies by 45%</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Mentored junior developers and established code review standards improving code quality metrics by 60%</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Optimized application performance achieving 40% faster page load times and 99.9% uptime</span>
+								</li>
+							</ul>
+							<div class="flex flex-wrap gap-1.5 mt-4">
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">React</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Node.js</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">AWS</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Docker</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">PostgreSQL</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Job 2 */}
+				<div class="relative mb-12 md:flex md:gap-0">
+					<div class="md:w-1/3 text-left md:text-right md:pr-12 pb-3 md:pb-0">
+						<span class="text-xs text-muted-foreground font-mono">2019 - 2021</span>
+					</div>
+					<div class="md:w-2/3 md:pl-12 relative">
+						<div class="absolute left-[-5px] md:left-[-5px] top-1 w-2.5 h-2.5 bg-background border border-border rounded-full"></div>
+						<div>
+							<h3 class="text-base font-semibold">Software Engineer</h3>
+							<p class="text-xs text-muted-foreground mb-4 font-mono">InnovateSoft Solutions</p>
+							<ul class="space-y-2 text-base text-muted-foreground">
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Developed and maintained 15+ RESTful APIs serving 500K+ daily active users</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Implemented CI/CD pipelines reducing deployment time from 2 hours to 15 minutes</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Collaborated with product team to deliver 30+ features using Agile methodologies</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Migrated legacy codebase from AngularJS to React, improving maintainability</span>
+								</li>
+							</ul>
+							<div class="flex flex-wrap gap-1.5 mt-4">
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">React</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Python</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">MongoDB</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Redis</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Job 3 */}
+				<div class="relative md:flex md:gap-0">
+					<div class="md:w-1/3 text-left md:text-right md:pr-12 pb-3 md:pb-0">
+						<span class="text-xs text-muted-foreground font-mono">2017 - 2019</span>
+					</div>
+					<div class="md:w-2/3 md:pl-12 relative">
+						<div class="absolute left-[-5px] md:left-[-5px] top-1 w-2.5 h-2.5 bg-background border border-border rounded-full"></div>
+						<div>
+							<h3 class="text-base font-semibold">Junior Developer</h3>
+							<p class="text-xs text-muted-foreground mb-4 font-mono">StartUp Labs</p>
+							<ul class="space-y-2 text-base text-muted-foreground">
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Built responsive web applications using modern JavaScript frameworks</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Created automated testing suites increasing code coverage from 40% to 85%</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-border mt-1.5">•</span>
+									<span>Designed and implemented database schemas for 3 major product features</span>
+								</li>
+							</ul>
+							<div class="flex flex-wrap gap-1.5 mt-4">
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">JavaScript</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Vue.js</span>
+								<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">MySQL</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Education */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-8">Education</h2>
+			<div class="max-w-2xl mx-auto">
+				<h3 class="text-base font-semibold">Bachelor of Science in Computer Science</h3>
+				<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-base text-muted-foreground mt-1">
+					<span>University of California, Berkeley</span>
+					<span class="hidden sm:block text-border">•</span>
+					<span class="font-mono text-xs">2013 - 2017</span>
+				</div>
+				<p class="text-xs text-muted-foreground mt-3 font-mono">GPA: 3.8/4.0 | Magna Cum Laude</p>
+				<p class="text-base text-muted-foreground mt-3 leading-relaxed">
+					Relevant Coursework: Data Structures, Algorithms, Machine Learning, Database Systems, Software Engineering
+				</p>
+			</div>
+		</section>
+
+		{/* Skills */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-8">Technical Skills</h2>
+			<div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div>
+					<h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Languages</h3>
+					<div class="flex flex-wrap gap-1.5">
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">JavaScript/TypeScript</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Python</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Go</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">SQL</span>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Frameworks</h3>
+					<div class="flex flex-wrap gap-1.5">
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">React</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Next.js</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Node.js</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Express</span>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Tools & Platforms</h3>
+					<div class="flex flex-wrap gap-1.5">
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">AWS</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Docker</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Kubernetes</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Git</span>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Databases</h3>
+					<div class="flex flex-wrap gap-1.5">
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">PostgreSQL</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">MongoDB</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">Redis</span>
+						<span class="text-[10px] px-2 py-0.5 border border-border rounded-sm font-mono">MySQL</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Featured Projects */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-8">Featured Projects</h2>
+			<div class="max-w-2xl mx-auto space-y-6">
+				<div>
+					<h3 class="text-base font-semibold">TaskFlow - Project Management Platform</h3>
+					<p class="text-sm text-muted-foreground mt-1">A modern project management tool for agile teams with real-time collaboration</p>
+					<p class="text-xs text-muted-foreground mt-2 leading-relaxed">
+						Built with React, Node.js, WebSocket, and PostgreSQL. Features Kanban boards, sprint planning, and analytics.
+					</p>
+					<div class="flex gap-4 mt-3">
+						<a href="#" class="text-xs text-primary hover:underline font-mono">Live Demo</a>
+						<a href="#" class="text-xs text-primary hover:underline font-mono">Source Code</a>
+					</div>
+				</div>
+				<div class="pt-6 border-t border-border">
+					<h3 class="text-base font-semibold">DevTrace - Distributed Tracing System</h3>
+					<p class="text-sm text-muted-foreground mt-1">End-to-end distributed tracing for microservices architecture</p>
+					<p class="text-xs text-muted-foreground mt-2 leading-relaxed">
+						Built with Go, OpenTelemetry, Docker, and Kubernetes. Provides real-time latency analysis and service mapping.
+					</p>
+					<div class="flex gap-4 mt-3">
+						<a href="#" class="text-xs text-primary hover:underline font-mono">Documentation</a>
+						<a href="#" class="text-xs text-primary hover:underline font-mono">GitHub</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Certifications & Achievements */}
+		<section class="mb-16">
+			<h2 class="text-lg font-light tracking-[0.3em] text-center uppercase mb-8">Certifications & Achievements</h2>
+			<div class="max-w-2xl mx-auto">
+				<ul class="space-y-3 text-base text-muted-foreground">
+					<li class="flex items-start gap-3">
+						<span class="text-border mt-1.5 text-xs">→</span>
+						<span>AWS Certified Solutions Architect - Professional (2024)</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-border mt-1.5 text-xs">→</span>
+						<span>Google Cloud Professional Developer Certification (2023)</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-border mt-1.5 text-xs">→</span>
+						<span>Speaker at ReactConf 2023 - "Building Scalable React Applications"</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-border mt-1.5 text-xs">→</span>
+						<span>Open Source Contributor - 500+ contributions on GitHub</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-border mt-1.5 text-xs">→</span>
+						<span>Employee of the Year Award - TechCorp Inc. (2023)</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</ResumeLayout>
