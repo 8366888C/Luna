@@ -1,21 +1,15 @@
 ---
 import BlogLayout from "@/layouts/BlogLayout.astro";
-import {
-  RiArrowGoBackLine,
-  RiCalendar2Line,
-  RiUserLine,
-} from "@remixicon/react";
+import { RiArrowGoBackLine, RiCalendar2Line, RiUserLine } from "@remixicon/react";
 import { getCollection, render } from "astro:content";
 import { format, parse } from "date-fns";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog")).filter(
-    (post) => !post.data.draft,
-  );
-  return posts.map((post) => ({
-    params: { id: post.id },
-    props: { post },
-  }));
+	const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
 }
 
 const { post } = Astro.props;
@@ -25,53 +19,48 @@ const { Content } = await render(post);
 ---
 
 <BlogLayout>
-  <article transition:animate="fade">
-    <a href="/blog" class="button group inline-block">
-      <div class="mt-10 flex items-center gap-2 active:translate-x-3 animation">
-        <RiArrowGoBackLine
-          className="size-4 fill-muted-foreground group-hover:fill-primary"
-        />
-        <span
-          class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6"
-          >back</span
-        >
-      </div>
-    </a>
+	<article transition:animate="fade">
+		<div class="border border-border p-6 mt-10">
+			<a href="/blog" class="button group inline-block">
+				<div class="flex items-center gap-2 active:translate-x-1 animation">
+					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
+					<span class="text-muted-foreground group-hover:text-foreground">back</span>
+				</div>
+			</a>
 
-    <header class="mt-3 mb-8">
-      <h1 class="text-5xl font-semibold select-none">{post.data.title}</h1>
-      <p class="text-xl text-muted-foreground mt-2">{post.data.description}</p>
+			<header class="mt-3">
+				<h1 class="text-5xl font-semibold select-none">{post.data.title}</h1>
+				<p class="text-xl text-muted-foreground mt-2">{post.data.description}</p>
 
-      <div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
-        <div class="flex items-center gap-2">
-          <RiCalendar2Line className="size-4" />
-          <span>{formattedDate}</span>
-        </div>
-        {
-          post.data.author && (
-            <div class="flex items-center gap-2">
-              <RiUserLine className="size-4" />
-              <span>{post.data.author}</span>
-            </div>
-          )
-        }
-      </div>
+				<div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
+					<div class="flex items-center gap-2">
+						<RiCalendar2Line className="size-4" />
+						<span>{formattedDate}</span>
+					</div>
+					{
+						post.data.author && (
+							<div class="flex items-center gap-2">
+								<RiUserLine className="size-4" />
+								<span>{post.data.author}</span>
+							</div>
+						)
+					}
+				</div>
 
-      {
-        post.data.tags && post.data.tags.length > 0 && (
-          <div class="flex gap-2 mt-4 flex-wrap">
-            {post.data.tags.map((tag) => (
-              <span class="text-xs px-3 py-1 bg-muted text-muted-foreground rounded">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )
-      }
-    </header>
+				{
+					post.data.tags && post.data.tags.length > 0 && (
+						<div class="flex gap-2 mt-4 flex-wrap">
+							{post.data.tags.map((tag) => (
+								<span class="text-xs px-3 py-1 bg-muted text-muted-foreground rounded">{tag}</span>
+							))}
+						</div>
+					)
+				}
+			</header>
+		</div>
 
-    <div class="prose">
-      <Content />
-    </div>
-  </article>
+		<div class="prose border border-border p-6 mt-10">
+			<Content />
+		</div>
+	</article>
 </BlogLayout>

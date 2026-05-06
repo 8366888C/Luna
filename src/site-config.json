@@ -1,39 +1,38 @@
 {
-  "bNavigation": true,
-  "homeLabel": "home",
-  "navigationItems": ["portfolio", "blog"],
-  "bPageFind": true,
-  "bRssFeed": true,
-  "bIntroduction": true,
-  "introduction": {
-    "badges": ["Full Stack Developer", "UI/UX Enthusiast", "Open Source"],
-    "heading": "John Doe",
-    "subHeadingItems": [
-      {
-        "type": "mail",
-        "label": "john.doe@example.com",
-        "url": "mailto:john.doe@example.com"
-      },
-      {
-        "type": "address",
-        "label": "San Francisco, CA",
-        "url": "https://www.google.com/maps/place/San+Francisco"
-      }
-    ],
-    "socialItems": [
-      { "type": "linkedin", "url": "https://linkedin.com" },
-      { "type": "github", "url": "https://github.com" },
-      { "type": "twitter", "url": "https://twitter.com" }
-    ],
-    "description": "I'm a passionate developer building modern web applications with focus on performance, accessibility, and user experience. Welcome to my personal corner of the internet.",
-    "ctaItems": [
-      { "label": "View Portfolio", "url": "/portfolio", "variant": "default" },
-      { "label": "Read Blog", "url": "/blog", "variant": "outline" }
-    ]
-  },
-  "featured": {
-    "portfolio": { "visible": true },
-    "blog": { "visible": true },
-    "important": "blog"
-  }
+	"github": { "owner": "8366888C", "repo": "ryze" },
+	"domain": "https://ryze.pages.dev",
+	"bNavigation": true,
+	"homeLabel": "home",
+	"navigationItems": ["portfolio", "blog"],
+	"bPageFind": true,
+	"bRssFeed": true,
+	"bIntroduction": true,
+	"introduction": {
+		"badges": ["Software Developer"],
+		"heading": "John Doe",
+		"subHeadingItems": [
+			{
+				"type": "mail",
+				"label": "john.doe@example.com",
+				"url": "mailto:john.doe@example.com"
+			},
+			{
+				"type": "address",
+				"label": "San Francisco, CA",
+				"url": "https://www.google.com/maps/place/San+Francisco"
+			}
+		],
+		"socialItems": [
+			{ "type": "linkedin", "url": "https://linkedin.com" },
+			{ "type": "github", "url": "https://github.com" },
+			{ "type": "twitter", "url": "https://twitter.com" }
+		],
+		"description": "I'm a passionate developer building modern web applications with focus on performance, accessibility, and user experience. Welcome to my personal corner of the internet.",
+		"ctaItems": [{ "label": "Resume", "url": "/resume", "variant": "default" }]
+	},
+	"featured": {
+		"portfolio": { "visible": true },
+		"blog": { "visible": true },
+		"important": "blog"
+	}
 }

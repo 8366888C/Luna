@@ -1,19 +1,14 @@
 ---
 import BlogLayout from "@/layouts/BlogLayout.astro";
-import {
-  RiArrowGoBackLine,
-  RiCalendar2Line,
-  RiLink,
-  RiVideoLine,
-} from "@remixicon/react";
+import { RiArrowGoBackLine, RiCalendar2Line, RiLink, RiVideoLine } from "@remixicon/react";
 import portfolio_config from "@/portfolio-config.json";
 import { format, parse } from "date-fns";
 
 export function getStaticPaths() {
-  return portfolio_config.map((item) => ({
-    params: { id: item.id },
-    props: { item },
-  }));
+	return portfolio_config.map((item) => ({
+		params: { id: item.id },
+		props: { item },
+	}));
 }
 
 const { item } = Astro.props;
@@ -22,170 +17,123 @@ const parsedDate = parse(item.date, "dd-MM-yyyy", new Date());
 const formattedDate = format(parsedDate, "MMM dd, yyyy");
 
 const heroImage = item.images && item.images.length > 0 ? item.images[0] : null;
-const galleryImages =
-  item.images && item.images.length > 1 ? item.images.slice(1) : [];
+const galleryImages = item.images && item.images.length > 1 ? item.images.slice(1) : [];
 const videos = item.video || [];
 
 const briefSections = item.brief ? Object.entries(item.brief) : [];
 ---
 
 <BlogLayout>
-  <article transition:animate="fade">
-    <a href="/portfolio" class="button group inline-block">
-      <div class="mt-10 flex items-center gap-2 active:translate-x-3 animation">
-        <RiArrowGoBackLine
-          className="size-4 fill-muted-foreground group-hover:fill-primary"
-        />
-        <span
-          class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6"
-          >back</span
-        >
-      </div>
-    </a>
+	<article transition:animate="fade">
+		<div class="border border-border p-6 mt-10">
+			<a href="/portfolio" class="button group inline-block">
+				<div class="flex items-center gap-2 active:translate-x-1 animation">
+					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
+					<span class="text-muted-foreground group-hover:text-foreground">back</span>
+				</div>
+			</a>
 
-    <header class="mt-3 mb-8">
-      <h1 class="text-5xl font-semibold select-none">{item.title}</h1>
-      <p class="text-xl text-muted-foreground mt-2">{item.tagline}</p>
+			<header class="mt-3">
+				<h1 class="text-5xl font-semibold select-none">{item.title}</h1>
+				<p class="text-xl text-muted-foreground mt-2">{item.tagline}</p>
 
-      <div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
-        <div class="flex items-center gap-2">
-          <RiCalendar2Line className="size-4" />
-          <span>{formattedDate}</span>
-        </div>
-        <span
-          class="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded"
-        >
-          {item.category}
-        </span>
-      </div>
+				<div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
+					<div class="flex items-center gap-2">
+						<RiCalendar2Line className="size-4" />
+						<span>{formattedDate}</span>
+					</div>
+					<span class="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded">
+						{item.category}
+					</span>
+				</div>
 
-      {
-        item.keywords && item.keywords.length > 0 && (
-          <div class="flex gap-2 mt-4 flex-wrap">
-            {item.keywords.map((keyword: string) => (
-              <span class="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded">
-                {keyword}
-              </span>
-            ))}
-          </div>
-        )
-      }
-    </header>
+				{
+					item.keywords && item.keywords.length > 0 && (
+						<div class="flex gap-2 mt-4 flex-wrap">
+							{item.keywords.map((keyword: string) => (
+								<span class="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded">{keyword}</span>
+							))}
+						</div>
+					)
+				}
+			</header>
+		</div>
 
-    {
-      heroImage && (
-        <img
-          src={heroImage}
-          alt={item.title}
-          class="w-full max-h-125 object-cover rounded-lg border border-border mb-10"
-        />
-      )
-    }
+		{heroImage && <img src={heroImage} alt={item.title} class="w-full max-h-125 object-cover border border-border my-10" />}
 
-    {
-      item.links && item.links.length > 0 && (
-        <div class="flex flex-wrap gap-3 mb-10">
-          {item.links.map((link: { label: string; url: string }) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="button group"
-            >
-              <RiLink className="size-4 fill-muted-foreground group-hover:fill-primary" />
-              <span class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6">
-                {link.label}
-              </span>
-            </a>
-          ))}
-        </div>
-      )
-    }
+		{
+			item.links && item.links.length > 0 && (
+				<div class="flex flex-wrap gap-3 mb-10">
+					{item.links.map((link: { label: string; url: string }) => (
+						<a href={link.url} target="_blank" rel="noopener noreferrer" class="button group">
+							<RiLink className="size-4 fill-muted-foreground group-hover:fill-primary" />
+							<span class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6">{link.label}</span>
+						</a>
+					))}
+				</div>
+			)
+		}
 
-    <div class="prose dark:prose-invert max-w-none mb-12">
-      <p class="text-lg leading-relaxed">{item.description}</p>
-    </div>
+		<div class="prose dark:prose-invert max-w-none mb-12">
+			<p class="text-lg leading-relaxed">{item.description}</p>
+		</div>
 
-    {
-      videos.length > 0 && (
-        <section class="mb-12">
-          <h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">
-            Videos
-          </h2>
-          <div class="space-y-3">
-            {videos.map((videoUrl: string) => (
-              <a
-                href={videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center gap-2 px-4 py-3 border border-border rounded-sm hover:border-accent-foreground animation group"
-              >
-                <RiVideoLine className="size-4 fill-muted-foreground group-hover:fill-primary" />
-                <span class="text-muted-foreground group-hover:text-primary animation">
-                  {videoUrl}
-                </span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )
-    }
+		{
+			videos.length > 0 && (
+				<section class="mb-12">
+					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Videos</h2>
+					<div class="space-y-3">
+						{videos.map((videoUrl: string) => (
+							<a href={videoUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 border border-border rounded-sm hover:border-accent-foreground animation group">
+								<RiVideoLine className="size-4 fill-muted-foreground group-hover:fill-primary" />
+								<span class="text-muted-foreground group-hover:text-primary animation">{videoUrl}</span>
+							</a>
+						))}
+					</div>
+				</section>
+			)
+		}
 
-    {
-      galleryImages.length > 0 && (
-        <section class="mb-12">
-          <h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">
-            Gallery
-          </h2>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {galleryImages.map((imageUrl: string, index: number) => (
-              <a
-                href={imageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block aspect-video rounded-sm overflow-hidden border border-border hover:border-accent-foreground animation group"
-              >
-                <img
-                  src={imageUrl}
-                  alt={`${item.title} gallery image ${index + 1}`}
-                  class="w-full h-full object-cover"
-                />
-              </a>
-            ))}
-          </div>
-        </section>
-      )
-    }
+		{
+			galleryImages.length > 0 && (
+				<section class="mb-12">
+					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Gallery</h2>
+					<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+						{galleryImages.map((imageUrl: string, index: number) => (
+							<a href={imageUrl} target="_blank" rel="noopener noreferrer" class="block aspect-video rounded-sm overflow-hidden border border-border hover:border-accent-foreground animation group">
+								<img src={imageUrl} alt={`${item.title} gallery image ${index + 1}`} class="w-full h-full object-cover" />
+							</a>
+						))}
+					</div>
+				</section>
+			)
+		}
 
-    {
-      briefSections.length > 0 && (
-        <section class="mb-12">
-          <h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">
-            Details
-          </h2>
-          <div class="space-y-8">
-            {briefSections.map(
-              ([heading, content]: [string, string[]]) =>
-                content &&
-                content.length > 0 && (
-                  <div>
-                    <h3 class="text-lg font-medium mb-3 capitalize text-muted-foreground">
-                      {heading}
-                    </h3>
-                    <ul class="space-y-2">
-                      {content.map((contentItem: string) => (
-                        <li class="flex items-start gap-2">
-                          <span class="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
-                          <span>{contentItem}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ),
-            )}
-          </div>
-        </section>
-      )
-    }
-  </article>
+		{
+			briefSections.length > 0 && (
+				<section class="mb-12">
+					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Details</h2>
+					<div class="space-y-8">
+						{briefSections.map(
+							([heading, content]: [string, string[]]) =>
+								content &&
+								content.length > 0 && (
+									<div>
+										<h3 class="text-lg font-medium mb-3 capitalize text-muted-foreground">{heading}</h3>
+										<ul class="space-y-2">
+											{content.map((contentItem: string) => (
+												<li class="flex items-start gap-2">
+													<span class="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
+													<span>{contentItem}</span>
+												</li>
+											))}
+										</ul>
+									</div>
+								),
+						)}
+					</div>
+				</section>
+			)
+		}
+	</article>
 </BlogLayout>
