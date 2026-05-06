@@ -1,0 +1,15 @@
+---
+import ResumeLayout from "@/layouts/ResumeLayout.astro";
+import { Fastfetch } from "@/components/client/Fastfetch";
+import Section from "@/components/fragments/Section.astro";
+---
+
+<ResumeLayout>
+	{/* Daily Driver - Neofetch Style */}
+	<section class="py-12">
+		<Section title="Daily Driver" subtitle="My development setup and gears" />
+		<div class="mt-8">
+			<Fastfetch client:load />
+		</div>
+	</section>
+</ResumeLayout>
