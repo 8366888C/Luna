@@ -1,0 +1,68 @@
+---
+import ScrambledText from "../client/ScrambledText";
+import { buttonVariants } from "../ui/button";
+import { RiArrowRightLine } from "@remixicon/react";
+import site_config from "@/site-config.json";
+import type { siteConfig } from "@/lib/types";
+import { SocialIcon, SubHeadingIcon } from "@/lib/icons";
+import { Tilt } from "@/components/client/Tilt";
+---
+
+<section class="flex flex-col md:flex-row items-center justify-center gap-6 bg-background border border-border p-6">
+    <div class="">
+        <div class="flex cursor-default gap-3 select-none">
+            {
+                site_config.introduction.badges &&
+                    site_config.introduction.badges.map((badge) => (
+                        <span class="rounded-sm border border-muted-foreground/30 px-2">
+                            <span class="text-xs opacity-80">{badge}</span>
+                        </span>
+                    ))
+            }
+        </div>
+        <div class="flex justify-between items-center select-none">
+            <h1 class="my-3 text-5xl font-semibold opacity-90">
+                {site_config.introduction.heading}
+            </h1>
+        </div>
+
+        <div class="flex flex-col gap-1 select-none">
+            {
+                site_config.introduction.subHeadingItems &&
+                    site_config.introduction.subHeadingItems.map((item) => (
+                        <a href={item.url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 opacity-80 hover:opacity-100 active:opacity-100 animation group w-fit">
+                            <SubHeadingIcon type={item.type as siteConfig["introduction"]["subHeadingItems"][number]["type"]} />
+                            <p class="space-y-3 text-base leading-relaxed group-hover:text-accent-foreground animation group-active:text-foreground">{item.label}</p>
+                        </a>
+                    ))
+            }
+        </div>
+        <div class="mt-5 flex gap-3">
+            {
+                site_config.introduction.socialItems &&
+                    site_config.introduction.socialItems.map((item) => (
+                        <a href={item.url} target="_blank" rel="noopener noreferrer">
+                            <SocialIcon type={item.type as siteConfig["introduction"]["socialItems"][number]["type"]} className="size-8 text-foreground/80 hover:text-foreground" />
+                        </a>
+                    ))
+            }
+        </div>
+        <ScrambledText radius={60} className="text-lg leading-relaxed text-secondary-foreground/80 py-6" client:load>
+            {site_config.introduction.description}
+        </ScrambledText>
+        <div class="flex gap-3">
+            {
+                site_config.introduction.ctaItems &&
+                    site_config.introduction.ctaItems.map((cta) => (
+                        <a href={cta.url} target="_blank" rel="noopener noreferrer" class={`${buttonVariants({ variant: cta.variant as siteConfig["introduction"]["ctaItems"][number]["variant"], size: "default" })} group`}>
+                            <span class="space-y-6 leading-relaxed opacity-90 text-sm translate-x-0.5">{cta.label}</span>
+                            <RiArrowRightLine className="size-0 group-hover:size-4 animation" />
+                        </a>
+                    ))
+            }
+        </div>
+    </div>
+    <Tilt maxTilt={3} client:load>
+        <img src="/src/assets/background.svg" class="aspect-square border border-border select-none" />
+    </Tilt>
+</section>

@@ -1,0 +1,14 @@
+---
+import Navigation from "../static/Navigation.astro";
+import Utility from "../static/Utility.astro";
+const pathname = Astro.url.pathname;
+---
+
+<header class="px-3 py-2 max-w-4xl mx-auto bg-background sticky top-0 z-200 border border-border">
+    <div class="flex items-center justify-between">
+        <nav>
+            <Navigation pathname={pathname} client:load />
+        </nav>
+        <Utility />
+    </div>
+</header>

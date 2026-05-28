@@ -1,0 +1,77 @@
+---
+import type { portfolioConfig } from "@/lib/types";
+import { RiArrowRightUpLine } from "@remixicon/react";
+
+export interface Props {
+    item: portfolioConfig;
+}
+
+const { item } = Astro.props;
+const links = item?.links ?? [];
+const introduction = item?.introduction ?? "";
+const capabilities = item?.brief?.capabilities ?? [];
+const architecture = item?.brief?.architecture ?? [];
+const hasCapabilities = capabilities.length > 0;
+const hasArchitecture = architecture.length > 0;
+---
+
+<section class="border border-border p-6 flex flex-wrap mt-10">
+    <input type="radio" name="details-tab" id="dt-intro" class="hidden peer/intro" checked />
+    {hasCapabilities && <input type="radio" name="details-tab" id="dt-capabilities" class="hidden peer/cap" />}
+    {hasArchitecture && <input type="radio" name="details-tab" id="dt-architecture" class="hidden peer/arch" />}
+
+    <label for="dt-intro" class="px-4 py-2 text-xs font-mono tracking-widest uppercase cursor-pointer text-muted-foreground/80 border border-transparent peer-checked/intro:text-secondary-foreground peer-checked/intro:border-muted-foreground/60 select-none animation hover:bg-muted-foreground/10">Introduction</label>
+    {
+        hasCapabilities && (
+            <label for="dt-capabilities" class="px-4 py-2 text-xs font-mono tracking-widest uppercase cursor-pointer text-muted-foreground/80 border border-transparent peer-checked/cap:text-secondary-foreground peer-checked/cap:border-muted-foreground/60 select-none animation hover:bg-muted-foreground/10">
+                Capabilities
+            </label>
+        )
+    }
+    {
+        hasArchitecture && (
+            <label for="dt-architecture" class="px-4 py-2 text-xs font-mono tracking-widest uppercase cursor-pointer text-muted-foreground/80 border border-transparent peer-checked/arch:text-secondary-foreground peer-checked/arch:border-muted-foreground/60 select-none animation hover:bg-muted-foreground/10">
+                Architecture
+            </label>
+        )
+    }
+
+    {
+        introduction && (
+            <div class="w-full hidden peer-checked/intro:block h-100 overflow-y-auto no-scrollbar mt-6">
+                <div class="h-full flex items-center justify-center p-6">
+                    <p class="text-base leading-relaxed text-secondary-foreground/80 whitespace-pre-line max-w-prose text-center">{introduction}</p>
+                </div>
+            </div>
+        )
+    }
+
+    {
+        hasCapabilities && (
+            <div class="w-full hidden peer-checked/cap:block h-100 overflow-y-auto no-scrollbar mt-6">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {capabilities.map((item) => (
+                        <li class="relative p-6 bg-muted/30 hover:bg-background border border-border hover:border-foreground/30 animation group">
+                            <span class="absolute top-0 left-0 size-2 bg-background border border-secondary-foreground/60 group-hover:border-0 group-hover:bg-secondary-foreground/60 animation" />
+                            <span class="text-base leading-snug text-secondary-foreground/80">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
+    }
+
+    {
+        hasArchitecture && (
+            <div class="w-full hidden peer-checked/arch:block h-100 overflow-y-auto no-scrollbar mt-6">
+                <div class="relative space-y-0">
+                    {architecture.map((item) => (
+                        <div class="border border-border bg-muted/30 p-6 hover:bg-background hover:border-foreground/30 animation mb-3 last:mb-0">
+                            <p class="text-base leading-relaxed text-secondary-foreground/80">{item}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+</section>

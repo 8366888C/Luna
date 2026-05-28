@@ -1,0 +1,42 @@
+---
+import { RiArrowLeftLine, RiArrowLeftSLine, RiArrowLeftUpLine, RiArrowRightLine, RiArrowRightSLine, RiArrowRightUpLine } from "@remixicon/react";
+
+interface PostNav {
+    id: string;
+    data: {
+        title: string;
+    };
+}
+
+const { type, prev, next } = Astro.props as { type: "blog" | "portfolio"; prev?: PostNav | null; next?: PostNav | null };
+---
+
+{
+    prev || next ? (
+        <nav class="flex items-center justify-center gap-6">
+            {prev ? (
+                <a href={`/${type}/${prev.id}`} class="group flex flex-col items-start justify-center gap-1 w-full bg-muted border border-border px-6 py-3 hover:border-secondary-foreground/30 hover:bg-background hover:scale-103 active:hover:scale-100 animation">
+                    <div class="flex items-center justify-start gap-1.5">
+                        <RiArrowLeftUpLine className="scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 size-4 animation" />
+                        <span class="text-sm text-muted-foreground -translate-x-5.5 group-hover:translate-x-0 animation">previous</span>
+                    </div>
+                    <span class="text-lg line-clamp-1">{prev.data.title}</span>
+                </a>
+            ) : (
+                <div class="w-full px-5" />
+            )}
+
+            {next ? (
+                <a href={`/${type}/${next.id}`} class="group flex flex-col items-end justify-center gap-1 w-full bg-muted border border-border px-6 py-3 hover:border-secondary-foreground/30 hover:bg-background hover:scale-103 active:scale-100 animation text-right">
+                    <div class="flex items-center justify-end gap-1">
+                        <span class="text-sm text-muted-foreground translate-x-5 group-hover:translate-x-0 animation">next</span>
+                        <RiArrowRightUpLine className="scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 size-4 animation" />
+                    </div>
+                    <span class="text-lg line-clamp-1">{next.data.title}</span>
+                </a>
+            ) : (
+                <div class="w-full px-5" />
+            )}
+        </nav>
+    ) : null
+}

@@ -1,0 +1,25 @@
+---
+import Header from "@/components/static/Header.astro";
+import "@/styles/global.css";
+import "@/styles/typography.css";
+import "katex/dist/katex.min.css";
+import Head from "@/components/static/Head.astro";
+import FooterId from "@/components/static/FooterId.astro";
+
+const { type, prev, next } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <Head />
+    <body class="mx-auto">
+        <Header />
+        {/* Content */}
+        <main class="max-w-4xl mx-auto">
+            <slot />
+        </main>
+        <FooterId type={type} prev={prev} next={next} />
+        <pagefind-modal-trigger shortcut="mod+k" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)"></pagefind-modal-trigger>
+        <pagefind-modal reset-on-close></pagefind-modal>
+    </body>
+</html>

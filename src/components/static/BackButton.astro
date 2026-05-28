@@ -1,0 +1,12 @@
+---
+import { RiArrowGoBackLine } from "@remixicon/react";
+
+const { url } = Astro.props;
+---
+
+<a href={url} class="button group inline-block select-none">
+    <div class="flex items-center gap-2 active:translate-x-1 animation">
+        <RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground/90" />
+        <span class="text-muted-foreground group-hover:text-foreground">back</span>
+    </div>
+</a>
