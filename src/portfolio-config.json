@@ -1,85 +1,106 @@
 [
-	{
-		"featured": true,
-		"id": "taskflow-app",
-		"date": "15-03-2026",
-		"category": "software",
-		"title": "TaskFlow",
-		"tagline": "A modern project management tool for agile teams",
-		"description": "TaskFlow is a comprehensive project management application built for modern agile teams. It features real-time collaboration, Kanban boards, sprint planning, and detailed analytics to help teams ship faster.",
-		"keywords": ["React", "Node.js", "WebSocket", "PostgreSQL"],
-		"links": [
-			{ "label": "Live Demo", "url": "https://taskflow.example.com" },
-			{ "label": "Source Code", "url": "https://github.com" },
-			{ "label": "Documentation", "url": "https://docs.taskflow.com" }
-		],
-		"video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=MLpWrANjFbI"],
-		"images": ["https://images.unsplash.com/photo-1773178454646-d506f9e37696?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw", "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c", "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0", "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs", "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE", "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"],
-		"brief": {
-			"motivation": ["Existing project management tools were either too complex or too simple for our team's needs", "Wanted to create a solution that balances power with simplicity", "Need for real-time collaboration in distributed teams"],
-			"capabilities": ["Real-time collaboration with WebSocket connections", "Kanban boards with drag-and-drop functionality", "Sprint planning and velocity tracking", "Detailed analytics and reporting dashboards", "Team performance metrics and insights"]
-		}
-	},
-	{
-		"featured": true,
-		"id": "devtrace",
-		"date": "20-03-2026",
-		"category": "software",
-		"title": "DevTrace",
-		"tagline": "Distributed tracing for microservices architecture",
-		"description": "DevTrace provides end-to-end distributed tracing for cloud-native applications. Track requests across services and identify performance bottlenecks in real-time with detailed latency analysis.",
-		"keywords": ["Go", "OpenTelemetry", "Docker", "Kubernetes", "Prometheus"],
-		"links": [
-			{ "label": "Documentation", "url": "https://devtrace.dev/docs" },
-			{ "label": "GitHub", "url": "https://github.com/devtrace" },
-			{ "label": "Download", "url": "https://devtrace.dev/download" }
-		],
-		"video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=MLpWrANjFbI"],
-		"images": ["https://images.unsplash.com/photo-1770131091439-9aa7274f544f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw", "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c", "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0", "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs", "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE", "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"],
-		"brief": {
-			"motivation": ["Need for visibility into microservices architectures", "Hard to debug distributed systems without proper tracing", "Performance bottlenecks were impossible to identify"],
-			"capabilities": ["Distributed tracing across all services", "Performance monitoring and alerting", "Service dependency mapping", "Latency analysis and optimization", "Automatic error tracking"]
-		}
-	},
-	{
-		"featured": true,
-		"id": "pixelquest",
-		"date": "25-03-2026",
-		"category": "gameplay",
-		"title": "PixelQuest",
-		"tagline": "A retro-style RPG adventure game",
-		"description": "PixelQuest is a pixel-art role-playing game with hand-crafted levels, intricate puzzles, and an epic storyline spanning 50+ hours of gameplay.",
-		"keywords": ["Unity", "C#", "Pixel Art", "2D", "RPG"],
-		"links": [
-			{ "label": "Steam", "url": "https://store.steampowered.com" },
-			{ "label": "itch.io", "url": "https://pixelquest.itch.io" },
-			{ "label": "Discord", "url": "https://discord.gg/pixelquest" }
-		],
-		"video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
-		"images": ["https://images.unsplash.com/photo-1774017092224-54c07e928a39?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw", "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c", "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0", "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs", "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE", "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"],
-		"brief": {
-			"motivation": ["Love for classic JRPGs and pixel art aesthetic", "Wanted to bring back the golden era of gaming", "Deep appreciation for hand-crafted game design"],
-			"capabilities": ["Turn-based combat system", "Character progression and leveling", "Epic storyline with branching paths", "Hand-crafted dungeons and puzzles", "Pixel-perfect animations"]
-		}
-	},
-	{
-		"featured": true,
-		"id": "analytics-dashboard",
-		"date": "01-04-2026",
-		"category": "analytics",
-		"title": "Analytics Dashboard Pro",
-		"tagline": "Business intelligence for modern companies",
-		"description": "A comprehensive business intelligence dashboard that helps companies make data-driven decisions with real-time analytics, custom reports, and predictive modeling.",
-		"keywords": ["Python", "D3.js", "PostgreSQL", "Machine Learning"],
-		"links": [
-			{ "label": "Live Demo", "url": "https://analytics-demo.com" },
-			{ "label": "Documentation", "url": "https://docs.analytics.com" }
-		],
-		"video": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=MLpWrANjFbI", "https://www.youtube.com/watch?v=abc123"],
-		"images": ["https://images.unsplash.com/photo-1761872802877-f4a229449340?q=80&w=1033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://unsplash.com/photos/three-figures-walk-across-a-vast-empty-field-at-dusk-qWi5LLsQVNw", "https://unsplash.com/photos/a-lone-tree-on-a-grassy-hill-under-a-cloudy-sky-GEe3FQ3Jn4c", "https://unsplash.com/photos/modern-city-street-with-cars-and-tall-buildings-xy7shuzLWA0", "https://unsplash.com/photos/cars-driving-down-a-narrow-city-street-between-buildings-hlSDU3P9HQs", "https://unsplash.com/photos/river-with-ice-floes-and-tv-tower-in-background-dT2_s7ymZlE", "https://unsplash.com/photos/a-small-village-nestled-in-a-mountain-valley-at-dusk-BaFoAsawNcI"],
-		"brief": {
-			"motivation": ["Business decisions should be data-driven", "Existing BI tools were too expensive for small teams", "Need for real-time insights"],
-			"capabilities": ["Real-time data visualization", "Custom report builder", "Predictive analytics", "Team collaboration features", "Automated insights"]
-		}
-	}
+  {
+    "id": "nova",
+    "data": {
+      "date": "17-02-2025",
+      "category": "ai",
+      "title": "Nova",
+      "description": "Autonomous research agent that navigates academic papers, extracts claims, and cross-references findings across multiple sources",
+      "tags": ["Python", "PyTorch", "Transformers", "LangChain", "ChromaDB"],
+      "status": "prototype"
+    },
+    "introduction": "Keeping up with research across ML, computational biology, and systems is impossible for a single person. Nova is a research agent that reads papers, traverses citation graphs, extracts methodological claims, and builds a cross-referenced knowledge graph of experimental results — surfacing contradictions and gaps that would otherwise take months to notice.",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/" },
+      { "label": "Demo", "url": "https://nova-demo.vercel.app" }
+    ],
+    "video": "https://youtube.com/embed/s1zVbdanWwc",
+    "brief": {
+      "capabilities": ["Parses and indexes research papers from arXiv, PubMed, and open-access repositories with automatic metadata extraction", "Extracts fine-grained claims from paper text using a fine-tuned NLI model trained on scientific discourse", "Builds a cross-referenced knowledge graph connecting claims, citations, and experimental results", "Supports natural language queries like 'what evidence exists for X' and returns cited passages with confidence scores", "Tracks contradictions and replication results across papers, flagging when new findings challenge existing claims", "Generates literature review drafts organized by thematic clusters rather than chronological order"],
+      "architecture": ["Multi-stage ingestion pipeline: PDF parsing via Grobid, structural segmentation using layout-aware transformers, then claim extraction through a fine-tuned DeBERTa-v3 model operating on sentence windows with overlapping context. Each extracted claim is normalized to a subject-predicate-object triple and embedded using all-MiniLM-L6-v2.", "Graph-based retrieval layer using a hybrid of dense vector search (ChromaDB) and citation graph traversal. Queries are decomposed into sub-questions, each routed to either the vector store for semantic similarity or the graph store for structural relationships. Results are re-ranked by a cross-encoder that scores relevance to the original question."]
+    }
+  },
+  {
+    "id": "drift",
+    "data": {
+      "date": "09-07-2025",
+      "category": "gameplay",
+      "title": "Drift",
+      "description": "Top-down arcade racer with procedurally generated tracks, AI opponents, and a physics-driven drift mechanic",
+      "tags": ["Unity", "C#", "Procedural Generation", "GPU Instancing"],
+      "status": "playable"
+    },
+    "introduction": "Drift is an arcade racer built around a momentum-preserving drift system where sacrificing stability for speed is the point — the tighter you hug a corner, the more speed you carry out. Tracks are procedurally generated from seed values using a grammar-based approach that guarantees valid circuits by constraining curvature against the vehicle's physics.",
+    "links": [
+      { "label": "Play Now", "url": "https://drift-game.io" },
+      { "label": "GitHub", "url": "https://github.com/" },
+      { "label": "Devlog", "url": "https://drift-devlog.itch.io" }
+    ],
+    "video": "https://youtube.com/embed/MLpWrANjFbI",
+    "brief": {
+      "capabilities": ["Momentum-preserving drift physics where tighter cornering yields higher exit velocity through a weighted traction curve", "Grammar-based procedural track generation producing closed-loop circuits from seed values without runtime asset streaming", "AI opponents using a look-ahead racing line optimizer that adapts to track segments in real-time with configurable aggression", "Four vehicle classes with distinct mass, traction, and inertia profiles affecting drift behavior and optimal racing lines", "Split-screen local multiplayer supporting up to four players with dynamic camera that zooms based on speed differential", "Replay system that records full physics state snapshots for rewinding, reviewing, and exporting ghost data as shareable strings"],
+      "architecture": ["Physics engine built on a simplified bicycle model with separate longitudinal and lateral friction coefficients. The drift state machine transitions through grip, slip, and full slide phases, each with interpolated friction values. The key innovation is a momentum-banking system — angular velocity during a slide is partially converted to linear velocity on exit, rewarding controlled oversteer.", "Track generation uses a context-free grammar operating on a canvas of quadratic Bézier segments. The generator first lays a coarse path, then subdivides with constrained random perturbations. Validation checks ensure minimum turning radius, maximum banking angle, and collision-free bounds against a bounding box. The entire generation completes in under 50ms, allowing real-time preview during track selection."]
+    }
+  },
+  {
+    "id": "sentinel",
+    "data": {
+      "date": "22-12-2025",
+      "category": "analytics",
+      "title": "Sentinel",
+      "description": "Real-time infrastructure monitoring dashboard with anomaly detection, alerting, and historical trend analysis",
+      "tags": ["React", "D3", "Go", "PostgreSQL", "TimescaleDB"],
+      "status": "production"
+    },
+    "introduction": "Every monitoring tool I had used either required constant threshold tuning or produced so many false positives that teams learned to ignore alerts. Sentinel builds a statistical baseline of normal behavior per metric and flags only meaningful deviations, using a suite of detectors and routing alerts through an escalation matrix that considers schedules and rotations.",
+    "links": [{ "label": "GitHub", "url": "https://github.com/" }],
+    "video": null,
+    "brief": {
+      "capabilities": ["Multi-source metric ingestion via a unified HTTP API supporting Prometheus remote write, CloudWatch webhook, and custom agent protocol", "Statistical anomaly detection using moving-window z-score, Holt-Winters forecasting, and seasonal decomposition for metrics with periodic patterns", "Escalation-based alert routing with support for PagerDuty, Slack, email, and custom webhooks with schedule-aware rotation policies"],
+      "architecture": ["Ingestion layer built in Go using a fan-out pattern — incoming metrics are written to a write-ahead log for durability, then asynchronously fanned out to the time-series store (TimescaleDB) and the detection pipeline. This decouples ingestion speed from detection latency, allowing the system to absorb burst traffic without backpressure.", "Detection pipeline is a chain of composable detectors: z-score for level shifts, Holt-Winters for trend/seasonality changes, and a residual-based detector for irregular patterns. Each detector emits typed events that feed into a correlation engine which groups related alerts into incidents, reducing noise by deduplicating across metrics and time windows.", "Query layer exposes a D3-compatible time-series API that returns aggregated data at multiple granularities — raw, 1m, 5m, 1h, 1d rollups — using PostgreSQL continuous aggregates. Dashboard queries are automatically re-routed to the appropriate granularity based on the time range, keeping response times under 200ms for queries spanning up to a year.", "Alert manager implements a state machine per alert rule: normal → pending (after breach) → firing (after duration) → acknowledged → resolved. Escalation policies are defined as DAGs with configurable delays, allowing sequential or parallel notification paths. The system records alert history for post-mortem analysis and tuning recommendations."]
+    }
+  },
+  {
+    "id": "forge",
+    "data": {
+      "date": "14-04-2026",
+      "category": "hardware",
+      "title": "Forge",
+      "description": "Open-source CNC controller board with real-time toolpath interpolation, closed-loop stepper drivers, and web-based G-code streaming",
+      "tags": ["KiCad", "Rust", "STM32", "FreeRTOS", "gRPC"],
+      "status": "beta"
+    },
+    "introduction": "CNC controllers haven't evolved in twenty years — most still rely on parallel ports or proprietary dongles, locking you into vendor software with no real-time feedback. Forge replaces them with a custom 4-layer PCB running real-time firmware that handles motion planning and closed-loop stepper control over USB and Ethernet via a gRPC API.",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/" },
+      { "label": "KiCad Files", "url": "https://github.com/" },
+      { "label": "Documentation", "url": "https://forge-cnc.readthedocs.io" }
+    ],
+    "video": null,
+    "brief": {
+      "capabilities": ["Custom 4-layer PCB with STM32H743 MCU, TMC5160 closed-loop stepper drivers, and isolated digital I/O for limit switches and relays", "Real-time firmware running FreeRTOS with a dedicated motion planning task at 40kHz step generation using Bresenham interpolation with look-ahead acceleration profiling", "gRPC bi-directional streaming API for toolpath upload, real-time position feedback, and parameter adjustment without pausing operations", "Web-based dashboard with live 3D toolpath preview, axis position readout, speed override, and job queue management", "Automatic calibration routine using limit switch homing and probe-based tool length offset measurement with 0.01mm repeatability"],
+      "architecture": ["Firmware architecture follows a three-layer design: a hardware abstraction layer (HAL) wrapping TIM peripherals, GPIO, and DMA for step generation; a motion planning layer implementing a look-ahead acceleration planner with trapezoidal velocity profiles and corner rounding; and a command layer that parses buffered G-code blocks into the planner's internal trajectory queue. The planner runs at 1kHz, outputting position setpoints to the step generation ISR running at 40kHz via a double-buffered pipeline."]
+    }
+  },
+  {
+    "id": "aureus",
+    "data": {
+      "date": "28-05-2026",
+      "category": "software",
+      "title": "Aureus",
+      "description": "TypeScript CLI dev tool for automatic changelog generation based on conventional commits",
+      "tags": ["TypeScript", "Node.js", "Husky", "Git", "NPM"],
+      "status": "production"
+    },
+    "introduction": "Repository compliance is often an afterthought — bolted on with brittle shell scripts that work on one machine and fail silently on another. Manual setup of Git hooks, Commitlint, and Semantic Release is error-prone, with team members diverging in local configurations and breaking changelog pipelines with a single malformed commit. Aureus wraps all of this into a single, idempotent CLI command that scaffolds the correct files and exits cleanly.",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/A58361/aureus" },
+      { "label": "NPM Package", "url": "https://npmjs.com/package/aureus" }
+    ],
+    "video": "https://youtube.com/embed/ScMzIvxBSi4",
+    "brief": {
+      "capabilities": ["Scaffolds full repository configurations out-of-the-box, ensuring immediate consistency across projects with zero manual setup", "Handles core structural configurations locally with rapid execution speeds, bypassing heavy network overhead or bloated dependency trees", "Automatically enforces strict repository standards by initializing and configuring Commitlint to validate local commit messages", "Installs and configures Husky hooks cleanly within local environments to capture code issues before they reach a remote server", "Implements custom local validation layers engineered specifically not to break or cancel legitimate automation workflows (like GitHub Actions) during remote push processes", "Integrates automated semantic versioning and release configurations to eliminate manual tag management and enforce strict delivery versioning"],
+      "architecture": ["Modular orchestration engine using asynchronous child-process pooling with configurable concurrency limits and per-step timeout guards. Each pipeline step (hook init, commitlint config, semantic release setup) is an isolated module emitting structured events.", "Config-driven scaffolding layers that compose from a declarative spec — reading a .aureusrc or package.json extensions key to determine which modules to activate. The resolution algorithm prioritizes explicit config over convention, with sensible defaults for each detected project type."]
+    }
+  }
 ]
