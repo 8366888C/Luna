@@ -1,139 +1,62 @@
 ---
-import BlogLayout from "@/layouts/BlogLayout.astro";
-import { RiArrowGoBackLine, RiCalendar2Line, RiLink, RiVideoLine } from "@remixicon/react";
 import portfolio_config from "@/portfolio-config.json";
-import { format, parse } from "date-fns";
+import { parse } from "date-fns";
+import IdHeader from "@/components/static/IdHeader.astro";
+import IdLayout from "@/layouts/IdLayout.astro";
+import PortfolioGallery from "@/components/static/PortfolioGallery.astro";
+import PortfolioDetails from "@/components/static/PortfolioDetails.astro";
+import type { ImageMetadata } from "astro";
+import type { portfolioConfig } from "@/lib/types";
+import { RiArrowRightUpLine } from "@remixicon/react";
 
 export function getStaticPaths() {
-	return portfolio_config.map((item) => ({
-		params: { id: item.id },
-		props: { item },
-	}));
+    return portfolio_config.map((item) => ({
+        params: { id: item.id },
+        props: { item },
+    }));
 }
 
 const { item } = Astro.props;
 
-const parsedDate = parse(item.date, "dd-MM-yyyy", new Date());
-const formattedDate = format(parsedDate, "MMM dd, yyyy");
+const allItems = portfolio_config.sort((a, b) => {
+    const dateA = parse(a.data.date, "dd-MM-yyyy", new Date());
+    const dateB = parse(b.data.date, "dd-MM-yyyy", new Date());
+    return dateB.getTime() - dateA.getTime();
+});
 
-const heroImage = item.images && item.images.length > 0 ? item.images[0] : null;
-const galleryImages = item.images && item.images.length > 1 ? item.images.slice(1) : [];
-const videos = item.video || [];
+const currentIndex = allItems.findIndex((i) => i.id === item.id);
+const prev = currentIndex > 0 ? allItems[currentIndex - 1] : null;
+const next = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
 
-const briefSections = item.brief ? Object.entries(item.brief) : [];
+type ImageRecord = { default: ImageMetadata };
+const imageModules = import.meta.glob<ImageRecord>("@/assets/portfolio/*/*.{png,jpg,jpeg,webp,gif,avif}", { eager: true });
+const projectImages = Object.entries(imageModules)
+    .filter(([path]) => path.includes(`/assets/portfolio/${item.id}/`))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, mod]) => mod.default);
+
+const links = item?.links ?? [];
 ---
 
-<BlogLayout>
-	<article transition:animate="fade">
-		<div class="border border-border p-6 mt-10">
-			<a href="/portfolio" class="button group inline-block">
-				<div class="flex items-center gap-2 active:translate-x-1 animation">
-					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
-					<span class="text-muted-foreground group-hover:text-foreground">back</span>
-				</div>
-			</a>
+<IdLayout type="portfolio" prev={prev} next={next}>
+    <article transition:animate="fade">
+        <IdHeader backUrl="/portfolio" items={item.data} />
 
-			<header class="mt-3">
-				<h1 class="text-5xl font-semibold select-none">{item.title}</h1>
-				<p class="text-xl text-muted-foreground mt-2">{item.tagline}</p>
-
-				<div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
-					<div class="flex items-center gap-2">
-						<RiCalendar2Line className="size-4" />
-						<span>{formattedDate}</span>
-					</div>
-					<span class="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded">
-						{item.category}
-					</span>
-				</div>
-
-				{
-					item.keywords && item.keywords.length > 0 && (
-						<div class="flex gap-2 mt-4 flex-wrap">
-							{item.keywords.map((keyword: string) => (
-								<span class="text-xs px-2 py-0.5 bg-muted text-muted-foreground rounded">{keyword}</span>
-							))}
-						</div>
-					)
-				}
-			</header>
-		</div>
-
-		{heroImage && <img src={heroImage} alt={item.title} class="w-full max-h-125 object-cover border border-border my-10" />}
-
-		{
-			item.links && item.links.length > 0 && (
-				<div class="flex flex-wrap gap-3 mb-10">
-					{item.links.map((link: { label: string; url: string }) => (
-						<a href={link.url} target="_blank" rel="noopener noreferrer" class="button group">
-							<RiLink className="size-4 fill-muted-foreground group-hover:fill-primary" />
-							<span class="text-muted-foreground group-hover:text-primary animation underline-offset-3 group-hover:underline group-hover:underline-offset-6">{link.label}</span>
-						</a>
-					))}
-				</div>
-			)
-		}
-
-		<div class="prose dark:prose-invert max-w-none mb-12">
-			<p class="text-lg leading-relaxed">{item.description}</p>
-		</div>
-
-		{
-			videos.length > 0 && (
-				<section class="mb-12">
-					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Videos</h2>
-					<div class="space-y-3">
-						{videos.map((videoUrl: string) => (
-							<a href={videoUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-3 border border-border rounded-sm hover:border-accent-foreground animation group">
-								<RiVideoLine className="size-4 fill-muted-foreground group-hover:fill-primary" />
-								<span class="text-muted-foreground group-hover:text-primary animation">{videoUrl}</span>
-							</a>
-						))}
-					</div>
-				</section>
-			)
-		}
-
-		{
-			galleryImages.length > 0 && (
-				<section class="mb-12">
-					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Gallery</h2>
-					<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-						{galleryImages.map((imageUrl: string, index: number) => (
-							<a href={imageUrl} target="_blank" rel="noopener noreferrer" class="block aspect-video rounded-sm overflow-hidden border border-border hover:border-accent-foreground animation group">
-								<img src={imageUrl} alt={`${item.title} gallery image ${index + 1}`} class="w-full h-full object-cover" />
-							</a>
-						))}
-					</div>
-				</section>
-			)
-		}
-
-		{
-			briefSections.length > 0 && (
-				<section class="mb-12">
-					<h2 class="text-2xl font-semibold mb-5 border-b border-border pb-3">Details</h2>
-					<div class="space-y-8">
-						{briefSections.map(
-							([heading, content]: [string, string[]]) =>
-								content &&
-								content.length > 0 && (
-									<div>
-										<h3 class="text-lg font-medium mb-3 capitalize text-muted-foreground">{heading}</h3>
-										<ul class="space-y-2">
-											{content.map((contentItem: string) => (
-												<li class="flex items-start gap-2">
-													<span class="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
-													<span>{contentItem}</span>
-												</li>
-											))}
-										</ul>
-									</div>
-								),
-						)}
-					</div>
-				</section>
-			)
-		}
-	</article>
-</BlogLayout>
+        <div class="mt-10">
+            {
+                links.length > 0 && (
+                    <div class="w-full flex flex-wrap gap-3 p-6 border border-border border-b-0">
+                        {links.map((link) => (
+                            <a href={link.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 rounded-sm border border-background/30 text-background bg-secondary-foreground/80 hover:bg-background hover:text-foreground/90 hover:border-foreground/90 pl-3 pr-2 py-1 text-sm hover:scale-100 active:scale-95 group animation select-none">
+                                {link.label}
+                                <RiArrowRightUpLine className="scale-0 group-hover:scale-100 size-0 group-hover:size-3 opacity-0 group-hover:opacity-100 animation" />
+                            </a>
+                        ))}
+                    </div>
+                )
+            }
+            <PortfolioGallery item={item as portfolioConfig} images={projectImages} />
+            <PortfolioDetails item={item as portfolioConfig} />
+        </div>
+    </article>
+</IdLayout>

@@ -1,34 +1,29 @@
 ---
-import Section from "@/components/fragments/Section.astro";
-import Introduction from "@/components/fragments/Introduction.astro";
+import Section from "@/components/static/Section.astro";
+import Introduction from "@/components/static/Introduction.astro";
 import site_config from "@/site-config.json";
-import HomeLayout from "@/layouts/HomeLayout.astro";
 import FeaturedBlog from "@/components/static/FeaturedBlog.astro";
 import FeaturedPortfolio from "@/components/static/FeaturedPortfolio.astro";
-
-// Client components
-import { SocialCTA } from "@/components/client/SocialCTA";
+import HomeLayout from "@/layouts/HomeLayout.astro";
 ---
 
 <HomeLayout>
-	<div transition:animate="fade">
-		{/* Introduction Section */}
-		{site_config.bIntroduction && <Introduction />}
+    <div transition:animate="fade" class="pt-10">
+        {/* Introduction Section */}
+        {site_config.bIntroduction && <Introduction />}
 
-		{/* Featured */}
-		{site_config.featured.blog && site_config.featured.portfolio && <Section title="recent" />}
-		{
-			site_config.featured.important === "portfolio" ? (
-				<>
-					<FeaturedPortfolio />
-					<FeaturedBlog />
-				</>
-			) : (
-				<>
-					<FeaturedBlog />
-					<FeaturedPortfolio />
-				</>
-			)
-		}
-	</div>
+        {
+            site_config.featured.important === "portfolio" ? (
+                <>
+                    <FeaturedPortfolio />
+                    <FeaturedBlog />
+                </>
+            ) : (
+                <>
+                    <FeaturedBlog />
+                    <FeaturedPortfolio />
+                </>
+            )
+        }
+    </div>
 </HomeLayout>

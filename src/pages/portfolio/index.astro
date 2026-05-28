@@ -1,32 +1,53 @@
 ---
 import FilterPortfolio from "@/components/client/FilterPortfolio";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { RiArrowGoBackLine } from "@remixicon/react";
 import portfolio_config from "@/portfolio-config.json";
 import { parse } from "date-fns";
+import { getImage } from "astro:assets";
 import type { portfolioConfig } from "@/lib/types";
+import type { ImageMetadata } from "astro";
+import IndexHeader from "@/components/static/IndexHeader.astro";
+import IndexLayout from "@/layouts/IndexLayout.astro";
 
-const projects = portfolio_config.sort((a, b) => {
-	const dateA = parse(a.date, "dd-MM-yyyy", new Date());
-	const dateB = parse(b.date, "dd-MM-yyyy", new Date());
-	return dateB.getTime() - dateA.getTime();
+const allItems = portfolio_config.sort((a, b) => {
+    const dateA = parse(a.data.date, "dd-MM-yyyy", new Date());
+    const dateB = parse(b.data.date, "dd-MM-yyyy", new Date());
+    return dateB.getTime() - dateA.getTime();
 });
+
+type ImageRecord = { default: ImageMetadata };
+const imageModules = import.meta.glob<ImageRecord>("@/assets/portfolio/*/*.{png,jpg,jpeg,webp,gif,avif}", { eager: true });
+
+const enriched = await Promise.all(
+    allItems.map(async (item) => {
+        const matches = Object.entries(imageModules)
+            .filter(([path]) => path.includes(`/assets/portfolio/${item.id}/`))
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([, mod]) => mod.default);
+
+        let heroImage: string | undefined;
+        if (matches.length > 0) {
+            const optimized = await getImage({ src: matches[0], width: 600 });
+            heroImage = optimized.src;
+        }
+
+        return {
+            ...item,
+            ...item.data,
+            keywords: item.data.tags,
+            tagline: item.data.description,
+            images: heroImage ? [heroImage] : [],
+            heroImage,
+        } as portfolioConfig & { heroImage?: string };
+    }),
+);
 ---
 
-<BaseLayout>
-	<div transition:animate="fade">
-		<div class="border border-border p-6 mt-10">
-			<a href="/" class="button group inline-block">
-				<div class="flex items-center gap-2 active:translate-x-1 animation">
-					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
-					<span class="text-muted-foreground group-hover:text-foreground">back</span>
-				</div>
-			</a>
+<IndexLayout>
+    <div transition:animate="fade">
+        <IndexHeader url="/" heading="Portfolio" />
 
-			<h1 class="pt-3 pb-3 text-5xl font-semibold select-none">Portfolio</h1>
-		</div>
-		<div class="mt-3">
-			<FilterPortfolio client:load items={projects as portfolioConfig[]} />
-		</div>
-	</div>
-</BaseLayout>
+        <div class="mt-3">
+            <FilterPortfolio client:load items={enriched} />
+        </div>
+    </div>
+</IndexLayout>
