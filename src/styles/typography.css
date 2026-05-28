@@ -1,170 +1,142 @@
 @import "@/styles/global.css";
-
 @import "tailwindcss";
 
 @layer base {
-	:root {
-		--shiki-bg: #24292e;
-		--shiki-fg: #e1e4e8;
-		--shiki-comment: #8b949e;
-		--shiki-keyword: #ff7b72;
-		--shiki-string: #a5d6ff;
-		--shiki-function: #d2a8ff;
-		--shiki-variable: #ffa657;
-		--shiki-number: #79c0ff;
-		--shiki-operator: #ff7b72;
-		--shiki-punctuation: #c9d1d9;
-	}
-}
+    .prose {
+        @apply text-base leading-relaxed text-secondary-foreground/80;
 
-/* ! MARKDOWN TYPOGRAPHY */
-/* Shiki-powered code blocks with design language */
+        /* Headings */
+        h2 {
+            @apply text-4xl text-secondary-foreground font-semibold mt-21 mb-5 border-b border-border pb-3 opacity-90;
+        }
+        h3 {
+            @apply text-3xl text-secondary-foreground font-semibold mt-10 mb-4 border-b border-border pb-1 opacity-90;
+        }
+        h4 {
+            @apply text-2xl text-secondary-foreground font-semibold mt-8 mb-3 opacity-90;
+        }
 
-@layer base {
-	.prose {
-		@apply text-base leading-relaxed;
+        p {
+            @apply text-base leading-relaxed text-secondary-foreground/80;
+        }
 
-		/* Headings */
-		h1 {
-			@apply text-5xl font-semibold mt-10 mb-6 tracking-tight;
-		}
-		h2 {
-			@apply text-4xl font-semibold mt-10 mb-5 tracking-tight border-b border-border pb-3;
-		}
-		h3 {
-			@apply text-3xl font-semibold mt-8 mb-4 tracking-tight;
-		}
-		h4 {
-			@apply text-2xl font-semibold mt-6 mb-3;
-		}
+        a {
+            @apply text-secondary-foreground font-medium underline underline-offset-6 hover:underline-offset-3 active:bg-secondary-foreground active:text-background transition-all duration-150 decoration-muted-foreground decoration-1 text-base;
+        }
 
-		/* Paragraphs */
-		p {
-			@apply mb-5 leading-relaxed text-foreground/90 text-base;
-		}
+        ul {
+            @apply list-disc list-outside mt-3 ml-6 mb-5 space-y-1 text-base;
+        }
+        ol {
+            @apply list-decimal list-outside mt-3 ml-8 mb-5 space-y-1 text-base;
+        }
+        li {
+            @apply leading-relaxed text-base text-secondary-foreground/80;
+        }
+        li > ul,
+        li > ol {
+            @apply mt-1 mb-0 text-base;
+        }
 
-		/* Links */
-		a {
-			@apply text-foreground underline-offset-3 hover:underline hover:underline-offset-6 transition-all duration-150 decoration-border decoration-1 text-base;
-		}
+        blockquote {
+            @apply border border-border border-l-3 bg-muted border-l-secondary-foreground/80 py-3 px-5 my-6 not-italic;
+        }
+        blockquote p {
+            @apply my-0 text-muted-foreground text-base;
+        }
 
-		/* Lists */
-		ul {
-			@apply list-disc list-outside ml-6 mb-5 space-y-2 text-base;
-		}
-		ol {
-			@apply list-decimal list-outside ml-6 mb-5 space-y-2 text-base;
-		}
-		li {
-			@apply leading-relaxed text-base;
-		}
-		li > ul,
-		li > ol {
-			@apply mt-2 mb-0 text-base;
-		}
+        code:not(pre code) {
+            @apply px-1 py-0.5 border border-border text-sm rounded font-mono bg-muted text-secondary-foreground/80;
+        }
 
-		/* Blockquotes */
-		blockquote {
-			@apply border-l-[3px] border-foreground pl-5 my-6 not-italic text-muted-foreground;
-		}
-		blockquote p {
-			@apply mb-0;
-		}
+        pre.astro-code {
+            @apply my-6 overflow-x-auto text-sm leading-relaxed;
+        }
+        pre.astro-code code {
+            @apply bg-muted p-3 text-sm font-mono leading-relaxed block;
+        }
+        pre.astro-code .line {
+            @apply visible;
+        }
 
-		/* Inline Code - Shiki styled */
-		code:not(pre code) {
-			@apply bg-[--shiki-bg] text-[--shiki-fg] px-1.5 py-0.5  text-base font-mono;
-		}
+        .math-display {
+            @apply my-6 overflow-x-auto text-base;
+        }
+        .math-inline {
+            @apply text-base;
+        }
 
-		/* Shiki Code Blocks */
-		pre.astro-code {
-			@apply p-4 my-6 overflow-x-auto font-mono text-base leading-relaxed;
-			border: 1px solid oklch(0.92 0.004 286.32);
-		}
-		pre.astro-code code {
-			@apply bg-transparent p-0 text-base font-mono leading-relaxed block;
-		}
-		pre.astro-code .line {
-			@apply block;
-		}
+        hr {
+            @apply my-10 border-t border-dotted border-10 w-1/8 mx-auto border-border;
+        }
 
-		/* Horizontal rule */
-		hr {
-			@apply border-border my-10;
-		}
+        img {
+            @apply my-6 max-w-full border border-border;
+        }
 
-		/* Images */
-		img {
-			@apply my-6 max-w-full border border-border;
-		}
+        figure {
+            @apply my-10;
+            img {
+                @apply my-0 mx-auto;
+            }
+            figcaption {
+                @apply mt-2 text-sm text-center text-muted-foreground;
+            }
+        }
 
-		/* Tables */
-		table {
-			@apply w-full border-collapse;
-		}
-		th {
-			@apply border border-border bg-muted px-4 py-3 text-left font-semibold text-base uppercase tracking-wide;
-		}
-		td {
-			@apply border border-border px-4 py-3 text-base;
-		}
-		tr:nth-child(even) {
-			@apply bg-muted/30;
-		}
+        table {
+            @apply w-full border-collapse my-3;
+        }
+        th {
+            @apply border border-border bg-muted px-3 py-2 text-left font-semibold text-sm uppercase tracking-wide opacity-90 text-secondary-foreground;
+        }
+        td {
+            @apply border border-border px-3 py-2 text-sm text-secondary-foreground/80;
+        }
+        tr:nth-child(even) {
+            @apply bg-muted/30;
+        }
 
-		/* Strong and Emphasis */
-		strong {
-			@apply font-semibold text-foreground;
-		}
-		em {
-			@apply italic;
-		}
-		strong em {
-			@apply font-semibold italic;
-		}
+        strong {
+            @apply font-semibold text-foreground;
+        }
+        em {
+            @apply italic;
+        }
+        strong em {
+            @apply font-semibold italic;
+        }
 
-		/* Abbreviations */
-		abbr {
-			@apply underline decoration-dotted cursor-help text-muted-foreground;
-		}
+        abbr {
+            @apply underline decoration-dotted cursor-help text-muted-foreground;
+        }
 
-		/* Details and Summary */
-		details {
-			@apply my-4 border border-border p-4;
-		}
-		summary {
-			@apply cursor-pointer font-semibold list-none;
-		}
-		summary::before {
-			content: "▸";
-			@apply mr-2;
-		}
-		details[open] summary::before {
-			content: "▾";
-		}
+        details {
+            @apply my-6 border border-border px-5;
+        }
+        summary {
+            @apply cursor-pointer font-semibold py-3;
+        }
 
-		/* Keyboard */
-		kbd {
-			@apply bg-muted text-muted-foreground px-2 py-1 text-sm font-mono border border-border;
-		}
+        kbd {
+            @apply text-secondary-foreground px-1.5 py-0.5 text-xs font-mono border border-secondary-foreground;
+        }
 
-		/* Mark */
-		mark {
-			@apply bg-accent px-1 text-foreground;
-		}
+        mark {
+            @apply bg-secondary-foreground text-secondary px-1;
+        }
 
-		/* Task Lists */
-		ul:has(input[type="checkbox"]) {
-			@apply list-none ml-0;
-		}
-		ul:has(input[type="checkbox"]) li {
-			@apply flex items-center gap-2;
-		}
-		ul:has(input[type="checkbox"]) li::before {
-			content: none;
-		}
-		ul:has(input[type="checkbox"]) input[type="checkbox"] {
-			@apply accent-foreground;
-		}
-	}
+        ul:has(input[type="checkbox"]) {
+            @apply list-none ml-0;
+        }
+        ul:has(input[type="checkbox"]) li {
+            @apply flex items-center gap-2;
+        }
+        ul:has(input[type="checkbox"]) li::before {
+            content: none;
+        }
+        ul:has(input[type="checkbox"]) input[type="checkbox"] {
+            @apply accent-foreground;
+        }
+    }
 }
