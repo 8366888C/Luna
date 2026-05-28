@@ -1,20 +1,25 @@
 ---
-import Header from "@/components/fragments/Header.astro";
-import Footer from "@/components/fragments/Footer.astro";
+import Header from "@/components/static/Header.astro";
+import Footer from "@/components/static/Footer.astro";
 import "@/styles/global.css";
 import "@/styles/typography.css";
-import Head from "@/components/fragments/Head.astro";
+import Head from "@/components/static/Head.astro";
+import FooterId from "@/components/static/FooterId.astro";
+
+const { type, prev, next } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate="fade">
-	<Head />
-	<body class="body-margin">
-		<Header />
-		{/* Content */}
-		<main class="">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+<html lang="en">
+    <Head />
+    <body class="mx-auto">
+        <Header />
+        {/* Content */}
+        <main class="max-w-4xl mx-auto">
+            <slot />
+        </main>
+        <FooterId type={type} prev={prev} next={next} />
+        <pagefind-modal-trigger shortcut="mod+k" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)"></pagefind-modal-trigger>
+        <pagefind-modal reset-on-close></pagefind-modal>
+    </body>
 </html>

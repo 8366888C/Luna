@@ -1,66 +1,39 @@
 ---
-import BlogLayout from "@/layouts/BlogLayout.astro";
-import { RiArrowGoBackLine, RiCalendar2Line, RiUserLine } from "@remixicon/react";
+import IdHeader from "@/components/static/IdHeader.astro";
+import IdLayout from "@/layouts/IdLayout.astro";
 import { getCollection, render } from "astro:content";
-import { format, parse } from "date-fns";
+import { parse } from "date-fns";
 
 export async function getStaticPaths() {
-	const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
-	return posts.map((post) => ({
-		params: { id: post.id },
-		props: { post },
-	}));
+    const items = (await getCollection("blog")).filter((item) => !item.data.draft);
+    return items.map((item) => ({
+        params: { id: item.id },
+        props: { item },
+    }));
 }
 
-const { post } = Astro.props;
-const parsedDate = parse(post.data.date, "dd-MM-yyyy", new Date());
-const formattedDate = format(parsedDate, "MMMM dd, yyyy");
-const { Content } = await render(post);
+const { item } = Astro.props;
+const { Content } = await render(item);
+
+const allItems = (await getCollection("blog"))
+    .filter((item) => !item.data.draft)
+    .sort((a, b) => {
+        const dateA = parse(a.data.date, "dd-MM-yyyy", new Date());
+        const dateB = parse(b.data.date, "dd-MM-yyyy", new Date());
+        return dateA.getTime() - dateB.getTime();
+    });
+
+const currentIndex = allItems.findIndex((i) => i.id === item.id);
+const prev = currentIndex > 0 ? allItems[currentIndex - 1] : null;
+const next = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
 ---
 
-<BlogLayout>
-	<article transition:animate="fade">
-		<div class="border border-border p-6 mt-10">
-			<a href="/blog" class="button group inline-block">
-				<div class="flex items-center gap-2 active:translate-x-1 animation">
-					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
-					<span class="text-muted-foreground group-hover:text-foreground">back</span>
-				</div>
-			</a>
+<IdLayout type="blog" prev={prev} next={next}>
+    <article transition:animate="fade">
+        <IdHeader backUrl="/blog" items={item.data} />
 
-			<header class="mt-3">
-				<h1 class="text-5xl font-semibold select-none">{post.data.title}</h1>
-				<p class="text-xl text-muted-foreground mt-2">{post.data.description}</p>
-
-				<div class="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
-					<div class="flex items-center gap-2">
-						<RiCalendar2Line className="size-4" />
-						<span>{formattedDate}</span>
-					</div>
-					{
-						post.data.author && (
-							<div class="flex items-center gap-2">
-								<RiUserLine className="size-4" />
-								<span>{post.data.author}</span>
-							</div>
-						)
-					}
-				</div>
-
-				{
-					post.data.tags && post.data.tags.length > 0 && (
-						<div class="flex gap-2 mt-4 flex-wrap">
-							{post.data.tags.map((tag) => (
-								<span class="text-xs px-3 py-1 bg-muted text-muted-foreground rounded">{tag}</span>
-							))}
-						</div>
-					)
-				}
-			</header>
-		</div>
-
-		<div class="prose border border-border p-6 mt-10">
-			<Content />
-		</div>
-	</article>
-</BlogLayout>
+        <div class="mt-10 prose border border-border p-6">
+            <Content />
+        </div>
+    </article>
+</IdLayout>

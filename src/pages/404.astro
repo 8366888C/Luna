@@ -5,23 +5,16 @@ import { buttonVariants } from "@/components/ui/button";
 ---
 
 <BaseLayout>
-  <div
-    class="flex flex-col items-center justify-center min-h-[60vh] text-center"
-  >
-    <h1 class="text-9xl font-bold text-muted-foreground/30 select-none">404</h1>
-    <h2 class="heading">Page Not Found</h2>
-    <p class="paragraph max-w-md">
-      The page you requested cannot be found. It might have been moved or
-      deleted.
-    </p>
-    <div class="flex gap-4 mt-8">
-      <a href="/" class={buttonVariants({ variant: "default" })}>
-        <RiHome2Line className="size-4 mr-2" />
-        Go Home
-      </a>
-      <a href="/blog" class={buttonVariants({ variant: "outline" })}>
-        Browse Blog
-      </a>
+    <div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+        <h1 class="text-9xl font-semibold text-muted-foreground/30 select-none">404</h1>
+        <h2 class="py-6 text-5xl font-semibold select-none">Page Not Found</h2>
+        <p class="space-y-6 text-base leading-relaxed opacity-80 max-w-md">The page you requested cannot be found. It might have been moved or deleted.</p>
+        <div class="flex gap-4 mt-8">
+            <a href="/" class={buttonVariants({ variant: "default" })}>
+                <RiHome2Line className="size-4 mr-2" />
+                Go Home
+            </a>
+            <a href="/blog" class={buttonVariants({ variant: "outline" })}> Browse Blog </a>
+        </div>
     </div>
-  </div>
 </BaseLayout>

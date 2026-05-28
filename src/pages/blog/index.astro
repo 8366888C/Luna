@@ -1,34 +1,25 @@
 ---
 import FilterBlog from "@/components/client/FilterBlog";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { RiArrowGoBackLine } from "@remixicon/react";
+import IndexHeader from "@/components/static/IndexHeader.astro";
+import IndexLayout from "@/layouts/IndexLayout.astro";
 import { getCollection } from "astro:content";
 import { parse } from "date-fns";
 
-const blogs = (await getCollection("blog"))
-	.filter((blog) => !blog.data.draft)
-	.sort((a, b) => {
-		const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
-		const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
-		return bDate.getTime() - aDate.getTime();
-	});
+const allItems = (await getCollection("blog"))
+    .filter((blog) => !blog.data.draft)
+    .sort((a, b) => {
+        const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
+        const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
+        return bDate.getTime() - aDate.getTime();
+    });
 ---
 
-<BaseLayout>
-	<div transition:animate="fade">
-		<div class="border border-border p-6 mt-10">
-			<a href="/" class="button group inline-block">
-				<div class="flex items-center gap-2 active:translate-x-1 animation">
-					<RiArrowGoBackLine className="size-4 fill-muted-foreground group-hover:fill-foreground" />
-					<span class="text-muted-foreground group-hover:text-foreground">back</span>
-				</div>
-			</a>
+<IndexLayout>
+    <div transition:animate="fade">
+        <IndexHeader url="/" heading="Blog" />
 
-			<h1 class="pt-3 text-5xl font-semibold select-none">Blog</h1>
-		</div>
-
-		<div class="mt-3">
-			<FilterBlog client:load items={blogs} />
-		</div>
-	</div>
-</BaseLayout>
+        <div class="mt-3">
+            <FilterBlog client:load items={allItems} />
+        </div>
+    </div>
+</IndexLayout>

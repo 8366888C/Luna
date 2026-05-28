@@ -1,24 +1,37 @@
 ---
 import site_config from "@/site-config.json";
+import ThemeToggle from "../client/ThemeToggle";
 import { Button, buttonVariants } from "../ui/button";
 import { RiRssLine, RiSearchLine } from "@remixicon/react";
 ---
 
 <div class="flex gap-1">
-	{
-		site_config.bPageFind && (
-			<Button variant="outline" size="icon-xs">
-				<RiSearchLine />
-			</Button>
-		)
-	}
-	{
-		site_config.bRssFeed && (
-			<Button variant="outline" size="icon-xs">
-				<a href="/rss.xml" class="p-1">
-					<RiRssLine />
-				</a>
-			</Button>
-		)
-	}
+    {
+        site_config.bPageFind && (
+            <Button variant="outline" size="icon-xs" id="search-trigger">
+                <RiSearchLine />
+            </Button>
+        )
+    }
+    {
+        site_config.bThemeToggle && <ThemeToggle client:load />
+    }
+    {
+        site_config.bRssFeed && (
+            <Button variant="outline" size="icon-xs">
+                <a href="/rss.xml" class="p-1">
+                    <RiRssLine />
+                </a>
+            </Button>
+        )
+    }
 </div>
+
+<script is:inline>
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest("#search-trigger");
+        if (btn) {
+            document.querySelector("pagefind-modal")?.open();
+        }
+    });
+</script>
