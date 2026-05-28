@@ -1,33 +1,31 @@
 ---
 import site_config from "@/site-config.json";
-import Section from "@/components/fragments/Section.astro";
 import { FeaturedBlogCard } from "../client/FeaturedBlogCard";
 import { getCollection } from "astro:content";
 import { parse } from "date-fns";
-import { buttonVariants } from "../ui/button";
-import { RiArrowRightLine } from "@remixicon/react";
+import { RiArrowRightUpLine } from "@remixicon/react";
 
 const blogs = (await getCollection("blog"))
-	.filter((blog) => !blog.data.draft)
-	.sort((a, b) => {
-		const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
-		const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
-		return bDate.getTime() - aDate.getTime();
-	});
+    .filter((blog) => !blog.data.draft)
+    .sort((a, b) => {
+        const aDate = parse(a.data.date, "dd-MM-yyyy", new Date());
+        const bDate = parse(b.data.date, "dd-MM-yyyy", new Date());
+        return bDate.getTime() - aDate.getTime();
+    });
 ---
 
 {
-	site_config.featured.blog.visible && blogs.length > 0 && (
-		<section class="border border-border p-6 mt-10">
-			<div class="flex items-center justify-between">
-				<p class="text-muted-foreground">thoughts, tutorials, and engineering insights</p>
-				<a href="/blog" class="flex px-3 py-1 bg-background hover:bg-muted border border-foreground/30 hover:border-foreground/50 active:scale-93 animation group">
-					<span class="text-foreground/80 text-xs">view all</span>
-				</a>
-			</div>
-			<div class="mt-6">
-				<FeaturedBlogCard posts={blogs} client:load />
-			</div>
-		</section>
-	)
+    site_config.featured.blog.visible && blogs.length > 0 && (
+        <section class="bg-background border border-border p-6 mt-10">
+            <a href="/blog" class="flex items-center justify-start group w-fit gap-2 select-none">
+                <span class="text-muted-foreground group-hover:text-secondary-foreground animation">thoughts, tutorials and engineering insights</span>
+                <RiArrowRightUpLine className="size-0 group-hover:size-4 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 animation" />
+            </a>
+            <div class="mt-6 flex flex-col">
+                {blogs.slice(0, 3).map((item) => (
+                    <FeaturedBlogCard item={item} />
+                ))}
+            </div>
+        </section>
+    )
 }
