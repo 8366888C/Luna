@@ -1,0 +1,340 @@
+---
+import ResumeLayout from "@/layouts/ResumeLayout.astro";
+import resume from "@/resume-config.json";
+import { RiCalendar2Line, RiMailLine, RiMapPin2Line, RiGlobalLine, RiLinkedinBoxLine, RiGithubLine, RiTwitterLine, RiArrowRightSLine, RiExternalLinkLine } from "@remixicon/react";
+
+const formatDate = (date: string) => {
+    if (date === "Present") return "Present";
+    return new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+    });
+};
+
+const locationStr = `${resume.location.city}, ${resume.location.state}`;
+---
+
+<ResumeLayout>
+    <div class="my-10 p-6 space-y-14 border border-border">
+        <!-- Header -->
+        <header class="space-y-5">
+            <div>
+                <h1 class="text-5xl font-semibold tracking-tight">{resume.name}</h1>
+                <p class="text-xl text-muted-foreground mt-1.5">{resume.profession}</p>
+            </div>
+
+            <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+                <a href={`mailto:${resume.email}`} class="inline-flex items-center gap-1.5 hover:text-foreground animation">
+                    <RiMailLine className="size-4" />
+                    {resume.email}
+                </a>
+                <span class="inline-flex items-center gap-1.5">
+                    <RiMapPin2Line className="size-4" />
+                    {locationStr}
+                </span>
+                <a href={resume.website} target="_blank" class="inline-flex items-center gap-1.5 hover:text-foreground animation">
+                    <RiGlobalLine className="size-4" />
+                    {resume.website.replace("https://", "")}
+                </a>
+            </div>
+
+            <div class="flex gap-4">
+                {
+                    resume.socials.map(
+                        (s) =>
+                            ({
+                                linkedin: (
+                                    <a href={s.url} target="_blank" class="text-muted-foreground hover:text-foreground animation" aria-label="linkedin">
+                                        <RiLinkedinBoxLine className="size-5" />
+                                    </a>
+                                ),
+                                github: (
+                                    <a href={s.url} target="_blank" class="text-muted-foreground hover:text-foreground animation" aria-label="github">
+                                        <RiGithubLine className="size-5" />
+                                    </a>
+                                ),
+                                twitter: (
+                                    <a href={s.url} target="_blank" class="text-muted-foreground hover:text-foreground animation" aria-label="twitter">
+                                        <RiTwitterLine className="size-5" />
+                                    </a>
+                                ),
+                            })[s.platform],
+                    )
+                }
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section>
+            <div class="flex items-center gap-3 mb-5">
+                <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">SUMMARY</span>
+                <div class="flex-1 border-t border-border"></div>
+            </div>
+            <p class="text-base leading-relaxed text-foreground/80">
+                {resume.summary}
+            </p>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">EXPERIENCE</span>
+                <div class="flex-1 border-t border-border"></div>
+            </div>
+            <div class="space-y-8">
+                {
+                    resume.experience.map((exp) => (
+                        <div class="border-l-2 border-border pl-5 space-y-3">
+                            <div>
+                                <h3 class="text-lg font-medium">{exp.position}</h3>
+                                <p class="text-sm text-muted-foreground mt-0.5">
+                                    {exp.organization}
+                                    <span class="mx-2">·</span>
+                                    <span class="inline-flex items-center gap-1">
+                                        <RiCalendar2Line className="size-3.5" />
+                                        {formatDate(exp.startDate)} — {formatDate(exp.endDate)}
+                                    </span>
+                                    <span class="mx-2">·</span>
+                                    {exp.location}
+                                </p>
+                            </div>
+                            <p class="text-sm text-foreground/70">{exp.responsibility}</p>
+                            <ul class="space-y-1">
+                                {exp.highlights.map((h) => (
+                                    <li class="flex items-start gap-2 text-sm text-foreground/70">
+                                        <RiArrowRightSLine className="size-4 mt-0.5 shrink-0 text-muted-foreground" />
+                                        <span>{h}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5">
+                                {exp.technologies.map((t) => (
+                                    <span class="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">EDUCATION</span>
+                <div class="flex-1 border-t border-border"></div>
+            </div>
+            <div class="space-y-6">
+                {
+                    resume.education.map((edu) => (
+                        <div class="border-l-2 border-border pl-5 space-y-2">
+                            <div>
+                                <h3 class="text-lg font-medium">{edu.institution}</h3>
+                                <p class="text-sm text-muted-foreground mt-0.5">
+                                    {edu.degree} in {edu.fieldOfStudy}
+                                    <span class="mx-2">·</span>
+                                    <span class="inline-flex items-center gap-1">
+                                        <RiCalendar2Line className="size-3.5" />
+                                        {formatDate(edu.startDate)} — {formatDate(edu.endDate)}
+                                    </span>
+                                </p>
+                            </div>
+                            {edu.grade && <p class="text-sm text-foreground/70">GPA: {edu.grade}</p>}
+                            <div class="flex flex-wrap gap-1.5">
+                                {edu.coursework.map((c) => (
+                                    <span class="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">{c}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">SKILLS</span>
+                <div class="flex-1 border-t border-border"></div>
+            </div>
+            <div class="space-y-4">
+                {
+                    resume.skills.map((skill) => (
+                        <div class="flex items-start gap-4">
+                            <span class="text-sm font-medium text-foreground w-36 shrink-0">{skill.name}</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                {skill.tags.map((t) => (
+                                    <span class="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">PROJECTS</span>
+                <div class="flex-1 border-t border-border"></div>
+            </div>
+            <div class="space-y-6">
+                {
+                    resume.projects.map((proj) => (
+                        <div class="border-l-2 border-border pl-5 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-lg font-medium">{proj.name}</h3>
+                                <a href={proj.url} target="_blank" class="text-muted-foreground hover:text-foreground animation" aria-label="project link">
+                                    <RiExternalLinkLine className="size-4" />
+                                </a>
+                            </div>
+                            <p class="text-sm text-foreground/70">{proj.description}</p>
+                            <ul class="space-y-1">
+                                {proj.highlights.map((h) => (
+                                    <li class="flex items-start gap-2 text-sm text-foreground/70">
+                                        <RiArrowRightSLine className="size-4 mt-0.5 shrink-0 text-muted-foreground" />
+                                        <span>{h}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5">
+                                {proj.technologies.map((t) => (
+                                    <span class="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        {
+            resume.certifications.length > 0 && (
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">CERTIFICATIONS</span>
+                        <div class="flex-1 border-t border-border" />
+                    </div>
+                    <div class="space-y-4">
+                        {resume.certifications.map((cert) => (
+                            <div class="border-l-2 border-border pl-5">
+                                <div class="flex items-center justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-base font-medium">{cert.name}</h3>
+                                        <p class="text-sm text-muted-foreground">{cert.issuer}</p>
+                                    </div>
+                                    <span class="text-sm text-muted-foreground shrink-0">{formatDate(cert.date)}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Courses -->
+        {
+            resume.courses.length > 0 && (
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">COURSES</span>
+                        <div class="flex-1 border-t border-border" />
+                    </div>
+                    <div class="space-y-4">
+                        {resume.courses.map((course) => (
+                            <div class="border-l-2 border-border pl-5">
+                                <div class="flex items-center justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-base font-medium">{course.name}</h3>
+                                        <p class="text-sm text-muted-foreground">{course.issuer}</p>
+                                    </div>
+                                    <span class="text-sm text-muted-foreground shrink-0">{formatDate(course.date)}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Languages -->
+        {
+            resume.languages.length > 0 && (
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">LANGUAGES</span>
+                        <div class="flex-1 border-t border-border" />
+                    </div>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2">
+                        {resume.languages.map((lang) => (
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium">{lang.language}</span>
+                                <span class="text-sm text-muted-foreground">({lang.fluency})</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Volunteering -->
+        {
+            resume.volunteering.length > 0 && (
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">VOLUNTEERING</span>
+                        <div class="flex-1 border-t border-border" />
+                    </div>
+                    <div class="border-l-2 border-border pl-5 space-y-4">
+                        {resume.volunteering.map((v) => (
+                            <div>
+                                <h3 class="text-base font-medium">{v.organization}</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    {v.position}
+                                    <span class="mx-2">·</span>
+                                    <span class="inline-flex items-center gap-1">
+                                        <RiCalendar2Line className="size-3.5" />
+                                        {formatDate(v.startDate)} — {formatDate(v.endDate)}
+                                    </span>
+                                </p>
+                                <p class="text-sm text-foreground/70 mt-1">{v.responsibility}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Publications -->
+        {
+            resume.publications.length > 0 && (
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-xs font-mono tracking-[0.15em] text-muted-foreground">PUBLICATIONS</span>
+                        <div class="flex-1 border-t border-border" />
+                    </div>
+                    <div class="space-y-4">
+                        {resume.publications.map((pub) => (
+                            <div class="border-l-2 border-border pl-5 space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-base font-medium">{pub.title}</h3>
+                                    <a href={pub.url} target="_blank" class="text-muted-foreground hover:text-foreground animation" aria-label="publication link">
+                                        <RiExternalLinkLine className="size-3.5" />
+                                    </a>
+                                </div>
+                                <p class="text-sm text-muted-foreground">
+                                    {pub.publisher}
+                                    <span class="mx-2">·</span>
+                                    {formatDate(pub.releaseDate)}
+                                </p>
+                                <p class="text-sm text-foreground/70">{pub.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+    </div>
+</ResumeLayout>

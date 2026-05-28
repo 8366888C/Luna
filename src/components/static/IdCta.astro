@@ -1,0 +1,26 @@
+---
+import { buttonVariants } from "../ui/button";
+import { SocialIcon } from "@/lib/icons";
+
+const { type } = Astro.props;
+---
+
+{
+    type === "blog" ? (
+        <div class="flex flex-col items-center justify-center gap-3 border border-border p-6 w-fit mx-auto mb-6">
+            <p class="text-secondary-foreground/80">Enjoyed this article?</p>
+            <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class={`flex items-center justify-center gap-2 ${buttonVariants({ variant: "default" })}`}>
+                <SocialIcon type="medium" className="size-6" />
+                <span>Subsribe to Medium</span>
+            </a>
+        </div>
+    ) : (
+        <div class="flex flex-col items-center justify-center gap-3 border border-border p-6 w-fit mx-auto mb-6">
+            <p class="text-secondary-foreground/80">Like what you see?</p>
+            <a href="https://github.com/A58361" target="_blank" rel="noopener noreferrer" class={`flex items-center justify-center gap-2 ${buttonVariants({ variant: "default" })}`}>
+                <SocialIcon type="github" className="size-6" />
+                <span>Follow on Github</span>
+            </a>
+        </div>
+    )
+}

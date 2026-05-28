@@ -1,0 +1,39 @@
+---
+import { RiCalendar2Line } from "@remixicon/react";
+import BackButton from "../static/BackButton.astro";
+import { parse, format } from "date-fns";
+
+const { backUrl, items } = Astro.props;
+
+const parsedDate = parse(items.date, "dd-MM-yyyy", new Date());
+const formattedDate = format(parsedDate, "MMM dd, yyyy");
+---
+
+<div class="border border-border mt-10 p-6">
+    <BackButton url={backUrl} />
+
+    <header class="mt-3 select-none">
+        <h1 class="text-5xl font-semibold opacity-90">{items.title}</h1>
+        <p class="text-lg text-muted-foreground mt-3">{items.description}</p>
+
+        <div class="flex items-center gap-6 mt-3 text-sm text-muted-foreground">
+            <div class="flex items-center gap-3">
+                <RiCalendar2Line className="size-4" />
+                <span>{formattedDate}</span>
+            </div>
+            <span class="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded">
+                {items.category}
+            </span>
+        </div>
+
+        {
+            items.tags && items.tags.length > 0 && (
+                <div class="flex gap-2 mt-4 flex-wrap">
+                    {items.tags.map((tag: string) => (
+                        <span class="text-xs px-3 py-1 bg-muted text-muted-foreground rounded">{tag}</span>
+                    ))}
+                </div>
+            )
+        }
+    </header>
+</div>

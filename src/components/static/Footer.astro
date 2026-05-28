@@ -1,0 +1,21 @@
+---
+import site_config from "@/site-config.json";
+---
+
+<footer class="mx-auto font-mono antialiased bg-background max-w-4xl text-foreground select-none sticky bottom-0 z-0">
+    <div class="flex items-center justify-between px-3 py-2">
+        <div class="flex items-center gap-4">
+            <p class="text-sm text-muted-foreground">
+                &copy; {new Date().getFullYear()}
+                {site_config.introduction.heading}. All rights reserved.
+            </p>
+        </div>
+        <div>
+            <p class="text-sm text-muted-foreground">
+                powered by <a href="https://astro.build/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-foreground transition-colors">Astro</a>
+                <span class="text-muted-foreground/80">&</span>
+                <a href="https://astro.build/themes/details/ryze/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-foreground transition-colors">Ryze</a>
+            </p>
+        </div>
+    </div>
+</footer>

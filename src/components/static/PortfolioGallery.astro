@@ -1,0 +1,29 @@
+---
+import type { ImageMetadata } from "astro";
+import type { portfolioConfig } from "@/lib/types";
+import PortfolioGallery from "@/components/client/PortfolioGallery";
+
+export interface Props {
+    item: portfolioConfig;
+    images: ImageMetadata[];
+}
+
+const { item, images } = Astro.props;
+const videoId = item.video ? extractYouTubeId(item.video) : null;
+
+function extractYouTubeId(url: string): string | null {
+    if (!url) return null;
+    const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
+
+const galleryImages = images.map((img, i) => ({
+    src: img.src,
+    alt: `${item.data.title} gallery image ${i + 1}`,
+}));
+---
+
+<div class="border border-border p-6">
+    {(images.length > 0 || videoId) && <PortfolioGallery images={galleryImages} videoId={videoId} title={item.data.title} client:load />}
+</div>

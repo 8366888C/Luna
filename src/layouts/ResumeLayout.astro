@@ -1,0 +1,17 @@
+---
+import "@/styles/global.css";
+import "@/styles/typography.css";
+import Head from "@/components/static/Head.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <Head />
+
+    <body class="mx-auto">
+        {/* Content */}
+        <main class="max-w-4xl mx-auto">
+            <slot />
+        </main>
+    </body>
+</html>

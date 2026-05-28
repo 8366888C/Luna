@@ -1,0 +1,20 @@
+---
+interface Props {
+	title?: string;
+	subtitle?: string;
+}
+
+const { title = "S E C T I O N", subtitle } = Astro.props;
+---
+
+<div class="mt-23">
+	<h2 class="pb-1 text-center text-4xl font-light tracking-widest select-none">
+		{
+			title
+				.split(" ")
+				.map((word) => word.toUpperCase())
+				.join(" ")
+		}
+	</h2>
+	{subtitle && <p class="text-center text-muted-foreground mt-2">{subtitle}</p>}
+</div>

@@ -1,0 +1,35 @@
+---
+import { ClientRouter } from "astro:transitions";
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Ryze" href={new URL("rss.xml", Astro.site)} />
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+    <ClientRouter />
+    <title>Ryze</title>
+    <script is:inline>
+		const getThemePreference = () => {
+			if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+				return localStorage.getItem("theme");
+			}
+			return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+		};
+		const theme = getThemePreference();
+		document.documentElement.classList.toggle("dark", theme === "dark");
+		if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+		document.addEventListener("astro:before-swap", (e) => {
+			const newTheme = getThemePreference();
+			e.newDocument.documentElement.classList.toggle("dark", newTheme === "dark");
+			if (newTheme === "dark") {
+				e.newDocument.documentElement.setAttribute("data-theme", "dark");
+			}
+		});
+	</script>
+</head>
