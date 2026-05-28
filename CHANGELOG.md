@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## [v1.5.0](https://github.com/A58361/Ryze/releases/tag/v1.5.0) | 2026-05-28
+
+### Features
+- add portfolio images and blog content [55ceb83](https://github.com/A58361/Ryze/commit/55ceb83)
+- add new static components, client components, layouts and hooks [60f3406](https://github.com/A58361/Ryze/commit/60f3406)
+### Other
+- update styles, ui primitives, and build configuration [6cae68c](https://github.com/A58361/Ryze/commit/6cae68c)
+- redesign blog and portfolio cards and extract shared filter [6ac4795](https://github.com/A58361/Ryze/commit/6ac4795)
+- restructure type system, data configs, and icons [5a81dbf](https://github.com/A58361/Ryze/commit/5a81dbf)
+- remove unused components, old layouts, and fragments [60f5937](https://github.com/A58361/Ryze/commit/60f5937)
+- update layouts and pages to use new component architecture [2d6b39a](https://github.com/A58361/Ryze/commit/2d6b39a)
+- redesign featured components and cards [d0fc2f9](https://github.com/A58361/Ryze/commit/d0fc2f9)
+- code cleanup and redesign [aa2ecf6](https://github.com/A58361/Ryze/commit/aa2ecf6)
+- remove dummy blogs and components [6b6d90d](https://github.com/A58361/Ryze/commit/6b6d90d)
+
 ## [v1.4.0](https://github.com/8366888C/Ryze/releases/tag/v1.4.0) | 2026-05-06
 
 ### Features
