@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v1.5.1](https://github.com/A58361/Ryze/releases/tag/v1.5.1) | 2026-05-29
+
+### Bug Fixes
+- change the image to a placeholder url [46a0246](https://github.com/A58361/Ryze/commit/46a0246)
+- add scroll behaviour to markdown tables [84021dd](https://github.com/A58361/Ryze/commit/84021dd)
+
 ## [v1.5.0](https://github.com/A58361/Ryze/releases/tag/v1.5.0) | 2026-05-28
 
 ### Features
