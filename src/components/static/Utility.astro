@@ -8,18 +8,16 @@ import { RiRssLine, RiSearchLine } from "@remixicon/react";
 <div class="flex gap-1">
     {
         site_config.bPageFind && (
-            <Button variant="outline" size="icon-xs" id="search-trigger">
+            <Button variant="outline" size="icon-xs" id="search-trigger" aria-label="search">
                 <RiSearchLine />
             </Button>
         )
     }
-    {
-        site_config.bThemeToggle && <ThemeToggle client:load />
-    }
+    {site_config.bThemeToggle && <ThemeToggle client:load />}
     {
         site_config.bRssFeed && (
-            <Button variant="outline" size="icon-xs">
-                <a href="/rss.xml" class="p-1">
+            <Button variant="outline" size="icon-xs" aria-label="rss">
+                <a href="/rss.xml" class="p-1" aria-label="rss">
                     <RiRssLine />
                 </a>
             </Button>
