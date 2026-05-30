@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [v1.6.0](https://github.com/A58361/Ryze/releases/tag/v1.6.0) | 2026-05-30
+
+### Features
+- add seo meta tags and og image generation [7c5ef06](https://github.com/A58361/Ryze/commit/7c5ef06)
+### Other
+- replace h3 with span and remove unused button import [a16c525](https://github.com/A58361/Ryze/commit/a16c525)
+- remove animations and add descriptions for images and buttons [2307166](https://github.com/A58361/Ryze/commit/2307166)
+
 ## [v1.5.1](https://github.com/A58361/Ryze/releases/tag/v1.5.1) | 2026-05-29
 
 ### Bug Fixes
