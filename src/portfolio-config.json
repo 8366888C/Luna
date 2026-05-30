@@ -9,7 +9,7 @@
       "tags": ["Python", "PyTorch", "Transformers", "LangChain", "ChromaDB"],
       "status": "prototype"
     },
-    "introduction": "Keeping up with research across ML, computational biology, and systems is impossible for a single person. Nova is a research agent that reads papers, traverses citation graphs, extracts methodological claims, and builds a cross-referenced knowledge graph of experimental results — surfacing contradictions and gaps that would otherwise take months to notice.",
+    "introduction": "Keeping up with research across ML, computational biology, and systems is impossible for a single person. Nova is a research agent that reads papers, traverses citation graphs, extracts methodological claims, and builds a cross-referenced knowledge graph of experimental results - surfacing contradictions and gaps that would otherwise take months to notice.",
     "links": [
       { "label": "GitHub", "url": "https://github.com/" },
       { "label": "Demo", "url": "https://nova-demo.vercel.app" }
@@ -30,7 +30,7 @@
       "tags": ["Unity", "C#", "Procedural Generation", "GPU Instancing"],
       "status": "playable"
     },
-    "introduction": "Drift is an arcade racer built around a momentum-preserving drift system where sacrificing stability for speed is the point — the tighter you hug a corner, the more speed you carry out. Tracks are procedurally generated from seed values using a grammar-based approach that guarantees valid circuits by constraining curvature against the vehicle's physics.",
+    "introduction": "Drift is an arcade racer built around a momentum-preserving drift system where sacrificing stability for speed is the point - the tighter you hug a corner, the more speed you carry out. Tracks are procedurally generated from seed values using a grammar-based approach that guarantees valid circuits by constraining curvature against the vehicle's physics.",
     "links": [
       { "label": "Play Now", "url": "https://drift-game.io" },
       { "label": "GitHub", "url": "https://github.com/" },
@@ -39,7 +39,7 @@
     "video": "https://youtube.com/embed/MLpWrANjFbI",
     "brief": {
       "capabilities": ["Momentum-preserving drift physics where tighter cornering yields higher exit velocity through a weighted traction curve", "Grammar-based procedural track generation producing closed-loop circuits from seed values without runtime asset streaming", "AI opponents using a look-ahead racing line optimizer that adapts to track segments in real-time with configurable aggression", "Four vehicle classes with distinct mass, traction, and inertia profiles affecting drift behavior and optimal racing lines", "Split-screen local multiplayer supporting up to four players with dynamic camera that zooms based on speed differential", "Replay system that records full physics state snapshots for rewinding, reviewing, and exporting ghost data as shareable strings"],
-      "architecture": ["Physics engine built on a simplified bicycle model with separate longitudinal and lateral friction coefficients. The drift state machine transitions through grip, slip, and full slide phases, each with interpolated friction values. The key innovation is a momentum-banking system — angular velocity during a slide is partially converted to linear velocity on exit, rewarding controlled oversteer.", "Track generation uses a context-free grammar operating on a canvas of quadratic Bézier segments. The generator first lays a coarse path, then subdivides with constrained random perturbations. Validation checks ensure minimum turning radius, maximum banking angle, and collision-free bounds against a bounding box. The entire generation completes in under 50ms, allowing real-time preview during track selection."]
+      "architecture": ["Physics engine built on a simplified bicycle model with separate longitudinal and lateral friction coefficients. The drift state machine transitions through grip, slip, and full slide phases, each with interpolated friction values. The key innovation is a momentum-banking system - angular velocity during a slide is partially converted to linear velocity on exit, rewarding controlled oversteer.", "Track generation uses a context-free grammar operating on a canvas of quadratic Bézier segments. The generator first lays a coarse path, then subdivides with constrained random perturbations. Validation checks ensure minimum turning radius, maximum banking angle, and collision-free bounds against a bounding box. The entire generation completes in under 50ms, allowing real-time preview during track selection."]
     }
   },
   {
@@ -57,7 +57,7 @@
     "video": null,
     "brief": {
       "capabilities": ["Multi-source metric ingestion via a unified HTTP API supporting Prometheus remote write, CloudWatch webhook, and custom agent protocol", "Statistical anomaly detection using moving-window z-score, Holt-Winters forecasting, and seasonal decomposition for metrics with periodic patterns", "Escalation-based alert routing with support for PagerDuty, Slack, email, and custom webhooks with schedule-aware rotation policies"],
-      "architecture": ["Ingestion layer built in Go using a fan-out pattern — incoming metrics are written to a write-ahead log for durability, then asynchronously fanned out to the time-series store (TimescaleDB) and the detection pipeline. This decouples ingestion speed from detection latency, allowing the system to absorb burst traffic without backpressure.", "Detection pipeline is a chain of composable detectors: z-score for level shifts, Holt-Winters for trend/seasonality changes, and a residual-based detector for irregular patterns. Each detector emits typed events that feed into a correlation engine which groups related alerts into incidents, reducing noise by deduplicating across metrics and time windows.", "Query layer exposes a D3-compatible time-series API that returns aggregated data at multiple granularities — raw, 1m, 5m, 1h, 1d rollups — using PostgreSQL continuous aggregates. Dashboard queries are automatically re-routed to the appropriate granularity based on the time range, keeping response times under 200ms for queries spanning up to a year.", "Alert manager implements a state machine per alert rule: normal → pending (after breach) → firing (after duration) → acknowledged → resolved. Escalation policies are defined as DAGs with configurable delays, allowing sequential or parallel notification paths. The system records alert history for post-mortem analysis and tuning recommendations."]
+      "architecture": ["Ingestion layer built in Go using a fan-out pattern - incoming metrics are written to a write-ahead log for durability, then asynchronously fanned out to the time-series store (TimescaleDB) and the detection pipeline. This decouples ingestion speed from detection latency, allowing the system to absorb burst traffic without backpressure.", "Detection pipeline is a chain of composable detectors: z-score for level shifts, Holt-Winters for trend/seasonality changes, and a residual-based detector for irregular patterns. Each detector emits typed events that feed into a correlation engine which groups related alerts into incidents, reducing noise by deduplicating across metrics and time windows.", "Query layer exposes a D3-compatible time-series API that returns aggregated data at multiple granularities - raw, 1m, 5m, 1h, 1d rollups - using PostgreSQL continuous aggregates. Dashboard queries are automatically re-routed to the appropriate granularity based on the time range, keeping response times under 200ms for queries spanning up to a year.", "Alert manager implements a state machine per alert rule: normal → pending (after breach) → firing (after duration) → acknowledged → resolved. Escalation policies are defined as DAGs with configurable delays, allowing sequential or parallel notification paths. The system records alert history for post-mortem analysis and tuning recommendations."]
     }
   },
   {
@@ -70,7 +70,7 @@
       "tags": ["KiCad", "Rust", "STM32", "FreeRTOS", "gRPC"],
       "status": "beta"
     },
-    "introduction": "CNC controllers haven't evolved in twenty years — most still rely on parallel ports or proprietary dongles, locking you into vendor software with no real-time feedback. Forge replaces them with a custom 4-layer PCB running real-time firmware that handles motion planning and closed-loop stepper control over USB and Ethernet via a gRPC API.",
+    "introduction": "CNC controllers haven't evolved in twenty years - most still rely on parallel ports or proprietary dongles, locking you into vendor software with no real-time feedback. Forge replaces them with a custom 4-layer PCB running real-time firmware that handles motion planning and closed-loop stepper control over USB and Ethernet via a gRPC API.",
     "links": [
       { "label": "GitHub", "url": "https://github.com/" },
       { "label": "KiCad Files", "url": "https://github.com/" },
@@ -92,7 +92,7 @@
       "tags": ["TypeScript", "Node.js", "Husky", "Git", "NPM"],
       "status": "production"
     },
-    "introduction": "Repository compliance is often an afterthought — bolted on with brittle shell scripts that work on one machine and fail silently on another. Manual setup of Git hooks, Commitlint, and Semantic Release is error-prone, with team members diverging in local configurations and breaking changelog pipelines with a single malformed commit. Aureus wraps all of this into a single, idempotent CLI command that scaffolds the correct files and exits cleanly.",
+    "introduction": "Repository compliance is often an afterthought - bolted on with brittle shell scripts that work on one machine and fail silently on another. Manual setup of Git hooks, Commitlint, and Semantic Release is error-prone, with team members diverging in local configurations and breaking changelog pipelines with a single malformed commit. Aureus wraps all of this into a single, idempotent CLI command that scaffolds the correct files and exits cleanly.",
     "links": [
       { "label": "GitHub", "url": "https://github.com/A58361/aureus" },
       { "label": "NPM Package", "url": "https://npmjs.com/package/aureus" }
@@ -100,7 +100,7 @@
     "video": "https://youtube.com/embed/ScMzIvxBSi4",
     "brief": {
       "capabilities": ["Scaffolds full repository configurations out-of-the-box, ensuring immediate consistency across projects with zero manual setup", "Handles core structural configurations locally with rapid execution speeds, bypassing heavy network overhead or bloated dependency trees", "Automatically enforces strict repository standards by initializing and configuring Commitlint to validate local commit messages", "Installs and configures Husky hooks cleanly within local environments to capture code issues before they reach a remote server", "Implements custom local validation layers engineered specifically not to break or cancel legitimate automation workflows (like GitHub Actions) during remote push processes", "Integrates automated semantic versioning and release configurations to eliminate manual tag management and enforce strict delivery versioning"],
-      "architecture": ["Modular orchestration engine using asynchronous child-process pooling with configurable concurrency limits and per-step timeout guards. Each pipeline step (hook init, commitlint config, semantic release setup) is an isolated module emitting structured events.", "Config-driven scaffolding layers that compose from a declarative spec — reading a .aureusrc or package.json extensions key to determine which modules to activate. The resolution algorithm prioritizes explicit config over convention, with sensible defaults for each detected project type."]
+      "architecture": ["Modular orchestration engine using asynchronous child-process pooling with configurable concurrency limits and per-step timeout guards. Each pipeline step (hook init, commitlint config, semantic release setup) is an isolated module emitting structured events.", "Config-driven scaffolding layers that compose from a declarative spec - reading a .aureusrc or package.json extensions key to determine which modules to activate. The resolution algorithm prioritizes explicit config over convention, with sensible defaults for each detected project type."]
     }
   }
 ]

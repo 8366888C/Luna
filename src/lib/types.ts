@@ -18,6 +18,7 @@ export interface siteConfig {
     socialItems: { type: socialIconType; url: string }[];
     description: string;
     ctaItems: { label: string; url: string; variant: variantType }[];
+    support?: { label: string; url: string; variant: variantType };
   };
   featured: {
     portfolio: { visible: boolean };

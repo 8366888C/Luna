@@ -170,7 +170,7 @@
     --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-/* * SHIKI CODE BLOCKS — DARK MODE */
+/* * SHIKI CODE BLOCKS - DARK MODE */
 .dark .astro-code,
 .dark .astro-code span {
     color: var(--shiki-dark) !important;
