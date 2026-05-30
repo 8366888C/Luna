@@ -1,7 +1,7 @@
 ---
 draft: false
 date: "19-05-2026"
-title: "Markdown Showcase — Every Feature on Ryze"
+title: "Markdown Showcase - Every Feature on Ryze"
 description: "A comprehensive reference showing every markdown feature available on Ryze"
 category: "devlog"
 tags: ["markdown", "showcase", "reference", "features", "shiki", "katex"]
@@ -13,9 +13,9 @@ This page demonstrates every markdown feature rendered on Ryze. Use it as a refe
 
 ## Headings
 
-## Heading 2 — `h2`
-### Heading 3 — `h3`
-#### Heading 4 — `h4`
+## Heading 2 - `h2`
+### Heading 3 - `h3`
+#### Heading 4 - `h4`
 
 Each heading has an auto-generated anchor link (the `#` symbol that appears on hover). Click it to copy a direct URL to that section.
 
@@ -32,7 +32,7 @@ Each heading has an auto-generated anchor link (the `#` symbol that appears on h
 
 <mark>Highlighted text</mark> using `<mark>` HTML tags.
 
-<abbr title="Cascading Style Sheets">CSS</abbr> — hover over abbreviations to see the full title.
+<abbr title="Cascading Style Sheets">CSS</abbr> - hover over abbreviations to see the full title.
 
 Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy, or <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command palette.
 
@@ -41,7 +41,7 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy, or <kbd>Cmd</kbd> + <kbd>K</kbd> t
 
 [Internal link to the home page](/)
 
-[External link to Astro's docs](https://docs.astro.build) — opens in a new tab with `rel="nofollow noopener noreferrer"`.
+[External link to Astro's docs](https://docs.astro.build) - opens in a new tab with `rel="nofollow noopener noreferrer"`.
 
 
 ## Lists
@@ -79,7 +79,7 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy, or <kbd>Cmd</kbd> + <kbd>K</kbd> t
 
 ## Inline Code
 
-Use the `Array.prototype.map()` method to transform arrays. Variable names like `config`, `theme`, and `backgroundColor` are rendered with the Shiki inline code style — dark background in light mode, light background in dark mode.
+Use the `Array.prototype.map()` method to transform arrays. Variable names like `config`, `theme`, and `backgroundColor` are rendered with the Shiki inline code style - dark background in light mode, light background in dark mode.
 
 
 ## Code Blocks
@@ -256,7 +256,7 @@ This is hidden content inside a `<details>` element. You can use these for spoil
 
 ### A Tip for Writers
 
-> Good documentation is not written in hindsight — it's written alongside the code.
+> Good documentation is not written in hindsight - it's written alongside the code.
 
 When documenting APIs, include **concrete examples** in every section. Users rarely read prose top-to-bottom; they scroll to the code block first, then scan the surrounding explanation.
 
@@ -270,18 +270,18 @@ const user = await authenticate("admin@example.com", "s3cret");
 console.log(user.role); // "admin"
 ```
 
-This approach — a short blockquote for emphasis, bold for key terms, and a side-by-side code comparison — keeps readers engaged and learning faster.
+This approach - a short blockquote for emphasis, bold for key terms, and a side-by-side code comparison - keeps readers engaged and learning faster.
 
 
 ## What You Can Do With Plugins
 
 All the features on this page are powered by a small set of remark/rehype plugins configured in `astro.config.mjs`:
 
-- **`rehype-external-links`** — opens external links in a new tab with security attributes
-- **`remark-math`** + **`rehype-katex`** — renders $LaTeX$ math expressions
-- **`rehype-figure`** — wraps images in semantic `<figure>` elements with captions
-- **`astro-mermaid`** — renders ` ```mermaid ` code blocks as SVG diagrams via Mermaid.js
-- **Shiki** — syntax highlights every fenced code block with the `github-dark` theme
-- **GFM** (built-in) — tables, task lists, strikethrough, and autolinks
+- **`rehype-external-links`** - opens external links in a new tab with security attributes
+- **`remark-math`** + **`rehype-katex`** - renders $LaTeX$ math expressions
+- **`rehype-figure`** - wraps images in semantic `<figure>` elements with captions
+- **`astro-mermaid`** - renders ` ```mermaid ` code blocks as SVG diagrams via Mermaid.js
+- **Shiki** - syntax highlights every fenced code block with the `github-dark` theme
+- **GFM** (built-in) - tables, task lists, strikethrough, and autolinks
 
-To add any of these to your own posts, just write standard markdown — the plugins handle the rest at build time.
+To add any of these to your own posts, just write standard markdown - the plugins handle the rest at build time.

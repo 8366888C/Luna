@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 date: "10-05-2026"
 title: "The Art of Writing Numbers"
 description: "Principles and practices for writing numbers in a clear and maintainable way"
