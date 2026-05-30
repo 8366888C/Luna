@@ -15,7 +15,7 @@ const hasCapabilities = capabilities.length > 0;
 const hasArchitecture = architecture.length > 0;
 ---
 
-<section class="border border-border p-6 flex flex-wrap mt-10">
+<section class="border border-border p-6 flex flex-wrap">
     <input type="radio" name="details-tab" id="dt-intro" class="hidden peer/intro" checked />
     {hasCapabilities && <input type="radio" name="details-tab" id="dt-capabilities" class="hidden peer/cap" />}
     {hasArchitecture && <input type="radio" name="details-tab" id="dt-architecture" class="hidden peer/arch" />}
