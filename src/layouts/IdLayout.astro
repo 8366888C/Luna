@@ -3,15 +3,19 @@ import Header from "@/components/static/Header.astro";
 import "@/styles/global.css";
 import "@/styles/typography.css";
 import "katex/dist/katex.min.css";
-import Head from "@/components/static/Head.astro";
+import Head, { type Props as HeadProps } from "@/components/static/Head.astro";
 import FooterId from "@/components/static/FooterId.astro";
 
-const { type, prev, next } = Astro.props;
+const { type, prev, next, ...headProps } = Astro.props as HeadProps & {
+    type: "blog" | "portfolio";
+    prev: any;
+    next: any;
+};
 ---
 
 <!doctype html>
 <html lang="en">
-    <Head />
+    <Head {...headProps} type={type === "blog" ? "article" : "website"} />
     <body class="mx-auto">
         <Header />
         {/* Content */}
