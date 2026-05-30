@@ -1,12 +1,14 @@
 ---
 import "@/styles/global.css";
 import "@/styles/typography.css";
-import Head from "@/components/static/Head.astro";
+import Head, { type Props as HeadProps } from "@/components/static/Head.astro";
+
+const headProps = Astro.props as HeadProps;
 ---
 
 <!doctype html>
 <html lang="en">
-    <Head />
+    <Head {...headProps} />
 
     <body class="mx-auto">
         {/* Content */}

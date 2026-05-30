@@ -28,6 +28,8 @@ const currentIndex = allItems.findIndex((i) => i.id === item.id);
 const prev = currentIndex > 0 ? allItems[currentIndex - 1] : null;
 const next = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
 
+const pubDate = parse(item.data.date, "dd-MM-yyyy", new Date());
+
 type ImageRecord = { default: ImageMetadata };
 const imageModules = import.meta.glob<ImageRecord>("@/assets/portfolio/*/*.{png,jpg,jpeg,webp,gif,avif}", { eager: true });
 const projectImages = Object.entries(imageModules)
@@ -38,7 +40,16 @@ const projectImages = Object.entries(imageModules)
 const links = item?.links ?? [];
 ---
 
-<IdLayout type="portfolio" prev={prev} next={next}>
+<IdLayout
+    type="portfolio"
+    title={item.data.title}
+    description={item.data.description}
+    image={`/og/portfolio/${item.id}.png`}
+    pubDate={pubDate}
+    tags={item.data.tags}
+    prev={prev}
+    next={next}
+>
     <article transition:animate="fade">
         <IdHeader backUrl="/portfolio" items={item.data} />
 
