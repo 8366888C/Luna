@@ -1,7 +1,7 @@
 ---
 draft: false
 date: "24-05-2026"
-title: "Ryze — A Blog & Portfolio Starter Built with Astro 6"
+title: "Ryze - A Blog & Portfolio Starter Built with Astro 6"
 description: "Everything Ryze ships with out of the box, how to customize it, and how I built this very site with it"
 category: "devlog"
 tags: ["ryze", "starter", "astro", "template", "tailwind", "shadcn", "portfolio", "blog"]
