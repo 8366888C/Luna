@@ -1,11 +1,11 @@
 ---
 import site_config from "@/site-config.json";
 import ThemeToggle from "../client/ThemeToggle";
-import { Button, buttonVariants } from "../ui/button";
+import { Button } from "../ui/button";
 import { RiRssLine, RiSearchLine } from "@remixicon/react";
 ---
 
-<div class="flex gap-1">
+<div class="flex gap-2">
     {
         site_config.bPageFind && (
             <Button variant="outline" size="icon-xs" id="search-trigger" aria-label="search">
