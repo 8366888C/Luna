@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [v1.7.1](https://github.com/A58361/Ryze/releases/tag/v1.7.1) | 2026-06-01
+
+### Bug Fixes
+- add lazy loading to images [2127c39](https://github.com/A58361/Ryze/commit/2127c39)
+### Other
+- update readme [7201972](https://github.com/A58361/Ryze/commit/7201972)
+
 ## [v1.7.0](https://github.com/A58361/Ryze/releases/tag/v1.7.0) | 2026-06-01
 
 ### Features
