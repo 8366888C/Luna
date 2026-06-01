@@ -206,18 +206,5 @@ I did end up tweaking a few things to make the site feel like my own:
 
 Not a single component needed modification. That is the point of Ryze - it handles the entire UI layer so you can focus on content.
 
-## Why Astro?
-
-Ryze is built on Astro because Astro is uniquely suited for content-driven sites. Every page is **static by default** - zero JavaScript until an interactive island needs it. View transitions between pages are built-in. Content collections provide type-safe frontmatter validation. The build output is pure HTML and CSS with minimal JS.
-
-For a blog and portfolio, this means:
-- **Fast load times** - most pages have zero JS
-- **Great SEO** - everything is server-rendered HTML
-- **Low hosting cost** - static files can be served from any CDN
-- **Future-proof** - your content is markdown, not locked in a CMS
-
-## Get Started
-
-Ryze is open source under the GPL-3.0 license. You can find the repository, read the full documentation, and submit issues or feature requests on GitHub.
-
-If you build something with Ryze, I would love to see it. The entire point of releasing a starter like this is to see what other people create with it - sites that are faster to build because the foundation was already laid.
+## Closing Thoughts
+[Ryze](https://astro.build/themes/details/ryze/) is my take on what a modern personal site starter should be - fast by default, extensible by design, and focused entirely on your content. Star it on [Github](https://github.com/a58361/ryze) if you find it useful. Contributions and issues are always welcome.
