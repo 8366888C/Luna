@@ -1,7 +1,7 @@
 {
   "name": "ryze",
   "type": "module",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "An astro starter for personal portfolio and mini blogs",
   "keywords": [
     "astro",
