@@ -332,4 +332,4 @@ Ryze produces static files - deploy to any static host:
 
 ## License
 
-[GNU General Public License v3.0](LICENSE.md) - Copyright 2026 Subhashis Hansda
+[GNU General Public License v3.0](LICENSE.md)
