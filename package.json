@@ -2,14 +2,33 @@
   "name": "ryze",
   "type": "module",
   "version": "1.6.0",
-  "description": "A reader-friendly blog starter with accessibility, SEO and responsiveness out of the box",
-  "keywords": [],
+  "description": "An astro starter for personal portfolio and mini blogs",
+  "keywords": [
+    "astro",
+    "astro-starter",
+    "portfolio",
+    "blog",
+    "personal-website",
+    "tailwindcss",
+    "starter-template",
+    "developer-portfolio",
+    "pagefind",
+    "gsap",
+    "mermaid",
+    "katex",
+    "rss",
+    "sitemap",
+    "shadcn",
+    "base-ui",
+    "jamstack",
+    "minimal"
+  ],
   "homepage": "ryze.pages.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/8366888C/ryze.git"
+    "url": "git+https://github.com/A58361/ryze.git"
   },
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "author": "Subhashis Hansda <subhashishansda8@gmail.com>",
   "engines": {
     "node": ">=22.12.0"
