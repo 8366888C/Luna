@@ -14,7 +14,7 @@ export function FeaturedPortfolioCard({ items }: { items: (portfolioConfig & { h
           <a key={item.id} href={`/portfolio/${item.id}`} className="group block bg-muted border border-border overflow-hidden hover:border-secondary-foreground/30 relative hover:bg-background active:scale-100 hover:scale-102 animation">
             {firstImage && (
               <div className="aspect-4/3 overflow-hidden">
-                <img src={firstImage} alt={item.data.title} className="w-full h-full object-cover grayscale-100 group-hover:grayscale-0 animation" />
+                <img loading="lazy" width={1200} src={firstImage} alt={item.data.title} className="w-full h-full object-cover grayscale-100 group-hover:grayscale-0 animation" />
               </div>
             )}
 

@@ -95,10 +95,10 @@ export default function PortfolioGallery({ images, videoId, title }: { images: G
                 className={`shrink-0 size-14 cursor-pointer overflow-hidden animation relative ${index === currentIndex ? "border-3 border-secondary-foreground/80" : "border border-border hover:border-secondary-foreground/50"}`}
               >
                 {item.type === "image" ? (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" />
+                  <img loading="lazy" width={1920} src={item.src} alt={item.alt} className="w-full h-full object-cover" />
                 ) : (
                   <>
-                    <img src={`https://img.youtube.com/vi/${item.videoId}/default.jpg`} alt={item.alt} className="w-full h-full object-cover" />
+                    <img loading="lazy" width={1920} src={`https://img.youtube.com/vi/${item.videoId}/default.jpg`} alt={item.alt} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                       <span className="text-foreground text-xl leading-none">▶</span>
                     </div>
