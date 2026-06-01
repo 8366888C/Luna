@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## [v1.7.0](https://github.com/A58361/Ryze/releases/tag/v1.7.0) | 2026-06-01
+
+### Features
+- add share button with we share api and clipboard fallback [727227b](https://github.com/A58361/Ryze/commit/727227b)
+### Bug Fixes
+- adjust portfolio detail layout and link button styling [5a4cada](https://github.com/A58361/Ryze/commit/5a4cada)
+- typo issue [203299f](https://github.com/A58361/Ryze/commit/203299f)
+### Other
+- update package.json metadata and license [2e5c705](https://github.com/A58361/Ryze/commit/2e5c705)
+- reorganize blog posts and update content [2363c8b](https://github.com/A58361/Ryze/commit/2363c8b)
+- add hover animation, scrollbar removed, and uppercase category [5a6daa9](https://github.com/A58361/Ryze/commit/5a6daa9)
+- update documentation and blog content [aab0a28](https://github.com/A58361/Ryze/commit/aab0a28)
+- add target and rel inside footer links [73cefd2](https://github.com/A58361/Ryze/commit/73cefd2)
+- minor style changes [f9db1d4](https://github.com/A58361/Ryze/commit/f9db1d4)
+
 ## [v1.6.0](https://github.com/A58361/Ryze/releases/tag/v1.6.0) | 2026-05-30
 
 ### Features
