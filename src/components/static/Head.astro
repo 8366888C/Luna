@@ -89,5 +89,19 @@ const imageURL = image ? new URL(image, Astro.site) : undefined;
                 e.newDocument.documentElement.setAttribute("data-theme", "dark");
             }
         });
+
+        document.addEventListener("click", (e) => {
+            const btn = e.target.closest(".search-trigger");
+            if (btn) {
+                document.querySelector("pagefind-modal")?.open();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+                e.preventDefault();
+                document.querySelector("pagefind-modal")?.open();
+            }
+        });
     </script>
 </head>

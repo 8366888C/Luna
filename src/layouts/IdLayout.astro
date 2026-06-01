@@ -23,7 +23,6 @@ const { type, prev, next, ...headProps } = Astro.props as HeadProps & {
             <slot />
         </main>
         <FooterId type={type} prev={prev} next={next} />
-        <pagefind-modal-trigger shortcut="mod+k" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)"></pagefind-modal-trigger>
         <pagefind-modal reset-on-close></pagefind-modal>
     </body>
 </html>

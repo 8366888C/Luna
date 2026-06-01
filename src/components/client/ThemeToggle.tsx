@@ -37,7 +37,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <Button variant="outline" size="icon-xs" onClick={toggleTheme} aria-label="theme toggle">
+    <Button variant="outline" size="icon-xs" onClick={toggleTheme} aria-label="theme toggle" className="cursor-pointer">
       {theme === "dark" ? <RiSunLine /> : <RiMoonLine />}
     </Button>
   );
