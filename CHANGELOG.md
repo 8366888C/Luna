@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [v2.0.1](https://github.com/A58361/Ryze/releases/tag/v2.0.1) | 2026-06-01
+
+### Bug Fixes
+- change in name inside resume page [4ca8611](https://github.com/A58361/Ryze/commit/4ca8611)
+
 ## [v2.0.0](https://github.com/A58361/Ryze/releases/tag/v2.0.0) | 2026-06-01
 
 ### Features
