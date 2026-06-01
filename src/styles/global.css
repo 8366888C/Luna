@@ -224,33 +224,9 @@
 /* * SCROLLBAR STYLING */
 @layer base {
     ::-webkit-scrollbar {
-        width: 8px;
+        width: 0px;
     }
     ::-webkit-scrollbar-track {
         background-color: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--color-muted-foreground);
-        opacity: 0.2;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--color-secondary-foreground);
-        opacity: 0.4;
-    }
-    .scrollbar-thin {
-        scrollbar-width: thin;
-    }
-    .scrollbar-thin::-webkit-scrollbar {
-        width: 4px;
-    }
-    .scrollbar-thin::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
-    .scrollbar-thin::-webkit-scrollbar-thumb {
-        background-color: var(--color-background);
-        border-radius: 2px;
-    }
-    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-        background-color: var(--color-muted);
     }
 }

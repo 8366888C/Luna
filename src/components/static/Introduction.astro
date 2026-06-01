@@ -42,7 +42,7 @@ import { Tilt } from "../client/Tilt";
                 site_config.introduction.socialItems &&
                     site_config.introduction.socialItems.map((item) => (
                         <a href={item.url} target="_blank" rel="noopener noreferrer" aria-label={item.type}>
-                            <SocialIcon type={item.type as siteConfig["introduction"]["socialItems"][number]["type"]} className="size-8 text-foreground/80 hover:text-foreground" />
+                            <SocialIcon type={item.type as siteConfig["introduction"]["socialItems"][number]["type"]} className="size-8 text-secondary-foreground/80 hover:text-foreground" />
                         </a>
                     ))
             }
@@ -62,7 +62,11 @@ import { Tilt } from "../client/Tilt";
             }
             {
                 site_config.introduction.support && (
-                    <a href={site_config.introduction.support.url} target="_blank" rel="noopener noreferrer" class={`${buttonVariants({ variant: site_config.introduction.support.variant as siteConfig["introduction"]["support"]["variant"], size: "default" })} group`}>
+                    <a href={site_config.introduction.support.url} target="_blank" rel="noopener noreferrer" class={`${buttonVariants({ variant: site_config.introduction.support.variant as siteConfig["introduction"]["ctaItems"][number]["variant"], size: "default" })} group`}>
+                        <div class="flex flex-col items-center justify-center pr-1">
+                            <span class="scale-120 group-hover:scale-0 opacity-100 group-hover:opacity-0 translate-y-2.5 animation">☆</span>
+                            <span class="scale-0 group-hover:scale-120 opacity-0 group-hover:opacity-100 -translate-y-2.5 animation">★</span>
+                        </div>
                         <span class="space-y-6 leading-relaxed opacity-90 text-sm">{site_config.introduction.support.label}</span>
                     </a>
                 )
