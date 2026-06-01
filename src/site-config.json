@@ -28,9 +28,9 @@
       { "type": "github", "url": "https://github.com" },
       { "type": "twitter", "url": "https://twitter.com" }
     ],
-    "description": "Ryze is a modern blog & portfolio starter built with Astro 6, React 19, and Tailwind CSS 4. It ships with a blog engine, portfolio system, resume page, RSS feed, full-text search, dark mode, OG images, and interactive components - all configurable from JSON files.",
+    "description": "Ryze is a modern personal portfolio and mini blog starter built with Astro 6, React 19, and Tailwind CSS 4. It ships with a blog engine, portfolio system, RSS feed, site search, og images and much more.",
     "ctaItems": [{ "label": "Resume", "url": "/resume", "variant": "default" }],
-    "support": { "label": "Sponsor", "url": "https://github.com/sponsors/A58361", "variant": "outline" }
+    "support": { "label": "Star on Github", "url": "https://github.com/A58361/Ryze", "variant": "outline" }
   },
   "featured": {
     "portfolio": { "visible": true },

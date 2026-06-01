@@ -7,7 +7,7 @@ import PortfolioGallery from "@/components/static/PortfolioGallery.astro";
 import PortfolioDetails from "@/components/static/PortfolioDetails.astro";
 import type { ImageMetadata } from "astro";
 import type { portfolioConfig } from "@/lib/types";
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { RiArrowRightUpLine, RiExternalLinkLine } from "@remixicon/react";
 
 export function getStaticPaths() {
     return portfolio_config.map((item) => ({
@@ -47,18 +47,18 @@ const links = item?.links ?? [];
         <div class="mt-10">
             {
                 links.length > 0 && (
-                    <div class="w-full flex flex-wrap gap-3 p-6 border border-border border-b-0">
+                    <div class="w-full flex flex-wrap p-3 border border-border border-b-0">
+                        <RiExternalLinkLine className="size-4 ml-3 my-auto text-secondary-foreground/90" />
                         {links.map((link) => (
-                            <a href={link.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 rounded-sm border border-background/30 text-background bg-secondary-foreground/90 hover:bg-background hover:text-foreground/90 hover:border-foreground/90 pl-3 pr-2 py-1 text-sm hover:scale-100 active:scale-95 group animation select-none">
+                            <a href={link.url} target="_blank" rel="noopener noreferrer" class="ml-3 text-sm text-muted-foreground/80 hover:text-secondary-foreground/90 hover:underline underline-offset-3 hover:underline-offset-6 animation active:text-background active:bg-secondary-foreground px-1">
                                 {link.label}
-                                <RiArrowRightUpLine className="scale-0 group-hover:scale-100 size-0 group-hover:size-3 opacity-0 group-hover:opacity-100 animation" />
                             </a>
                         ))}
                     </div>
                 )
             }
-            <PortfolioDetails item={item as portfolioConfig} />
             <PortfolioGallery item={item as portfolioConfig} images={projectImages} />
+            <PortfolioDetails item={item as portfolioConfig} />
         </div>
     </article>
 </IdLayout>

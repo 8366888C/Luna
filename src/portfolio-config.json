@@ -11,8 +11,8 @@
     },
     "introduction": "Keeping up with research across ML, computational biology, and systems is impossible for a single person. Nova is a research agent that reads papers, traverses citation graphs, extracts methodological claims, and builds a cross-referenced knowledge graph of experimental results - surfacing contradictions and gaps that would otherwise take months to notice.",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/" },
-      { "label": "Demo", "url": "https://nova-demo.vercel.app" }
+      { "label": "gitHub", "url": "https://github.com/" },
+      { "label": "demo", "url": "https://nova-demo.vercel.app" }
     ],
     "video": "https://youtube.com/embed/s1zVbdanWwc",
     "brief": {
@@ -32,9 +32,9 @@
     },
     "introduction": "Drift is an arcade racer built around a momentum-preserving drift system where sacrificing stability for speed is the point - the tighter you hug a corner, the more speed you carry out. Tracks are procedurally generated from seed values using a grammar-based approach that guarantees valid circuits by constraining curvature against the vehicle's physics.",
     "links": [
-      { "label": "Play Now", "url": "https://drift-game.io" },
-      { "label": "GitHub", "url": "https://github.com/" },
-      { "label": "Devlog", "url": "https://drift-devlog.itch.io" }
+      { "label": "play", "url": "https://drift-game.io" },
+      { "label": "gitHub", "url": "https://github.com/" },
+      { "label": "devlog", "url": "https://drift-devlog.itch.io" }
     ],
     "video": "https://youtube.com/embed/MLpWrANjFbI",
     "brief": {
@@ -53,7 +53,7 @@
       "status": "production"
     },
     "introduction": "Every monitoring tool I had used either required constant threshold tuning or produced so many false positives that teams learned to ignore alerts. Sentinel builds a statistical baseline of normal behavior per metric and flags only meaningful deviations, using a suite of detectors and routing alerts through an escalation matrix that considers schedules and rotations.",
-    "links": [{ "label": "GitHub", "url": "https://github.com/" }],
+    "links": [{ "label": "gitHub", "url": "https://github.com/" }],
     "video": null,
     "brief": {
       "capabilities": ["Multi-source metric ingestion via a unified HTTP API supporting Prometheus remote write, CloudWatch webhook, and custom agent protocol", "Statistical anomaly detection using moving-window z-score, Holt-Winters forecasting, and seasonal decomposition for metrics with periodic patterns", "Escalation-based alert routing with support for PagerDuty, Slack, email, and custom webhooks with schedule-aware rotation policies"],
@@ -72,9 +72,9 @@
     },
     "introduction": "CNC controllers haven't evolved in twenty years - most still rely on parallel ports or proprietary dongles, locking you into vendor software with no real-time feedback. Forge replaces them with a custom 4-layer PCB running real-time firmware that handles motion planning and closed-loop stepper control over USB and Ethernet via a gRPC API.",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/" },
-      { "label": "KiCad Files", "url": "https://github.com/" },
-      { "label": "Documentation", "url": "https://forge-cnc.readthedocs.io" }
+      { "label": "gitHub", "url": "https://github.com/" },
+      { "label": "kicad", "url": "https://github.com/" },
+      { "label": "documentation", "url": "https://forge-cnc.readthedocs.io" }
     ],
     "video": null,
     "brief": {
@@ -94,8 +94,8 @@
     },
     "introduction": "Repository compliance is often an afterthought - bolted on with brittle shell scripts that work on one machine and fail silently on another. Manual setup of Git hooks, Commitlint, and Semantic Release is error-prone, with team members diverging in local configurations and breaking changelog pipelines with a single malformed commit. Aureus wraps all of this into a single, idempotent CLI command that scaffolds the correct files and exits cleanly.",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/A58361/aureus" },
-      { "label": "NPM Package", "url": "https://npmjs.com/package/aureus" }
+      { "label": "gitHub", "url": "https://github.com/A58361/aureus" },
+      { "label": "npm", "url": "https://npmjs.com/package/aureus" }
     ],
     "video": "https://youtube.com/embed/ScMzIvxBSi4",
     "brief": {
