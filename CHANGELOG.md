@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [v2.0.0](https://github.com/A58361/Ryze/releases/tag/v2.0.0) | 2026-06-01
+
+### Features
+- **BREAKING:** ryze 2.0 [92db5fb](https://github.com/A58361/Ryze/commit/92db5fb)
+
 ## [v1.7.1](https://github.com/A58361/Ryze/releases/tag/v1.7.1) | 2026-06-01
 
 ### Bug Fixes
