@@ -1,6 +1,7 @@
 ---
 import { RiCalendar2Line } from "@remixicon/react";
 import BackButton from "../static/BackButton.astro";
+import ShareButton from "../client/ShareButton.tsx";
 import { parse, format } from "date-fns";
 
 const { backUrl, items } = Astro.props;
@@ -16,14 +17,15 @@ const formattedDate = format(parsedDate, "MMM dd, yyyy");
         <h1 class="text-5xl font-semibold opacity-90">{items.title}</h1>
         <p class="text-lg text-muted-foreground mt-3">{items.description}</p>
 
-        <div class="flex items-center gap-6 mt-3 text-sm text-muted-foreground">
-            <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 mt-3 text-sm text-muted-foreground">
+            <div class="flex items-center gap-3 mr-3">
                 <RiCalendar2Line className="size-4" />
                 <span>{formattedDate}</span>
             </div>
-            <span class="text-xs px-2 py-0.5 border border-border text-muted-foreground rounded">
+            <span class="text-xs px-2 py-0.5 border border-muted-foreground/30 text-muted-foreground rounded uppercase mr-1">
                 {items.category}
             </span>
+            <ShareButton client:load />
         </div>
 
         {
