@@ -29,7 +29,7 @@
     "url": "git+https://github.com/A58361/ryze.git"
   },
   "license": "GPL-3.0-only",
-  "author": "Subhashis Hansda <subhashishansda8@gmail.com>",
+  "author": "Subhashis Hansda <deploy.rahul@gmail.com>",
   "engines": {
     "node": ">=22.12.0"
   },
